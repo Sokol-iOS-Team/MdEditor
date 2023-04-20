@@ -5,3 +5,11 @@
   Created by Артем Соколовский on 19.04.2023.
   
 */
+
+"Main.title" = "Главная";
+
+"MenuItem.new" = "Новый";
+"MenuItem.open" = "Открыть";
+"MenuItem.about" = "О приложении";
+
+"MenuItem.test" = "Test";
