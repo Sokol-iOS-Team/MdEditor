@@ -5,3 +5,11 @@
   Created by Артем Соколовский on 19.04.2023.
   
 */
+
+"Main.title" = "Main";
+
+"MenuItem.new" = "New";
+"MenuItem.open" = "Open";
+"MenuItem.about" = "About";
+
+"MenuItem.test" = "Test";
