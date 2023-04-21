@@ -20,11 +20,7 @@ class MainViewController: UIViewController {
 
 	// MARK: - Constants
 
-	private enum Constants {
-		enum MenuTableView {
-			static let cellIdentifier = "MenuItemCell"
-		}
-	}
+	private let menuItemCellIdentifier = "MenuItemCell"
 
 	// MARK: - Private properties
 
@@ -37,7 +33,7 @@ class MainViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		configureView()
+		configureViewController()
 		addSubviews()
 		interactor?.fetchData()
 	}
@@ -50,8 +46,8 @@ class MainViewController: UIViewController {
 
 	// MARK: - Private
 
-	private func configureView() {
-//		title = L10n.Main.title
+	private func configureViewController() {
+		title = L10n.Main.title
 	}
 
 	private func addSubviews() {
@@ -62,7 +58,7 @@ class MainViewController: UIViewController {
 		let tableView = UITableView()
 		tableView.delegate = self
 		tableView.dataSource = self
-		tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.MenuTableView.cellIdentifier)
+		tableView.register(UITableViewCell.self, forCellReuseIdentifier: menuItemCellIdentifier)
 
 		return tableView
 	}
@@ -83,7 +79,7 @@ extension MainViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let menuItemData = viewData.menuItems[indexPath.row]
-		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.MenuTableView.cellIdentifier, for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: menuItemCellIdentifier, for: indexPath)
 
 		var contentConfiguration = cell.defaultContentConfiguration()
 		contentConfiguration.text = menuItemData.title
