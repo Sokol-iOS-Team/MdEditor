@@ -31,7 +31,7 @@ class MainInteractor: IMainInteractor {
 
 	/// Метод получения элементов меню и их отправки для подготовки отображения
 	func fetchData() {
-		let menuItems = MenuRepository().getMenuItems()
+		let menuItems = MenuBuilder().getMenuItems()
 
 		presenter.present(response: MainModel.Response(menuItems: menuItems))
 	}

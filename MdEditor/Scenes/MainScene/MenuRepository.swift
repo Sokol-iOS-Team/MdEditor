@@ -8,13 +8,12 @@
 import Foundation
 
 /// Протокол для создания пунктов меню
-protocol IMenuRepository {
+protocol IMenuBuilder {
 	func getMenuItems() -> [MenuItem]
 }
 
-
 /// Класс для создания пунктов меню
-class MenuRepository: IMenuRepository {
+class MenuBuilder: IMenuBuilder {
 
 	// MARK: - Internal Methods
 
