@@ -7,10 +7,12 @@
 
 import UIKit
 
+/// Протокол для подготовки отображения данных на главном экране
 protocol IMainPresenter {
 	func present(response: MainModel.Response)
 }
 
+/// Класс для подготовки отображения данных на главном экране
 class MainPresenter: IMainPresenter {
 
 	// MARK: - Dependencies
@@ -19,12 +21,16 @@ class MainPresenter: IMainPresenter {
 
 	// MARK: - Lifecycle
 
+	/// Метод инициализации MainPresenter
+	/// - Parameter viewController: viewController подписанный на протокол IMainViewController
 	init(viewController: IMainViewController) {
 		self.viewController = viewController
 	}
 
 	// MARK: - Internal Methods
 
+	/// Метод для подготовки отображения данных и передачи их viewController
+	/// - Parameter response: принимает MainModel.Response в качестве параметра
 	func present(response: MainModel.Response) {
 		let menuItems = response.menuItems.map { menuItem in
 			mapMenuItemData(menuItem: menuItem)

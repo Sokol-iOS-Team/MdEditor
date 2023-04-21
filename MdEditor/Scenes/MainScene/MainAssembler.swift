@@ -7,10 +7,13 @@
 
 import UIKit
 
+/// Класс для создания главного экрана
 class MainAssembler {
 
 	// MARK: - Internal Methods
 
+	/// Метод для создания главного экрана и зависимостей его VIP цикла
+	/// - Returns: Возвращает MainViewController для отображения главного экрана
 	static func assembly() -> UIViewController {
 		let mainViewController = MainViewController()
 

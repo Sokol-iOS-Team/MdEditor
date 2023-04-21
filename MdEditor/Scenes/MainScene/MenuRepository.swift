@@ -7,14 +7,19 @@
 
 import Foundation
 
+/// Протокол для создания пунктов меню
 protocol IMenuRepository {
 	func getMenuItems() -> [MenuItem]
 }
 
+
+/// Класс для создания пунктов меню
 class MenuRepository: IMenuRepository {
 
 	// MARK: - Internal Methods
 
+	///  Метод для создания пунктов меню
+	/// - Returns: Возвращает массив MenuItem для отображения главном экране
 	func getMenuItems() -> [MenuItem] {
 		[
 			MenuItem(title: "New", iconName: "doc.badge.plus"),

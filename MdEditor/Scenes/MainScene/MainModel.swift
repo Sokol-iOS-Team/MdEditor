@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Enum, описывающий модели VIP цикла для главного экрана
 enum MainModel {
 	struct Request {
 

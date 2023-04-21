@@ -8,10 +8,12 @@
 import UIKit
 import PinLayout
 
+/// Протокол для отображения данных на главном экране
 protocol IMainViewController: AnyObject {
 	func render(viewData: MainModel.ViewData)
 }
 
+/// Класс для отображения данных главном экране 
 class MainViewController: UIViewController {
 
 	// MARK: - Dependencies
@@ -94,6 +96,8 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - IMainViewController
 
 extension MainViewController: IMainViewController {
+	/// Метод для отображения данных на главном экране
+	/// - Parameter viewData: принимает MainModel.ViewData в качестве параметра
 	func render(viewData: MainModel.ViewData) {
 		self.viewData = viewData
 		menuTableView.reloadData()
