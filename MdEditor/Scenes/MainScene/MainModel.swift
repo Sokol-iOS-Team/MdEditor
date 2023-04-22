@@ -7,6 +7,7 @@
 
 import UIKit
 
+// swiftlint:disable nesting
 /// Enum, описывающий модели VIP цикла для главного экрана
 enum MainModel {
 	struct Request {
@@ -21,8 +22,10 @@ enum MainModel {
 		struct MenuItem {
 			let icon: UIImage
 			let title: String
+			let menuType: MenuTypes
 		}
 
 		let menuItems: [MenuItem]
 	}
 }
+// swiftlint:enable nesting
