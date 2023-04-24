@@ -46,6 +46,6 @@ class MainPresenter: IMainPresenter {
 	private func mapMenuItemData(menuItem: MenuItem) -> MainModel.ViewData.MenuItem {
 		let icon = UIImage(systemName: menuItem.iconName) ?? UIImage()
 
-		return MainModel.ViewData.MenuItem(icon: icon, title: menuItem.title)
+		return MainModel.ViewData.MenuItem(icon: icon, title: menuItem.title, menuType: menuItem.menuType)
 	}
 }

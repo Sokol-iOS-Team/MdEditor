@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
 	// MARK: - Dependencies
 
 	var interactor: IMainInteractor?
+	var router: IMainRouter?
 
 	// MARK: - Constants
 
@@ -69,7 +70,16 @@ class MainViewController: UIViewController {
 // MARK: - UITableViewDelegate
 
 extension MainViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let menuItemData = viewData.menuItems[indexPath.row]
 
+		switch menuItemData.menuType {
+		case .open:
+			router?.routeFileManager()
+		default:
+			break
+		}
+	}
 }
 
 // MARK: - UITableViewDataSource

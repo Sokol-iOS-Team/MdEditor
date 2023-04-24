@@ -21,9 +21,9 @@ class MenuBuilder: IMenuBuilder {
 	/// - Returns: Возвращает массив MenuItem для отображения главном экране
 	func getMenuItems() -> [MenuItem] {
 		[
-			MenuItem(title: "New", iconName: "doc.badge.plus"),
-			MenuItem(title: "Open", iconName: "folder"),
-			MenuItem(title: "About", iconName: "info.circle")
+			MenuItem(title: "New", iconName: "doc.badge.plus", menuType: .new),
+			MenuItem(title: "Open", iconName: "folder", menuType: .open),
+			MenuItem(title: "About", iconName: "info.circle", menuType: .about)
 		]
 	}
 
