@@ -8,13 +8,13 @@
 import Foundation
 
 /// Протокол для адаптера файлового менеджера
-protocol IFileManagerFileProviderAdapter {
+protocol IFileProviderAdapter {
 	func getRootFolders() -> [File]
 	func scan(with url: URL) -> [File]
 }
 
 /// Класс для реализации работы адаптера файлового менеджера
-final class FileManagerFileProviderAdapter: IFileManagerFileProviderAdapter {
+final class FileProviderAdapter: IFileProviderAdapter {
 
 	// MARK: - Dependencies
 

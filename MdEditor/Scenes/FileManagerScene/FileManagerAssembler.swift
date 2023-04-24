@@ -16,9 +16,8 @@ final class FileManagerAssembler {
 	/// - Returns: Возвращает FileManagerViewController для отображения экрана файлового менеджера
 	static func assembly() -> UIViewController {
 		let fileManagerViewController = FileManagerViewController()
-		let fileProviderAdapter = FileManagerFileProviderAdapter(fileProvider: FileProvider())
-		let attrWorker = FileManagerAttrWorker()
-		let fileManagerPresenter = FileManagerPresenter(viewController: fileManagerViewController, attrWorker: attrWorker)
+		let fileProviderAdapter = FileProviderAdapter(fileProvider: FileProvider())
+		let fileManagerPresenter = FileManagerPresenter(viewController: fileManagerViewController)
 		let filetManagerInteractor = FileManagerInteractor(
 			presenter: fileManagerPresenter,
 			fileProviderAdapter: fileProviderAdapter

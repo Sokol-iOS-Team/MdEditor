@@ -18,7 +18,7 @@ final class FileManagerInteractor: IFileManagerInteractor {
 	// MARK: - Dependencies
 
 	private var presenter: IFileManagerPresenter
-	private var fileProviderAdapter: IFileManagerFileProviderAdapter
+	private var fileProviderAdapter: IFileProviderAdapter
 
 	// MARK: - Lifecycle
 
@@ -26,7 +26,7 @@ final class FileManagerInteractor: IFileManagerInteractor {
 	/// - Parameters:
 	///   - presenter: presenter подписанный на протокол IFileManagerPresenter
 	///   - fileProviderAdapter: fileProviderAdapter подписанный на протокол IFileManagerFileProviderAdapter
-	init(presenter: IFileManagerPresenter, fileProviderAdapter: IFileManagerFileProviderAdapter) {
+	init(presenter: IFileManagerPresenter, fileProviderAdapter: IFileProviderAdapter) {
 		self.fileProviderAdapter = fileProviderAdapter
 		self.presenter = presenter
 	}
