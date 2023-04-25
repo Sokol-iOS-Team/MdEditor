@@ -11,6 +11,11 @@ import Foundation
 protocol IFileProviderAdapter {
 	func getRootFolders() -> [File]
 	func scan(with url: URL) -> [File]
+	func createFile(withName name: String) throws
+}
+
+enum CreateFileErrors: Error {
+	case fileExist
 }
 
 /// Класс для реализации работы адаптера файлового менеджера
@@ -57,6 +62,23 @@ final class FileProviderAdapter: IFileProviderAdapter {
 		}
 
 		return files
+	}
+	/// Метод для создания файла Markdown, в папку Documents.
+	/// - Parameter name: Имя файла
+	func createFile(withName name: String) throws {
+		guard let documentFolderURL = try? FileManager.default.url(
+			for: .documentDirectory,
+			in: .userDomainMask,
+			appropriateFor: nil,
+			create: true)
+		else { return }
+		let filePath = documentFolderURL
+			.appending(component: name)
+			.appendingPathExtension("md")
+		if FileManager.default.fileExists(atPath: filePath.path()) {
+			throw CreateFileErrors.fileExist
+		}
+		try? "".write(to: filePath, atomically: true, encoding: .utf8)
 	}
 
 	// MARK: - Private Methods
