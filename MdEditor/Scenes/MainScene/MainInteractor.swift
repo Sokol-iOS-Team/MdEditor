@@ -10,6 +10,7 @@ import Foundation
 /// Протокол для реализации бизнес логики главного экрана
 protocol IMainInteractor {
 	func fetchData()
+	func createFile(request: MainModel.NewFile.Request)
 }
 
 /// Класс для реализации бизнес логики главного экрана
@@ -18,12 +19,14 @@ class MainInteractor: IMainInteractor {
 	// MARK: - Dependencies
 
 	private let presenter: IMainPresenter
+	private var fileProviderAdapter: IFileProviderAdapter
 
 	// MARK: - Lifecycle
 
 	/// Метод инициализации MainInteractor
 	/// - Parameter presenter: presenter подписанный на протокол IMainPresenter
-	init(presenter: IMainPresenter) {
+	init(presenter: IMainPresenter, fileProviderAdapter: IFileProviderAdapter) {
+		self.fileProviderAdapter = fileProviderAdapter
 		self.presenter = presenter
 	}
 
@@ -33,6 +36,21 @@ class MainInteractor: IMainInteractor {
 	func fetchData() {
 		let menuItems = MenuBuilder().getMenuItems()
 
-		presenter.present(response: MainModel.Response(menuItems: menuItems))
+		presenter.present(response: MainModel.FetchMenu.Response(menuItems: menuItems))
+	}
+	/// Метод по созданию файла
+	func createFile(request: MainModel.NewFile.Request) {
+		do {
+			try fileProviderAdapter.createFile(withName: request.name)
+		} catch CreateFileErrors.fileExist {
+			let response = MainModel.NewFile.Response.failure(
+				title: "Error",
+				message: "File with the same name already exists."
+			)
+			presenter.provideAlertInfo(response: response)
+			return
+		} catch {}
+		let response = MainModel.NewFile.Response.success
+		presenter.provideAlertInfo(response: response)
 	}
 }
