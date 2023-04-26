@@ -63,6 +63,7 @@ final class FileProviderAdapter: IFileProviderAdapter {
 
 		return files
 	}
+
 	/// Метод для создания файла Markdown, в папку Documents.
 	/// - Parameter name: Имя файла
 	func createFile(withName name: String) throws {
@@ -84,10 +85,11 @@ final class FileProviderAdapter: IFileProviderAdapter {
 			for: .documentDirectory,
 			in: .userDomainMask,
 			appropriateFor: nil,
-			create: false)
+			create: true)
 		else { return nil }
 		return documentFolderURL
 	}
+
 	private func getMainFolder() -> File? {
 		let rootFolderName = "Examples"
 
@@ -98,6 +100,7 @@ final class FileProviderAdapter: IFileProviderAdapter {
 
 		return File(url: mainFolderURL, attr: mainFolderAttr)
 	}
+
 	private func getDocumentFolder() -> File? {
 		guard
 			let documentFolderURL = getDocumentFolderURL(),

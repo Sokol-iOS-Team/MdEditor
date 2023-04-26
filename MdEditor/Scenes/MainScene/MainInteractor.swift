@@ -25,7 +25,7 @@ class MainInteractor: IMainInteractor {
 
 	/// Метод инициализации MainInteractor
 	/// - Parameter presenter: presenter подписанный на протокол IMainPresenter
-	/// - Parameter fileProviderAdapter: FileProviderAdapter подписанный на проткол IFileProviderAdapter
+	/// - Parameter fileProviderAdapter: FileProviderAdapter подписанный на протокол IFileProviderAdapter
 	init(presenter: IMainPresenter, fileProviderAdapter: IFileProviderAdapter) {
 		self.fileProviderAdapter = fileProviderAdapter
 		self.presenter = presenter
