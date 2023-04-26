@@ -8,8 +8,24 @@
 
 "Main.title" = "Main";
 
+"Main.NewFileAlert.title" = "Enter the file name";
+"Main.NewFileAlert.placeholder" = "File";
+"Main.NewFileAlert.okActionTitle" = "Create";
+
+"Main.FileCreatedAlert.title" = "File successfully created";
+"Main.FileCreatedAlert.message" = "You can find the file in the Documents folder";
+
+"Main.Interactor.ErrorResponse.FileExist.title" = "Error";
+"Main.Interactor.ErrorResponse.FileExist.message" = "File with the same name already exists.";
+
+
 "MenuItem.new" = "New";
 "MenuItem.open" = "Open";
 "MenuItem.about" = "About";
 
 "MenuItem.test" = "Test";
+
+"Extensions.UIViewController.CustomAlert.CancelButton" = "Cancel";
+"Extensions.UIViewController.SimpleAlert.ButtonTitle" = "OK";
+
+

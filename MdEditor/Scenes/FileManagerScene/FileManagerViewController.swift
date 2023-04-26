@@ -10,7 +10,7 @@ import PinLayout
 
 /// Протокол для отображения данных на экране файлового менеджера
 protocol IFileManagerViewController: AnyObject {
-	func render(viewData: FileManagerModel.ViewModel)
+	func render(viewModel: FileManagerModel.ViewModel)
 }
 
 /// Класс для реализации отображения данных на экране файлового менеджера
@@ -32,7 +32,7 @@ final class FileManagerViewController: UITableViewController {
 	// MARK: - Private Properties
 
 	private lazy var fileManagerTableView = makeFileManagerTableView()
-	private var viewData: FileManagerModel.ViewModel = FileManagerModel.ViewModel(filesBySection: .init(files: []))
+	private var viewModel: FileManagerModel.ViewModel = FileManagerModel.ViewModel(filesBySection: .init(files: []))
 	private let rootTitle = "/"
 
 	// MARK: - Lifecycle
@@ -54,12 +54,12 @@ final class FileManagerViewController: UITableViewController {
 	// MARK: - TableViewDataSource
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return viewData.filesBySection.files.count
+		return viewModel.filesBySection.files.count
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: fileManagerItemCellIdentifier, for: indexPath)
-		let file = viewData.filesBySection.files[indexPath.row]
+		let file = viewModel.filesBySection.files[indexPath.row]
 		var contentConfiguration = cell.defaultContentConfiguration()
 		contentConfiguration.attributedText = NSAttributedString(
 			string: file.name,
@@ -75,7 +75,7 @@ final class FileManagerViewController: UITableViewController {
 	// MARK: - TableViewDelegate
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let file = viewData.filesBySection.files[indexPath.row]
+		let file = viewModel.filesBySection.files[indexPath.row]
 
 		if file.type == .folder {
 			router?.openFileManager(with: file, router: router)
@@ -108,8 +108,8 @@ final class FileManagerViewController: UITableViewController {
 // MARK: - ITodoListViewController
 
 extension FileManagerViewController: IFileManagerViewController {
-	func render(viewData: FileManagerModel.ViewModel) {
-		self.viewData = viewData
+	func render(viewModel: FileManagerModel.ViewModel) {
+		self.viewModel = viewModel
 		tableView.reloadData()
 	}
 }

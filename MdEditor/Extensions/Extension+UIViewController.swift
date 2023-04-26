@@ -22,14 +22,17 @@ extension UIViewController {
 	) {
 		let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
 		alert.addTextField { [weak self] textField in
-			textField.placeholder = "File"
+			textField.placeholder = placeholder
 			textField.addTarget(
 				self,
 				action: #selector(self?.textFieldDidChange(_:)),
 				for: .editingChanged
 			)
 		}
-		alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+		alert.addAction(UIAlertAction(
+			title: L10n.Extensions.UIViewController.CustomAlert.cancelButton,
+			style: .destructive
+		))
 		alert.addAction(
 			UIAlertAction(
 				title: okActionTitle,
@@ -55,7 +58,10 @@ extension UIViewController {
 	/// Метод вызывает простой UIAlertController для отображения title и message
 	func presentAlert(title: String, message: String) {
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: "OK", style: .default))
+		alert.addAction(UIAlertAction(
+			title: L10n.Extensions.UIViewController.SimpleAlert.buttonTitle,
+			style: .default
+		))
 		present(alert, animated: true)
 	}
 }

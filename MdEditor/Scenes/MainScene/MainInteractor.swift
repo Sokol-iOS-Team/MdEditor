@@ -25,6 +25,7 @@ class MainInteractor: IMainInteractor {
 
 	/// Метод инициализации MainInteractor
 	/// - Parameter presenter: presenter подписанный на протокол IMainPresenter
+	/// - Parameter fileProviderAdapter: FileProviderAdapter подписанный на проткол IFileProviderAdapter
 	init(presenter: IMainPresenter, fileProviderAdapter: IFileProviderAdapter) {
 		self.fileProviderAdapter = fileProviderAdapter
 		self.presenter = presenter
@@ -44,8 +45,8 @@ class MainInteractor: IMainInteractor {
 			try fileProviderAdapter.createFile(withName: request.name)
 		} catch CreateFileErrors.fileExist {
 			let response = MainModel.NewFile.Response.failure(
-				title: "Error",
-				message: "File with the same name already exists."
+				title: L10n.Main.Interactor.ErrorResponse.FileExist.title,
+				message: L10n.Main.Interactor.ErrorResponse.FileExist.message
 			)
 			presenter.provideAlertInfo(response: response)
 			return

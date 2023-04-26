@@ -66,12 +66,7 @@ final class FileProviderAdapter: IFileProviderAdapter {
 	/// Метод для создания файла Markdown, в папку Documents.
 	/// - Parameter name: Имя файла
 	func createFile(withName name: String) throws {
-		guard let documentFolderURL = try? FileManager.default.url(
-			for: .documentDirectory,
-			in: .userDomainMask,
-			appropriateFor: nil,
-			create: true)
-		else { return }
+		guard let documentFolderURL = getDocumentFolderURL() else { return }
 		let filePath = documentFolderURL
 			.appending(component: name)
 			.appendingPathExtension("md")
@@ -83,6 +78,16 @@ final class FileProviderAdapter: IFileProviderAdapter {
 
 	// MARK: - Private Methods
 
+	/// Метод возвращает путь к папке DocumentDirectory
+	private func getDocumentFolderURL() -> URL? {
+		guard let documentFolderURL = try? FileManager.default.url(
+			for: .documentDirectory,
+			in: .userDomainMask,
+			appropriateFor: nil,
+			create: false)
+		else { return nil }
+		return documentFolderURL
+	}
 	private func getMainFolder() -> File? {
 		let rootFolderName = "Examples"
 
@@ -93,15 +98,9 @@ final class FileProviderAdapter: IFileProviderAdapter {
 
 		return File(url: mainFolderURL, attr: mainFolderAttr)
 	}
-
 	private func getDocumentFolder() -> File? {
 		guard
-			let documentFolderURL = try? FileManager.default.url(
-				for: .documentDirectory,
-				in: .userDomainMask,
-				appropriateFor: nil,
-				create: false
-			),
+			let documentFolderURL = getDocumentFolderURL(),
 			let documentFolderAttr = fileProvider.getFileAttr(with: documentFolderURL)
 		else { return nil }
 

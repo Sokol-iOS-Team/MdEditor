@@ -79,9 +79,9 @@ extension MainViewController: UITableViewDelegate {
 			router?.routeFileManager()
 		case .new:
 			presentTextFieldAlert(
-				title: "Enter the file name",
-				placeholder: "File",
-				okActionTitle: "Create"
+				title: L10n.Main.NewFileAlert.title,
+				placeholder: L10n.Main.NewFileAlert.placeholder,
+				okActionTitle: L10n.Main.NewFileAlert.okActionTitle
 			) { [weak self] name in
 				let request = MainModel.NewFile.Request(name: name)
 				self?.interactor?.createFile(request: request)
@@ -130,7 +130,10 @@ extension MainViewController: IMainViewController {
 		switch viewModel {
 		case .success:
 			// router.routeToNewFile()
-			break
+			presentAlert(
+				title: L10n.Main.FileCreatedAlert.title,
+				message: L10n.Main.FileCreatedAlert.message
+			)
 		case .failure(title: let title, message: let message):
 			presentAlert(title: title, message: message)
 		}
