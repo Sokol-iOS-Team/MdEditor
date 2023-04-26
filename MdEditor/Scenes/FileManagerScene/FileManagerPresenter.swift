@@ -35,9 +35,9 @@ final class FileManagerPresenter: IFileManagerPresenter {
 	func present(response: FileManagerModel.Response) {
 		let section = FileManagerModel.ViewModel.Section(files: mapFilesData(with: response.data.files))
 
-		let viewData = FileManagerModel.ViewModel(filesBySection: section)
+		let viewModel = FileManagerModel.ViewModel(filesBySection: section)
 
-		viewController?.render(viewData: viewData)
+		viewController?.render(viewModel: viewModel)
 	}
 
 	// MARK: - Private Methods

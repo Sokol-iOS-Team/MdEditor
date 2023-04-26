@@ -26,6 +26,7 @@
 		89D6F1DE29F14921004280BB /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1DD29F14921004280BB /* MainRouter.swift */; };
 		89D6F1E229F14BA3004280BB /* MainAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1E129F14BA3004280BB /* MainAssembler.swift */; };
 		89D6F1E429F1596F004280BB /* MenuRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1E329F1596F004280BB /* MenuRepository.swift */; };
+		C4B37CD029F8FF3300777400 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B37CCF29F8FF3300777400 /* Extension+UIViewController.swift */; };
 		E0B7942429F07A4B005ED2FB /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E0B7942329F07A4B005ED2FB /* PinLayout */; };
 		E0B7942729F07AF7005ED2FB /* Examples in Resources */ = {isa = PBXBuildFile; fileRef = E0B7942629F07AF7005ED2FB /* Examples */; };
 		E707721629F1C816006C022F /* FileManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707721529F1C816006C022F /* FileManagerViewController.swift */; };
@@ -62,6 +63,7 @@
 		89D6F1DD29F14921004280BB /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		89D6F1E129F14BA3004280BB /* MainAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembler.swift; sourceTree = "<group>"; };
 		89D6F1E329F1596F004280BB /* MenuRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRepository.swift; sourceTree = "<group>"; };
+		C4B37CCF29F8FF3300777400 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		E0B7942629F07AF7005ED2FB /* Examples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Examples; sourceTree = "<group>"; };
 		E707721529F1C816006C022F /* FileManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerViewController.swift; sourceTree = "<group>"; };
 		E707721729F1C82A006C022F /* FileManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerModel.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				E0B7942029F0781C005ED2FB /* Scenes */,
 				7114C02429EFE1BA00E63321 /* SwiftGen */,
 				7114C02929F03B4E00E63321 /* Supporting Files */,
+				C4B37CCE29F8FF3300777400 /* Extensions */,
 				71B00C7929EDD7D100D55690 /* SceneDelegate.swift */,
 				71B00C7729EDD7D100D55690 /* AppDelegate.swift */,
 			);
@@ -161,6 +164,14 @@
 				89D6F1D529F12945004280BB /* MenuItem.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C4B37CCE29F8FF3300777400 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C4B37CCF29F8FF3300777400 /* Extension+UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E0B7942029F0781C005ED2FB /* Scenes */ = {
@@ -353,6 +364,7 @@
 				E707721829F1C82A006C022F /* FileManagerModel.swift in Sources */,
 				71B00C7C29EDD7D100D55690 /* MainViewController.swift in Sources */,
 				89D6F1E229F14BA3004280BB /* MainAssembler.swift in Sources */,
+				C4B37CD029F8FF3300777400 /* Extension+UIViewController.swift in Sources */,
 				89D6F1DC29F130E0004280BB /* MainPresenter.swift in Sources */,
 				E710275829F361CB00EB0AE9 /* FileManagerRouter.swift in Sources */,
 				71B00C7829EDD7D100D55690 /* AppDelegate.swift in Sources */,

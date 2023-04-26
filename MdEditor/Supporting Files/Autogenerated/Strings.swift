@@ -6,9 +6,54 @@ import Foundation
 
 internal enum L10n {
 
+  internal enum Extensions {
+
+    internal enum UIViewController {
+
+      internal enum CustomAlert {
+        /// Cancel
+        internal static let cancelButton = L10n.tr("Localizable", "Extensions.UIViewController.CustomAlert.CancelButton")
+      }
+
+      internal enum SimpleAlert {
+        /// OK
+        internal static let buttonTitle = L10n.tr("Localizable", "Extensions.UIViewController.SimpleAlert.ButtonTitle")
+      }
+    }
+  }
+
   internal enum Main {
     /// Main
     internal static let title = L10n.tr("Localizable", "Main.title")
+
+    internal enum FileCreatedAlert {
+      /// You can find the file in the Documents folder
+      internal static let message = L10n.tr("Localizable", "Main.FileCreatedAlert.message")
+      /// File successfully created
+      internal static let title = L10n.tr("Localizable", "Main.FileCreatedAlert.title")
+    }
+
+    internal enum Interactor {
+
+      internal enum ErrorResponse {
+
+        internal enum FileExist {
+          /// File with the same name already exists.
+          internal static let message = L10n.tr("Localizable", "Main.Interactor.ErrorResponse.FileExist.message")
+          /// Error
+          internal static let title = L10n.tr("Localizable", "Main.Interactor.ErrorResponse.FileExist.title")
+        }
+      }
+    }
+
+    internal enum NewFileAlert {
+      /// Create
+      internal static let okActionTitle = L10n.tr("Localizable", "Main.NewFileAlert.okActionTitle")
+      /// File
+      internal static let placeholder = L10n.tr("Localizable", "Main.NewFileAlert.placeholder")
+      /// Enter the file name
+      internal static let title = L10n.tr("Localizable", "Main.NewFileAlert.title")
+    }
   }
 
   internal enum MenuItem {

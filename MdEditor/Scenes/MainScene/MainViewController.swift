@@ -10,7 +10,8 @@ import PinLayout
 
 /// Протокол для отображения данных на главном экране
 protocol IMainViewController: AnyObject {
-	func render(viewData: MainModel.ViewData)
+	func render(viewModel: MainModel.FetchMenu.ViewModel)
+	func renderFile(viewModel: MainModel.NewFile.ViewModel)
 }
 
 /// Класс для отображения данных главном экране 
@@ -27,7 +28,7 @@ class MainViewController: UIViewController {
 
 	// MARK: - Private properties
 
-	private var viewData = MainModel.ViewData(menuItems: [])
+	private var viewModel = MainModel.FetchMenu.ViewModel(menuItems: [])
 
 	private lazy var menuTableView = makeMenuTableView()
 
@@ -71,14 +72,24 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let menuItemData = viewData.menuItems[indexPath.row]
+		let menuItemData = viewModel.menuItems[indexPath.row]
 
 		switch menuItemData.menuType {
 		case .open:
 			router?.routeFileManager()
+		case .new:
+			presentTextFieldAlert(
+				title: L10n.Main.NewFileAlert.title,
+				placeholder: L10n.Main.NewFileAlert.placeholder,
+				okActionTitle: L10n.Main.NewFileAlert.okActionTitle
+			) { [weak self] name in
+				let request = MainModel.NewFile.Request(name: name)
+				self?.interactor?.createFile(request: request)
+			}
 		default:
 			break
 		}
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }
 
@@ -86,11 +97,11 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		viewData.menuItems.count
+		viewModel.menuItems.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let menuItemData = viewData.menuItems[indexPath.row]
+		let menuItemData = viewModel.menuItems[indexPath.row]
 		let cell = tableView.dequeueReusableCell(withIdentifier: menuItemCellIdentifier, for: indexPath)
 
 		var contentConfiguration = cell.defaultContentConfiguration()
@@ -107,9 +118,24 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: IMainViewController {
 	/// Метод для отображения данных на главном экране
-	/// - Parameter viewData: принимает MainModel.ViewData в качестве параметра
-	func render(viewData: MainModel.ViewData) {
-		self.viewData = viewData
+	/// - Parameter viewModel: принимает MainModel.FetchMenu.ViewModel в качестве параметра
+	func render(viewModel: MainModel.FetchMenu.ViewModel) {
+		self.viewModel = viewModel
 		menuTableView.reloadData()
+	}
+	/// Отображает результат создания файла.
+	/// При успешном создании перенаправляет на детальный экран, при неудаче показывает Alert
+	/// - Parameter viewModel: принимает MainModel.NewFile.ViewModel в качестве параметра
+	func renderFile(viewModel: MainModel.NewFile.ViewModel) {
+		switch viewModel {
+		case .success:
+			// router.routeToNewFile()
+			presentAlert(
+				title: L10n.Main.FileCreatedAlert.title,
+				message: L10n.Main.FileCreatedAlert.message
+			)
+		case .failure(title: let title, message: let message):
+			presentAlert(title: title, message: message)
+		}
 	}
 }

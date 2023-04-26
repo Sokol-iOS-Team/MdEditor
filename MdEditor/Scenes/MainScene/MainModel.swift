@@ -7,25 +7,37 @@
 
 import UIKit
 
-// swiftlint:disable nesting
+// swiftlint:disable all
 /// Enum, описывающий модели VIP цикла для главного экрана
 enum MainModel {
-	struct Request {
-
-	}
-
-	struct Response {
-		let menuItems: [MenuItem]
-	}
-
-	struct ViewData {
-		struct MenuItem {
-			let icon: UIImage
-			let title: String
-			let menuType: MenuTypes
+	enum FetchMenu {
+		struct Response {
+			let menuItems: [MenuItem]
 		}
 
-		let menuItems: [MenuItem]
+		struct ViewModel {
+			struct MenuItem {
+				let icon: UIImage
+				let title: String
+				let menuType: MenuTypes
+			}
+
+			let menuItems: [MenuItem]
+		}
+	}
+	
+	enum NewFile {
+		struct Request {
+			let name: String
+		}
+		enum Response {
+			case success
+			case failure(title: String, message: String)
+		}
+		enum ViewModel {
+			case success
+			case failure(title: String, message: String)
+		}
 	}
 }
-// swiftlint:enable nesting
+// swiftlint:enable all

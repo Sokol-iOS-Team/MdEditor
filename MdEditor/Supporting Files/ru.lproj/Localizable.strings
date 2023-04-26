@@ -8,8 +8,22 @@
 
 "Main.title" = "Главная";
 
+"Main.NewFileAlert.title" = "Введите имя файла";
+"Main.NewFileAlert.placeholder" = "Файл";
+"Main.NewFileAlert.okActionTitle" = "Создать";
+
+"Main.FileCreatedAlert.title" = "Файл успешно создан";
+"Main.FileCreatedAlert.message" = "Вы можете найти файл в папке Documents";
+
+"Main.Interactor.ErrorResponse.FileExist.title" = "Ошибка";
+"Main.Interactor.ErrorResponse.FileExist.message" = "Файл с таким же названием уже существует.";
+
+
 "MenuItem.new" = "Новый";
 "MenuItem.open" = "Открыть";
 "MenuItem.about" = "О приложении";
 
 "MenuItem.test" = "Test";
+
+"Extensions.UIViewController.CustomAlert.CancelButton" = "Отмена";
+"Extensions.UIViewController.SimpleAlert.ButtonTitle" = "ОК";
