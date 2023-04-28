@@ -19,7 +19,6 @@ final class FileManagerViewController: UITableViewController {
 	// MARK: - Dependencies
 
 	var interactor: IFileManagerInteractor?
-	var router: IFileManagerRouter?
 
 	// MARK: - Public Properties
 
@@ -32,17 +31,18 @@ final class FileManagerViewController: UITableViewController {
 	// MARK: - Private Properties
 
 	private lazy var fileManagerTableView = makeFileManagerTableView()
-	private var viewModel: FileManagerModel.ViewModel = FileManagerModel.ViewModel(filesBySection: .init(files: []))
-	private let rootTitle = "/"
+	private var viewModel: FileManagerModel.ViewModel = FileManagerModel.ViewModel(
+		title: "",
+		filesBySection: .init(files: [])
+	)
 
 	// MARK: - Lifecycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.configureViewController()
-		self.addSubviews()
 
-		interactor?.fetchData(request: FileManagerModel.Request.FileURL(url: currentFile?.url))
+		self.addSubviews()
+		interactor?.fetchData()
 	}
 
 	override func viewDidLayoutSubviews() {
@@ -76,18 +76,17 @@ final class FileManagerViewController: UITableViewController {
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let file = viewModel.filesBySection.files[indexPath.row]
-
-		if file.type == .folder {
-			router?.openFileManager(with: file, router: router)
-		} else {
-			// Тут должен открываться экран редактирования документа
-		}
+		let requestFile = FileManagerModel.Request.File(
+			url: file.url,
+			type: mapFileType(file.type)
+		)
+		interactor?.openFile(requestFile)
 	}
 
 	// MARK: - Private Methods
 
 	private func configureViewController() {
-		self.title = currentFile == nil ? rootTitle : currentFile?.name
+		self.title = viewModel.title
 	}
 
 	private func addSubviews() {
@@ -103,6 +102,15 @@ final class FileManagerViewController: UITableViewController {
 
 		return tableView
 	}
+
+	private func mapFileType(_ fileType: FileManagerModel.ViewModel.FileTypes) -> FileManagerModel.Request.FileType {
+		switch fileType {
+		case .file:
+			return .file
+		case .folder:
+			return .folder
+		}
+	}
 }
 
 // MARK: - ITodoListViewController
@@ -110,6 +118,7 @@ final class FileManagerViewController: UITableViewController {
 extension FileManagerViewController: IFileManagerViewController {
 	func render(viewModel: FileManagerModel.ViewModel) {
 		self.viewModel = viewModel
+		configureViewController()
 		tableView.reloadData()
 	}
 }

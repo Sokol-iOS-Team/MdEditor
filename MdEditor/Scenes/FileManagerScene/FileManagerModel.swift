@@ -28,12 +28,19 @@ enum FileManagerModel {
 			let files: [File]
 		}
 
+		let title: String
 		let filesBySection: Section
 	}
 
 	struct Request {
-		struct FileURL {
-			let url: URL?
+		enum FileType {
+			case file
+			case folder
+		}
+
+		struct File {
+			let url: URL
+			let type: FileType
 		}
 	}
 
@@ -42,6 +49,7 @@ enum FileManagerModel {
 			let files: [File]
 		}
 		let data: Section
+		let currentURL: URL?
 	}
 }
 // swiftlint:enable nesting

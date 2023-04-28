@@ -14,13 +14,18 @@ final class FileManagerAssembler {
 
 	/// Метод для создания экрана файлового менеджера и зависимостей его VIP цикла
 	/// - Returns: Возвращает FileManagerViewController для отображения экрана файлового менеджера
-	static func assembly() -> UIViewController {
+	/// - Parameters:
+	///   - coordinator: coordinator подписанный на протокол IFileManagerCoordinator
+	///   - currentURL: url текущей директории файл менеджера
+	static func assembly(coordinator: IFileManagerCoordinator, currentURL: URL?) -> UIViewController {
 		let fileManagerViewController = FileManagerViewController()
 		let fileProviderAdapter = FileProviderAdapter(fileProvider: FileProvider())
 		let fileManagerPresenter = FileManagerPresenter(viewController: fileManagerViewController)
 		let filetManagerInteractor = FileManagerInteractor(
 			presenter: fileManagerPresenter,
-			fileProviderAdapter: fileProviderAdapter
+			fileProviderAdapter: fileProviderAdapter,
+			coordinator: coordinator,
+			currentURL: currentURL
 		)
 		fileManagerViewController.interactor = filetManagerInteractor
 

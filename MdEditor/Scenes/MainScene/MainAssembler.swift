@@ -14,12 +14,16 @@ class MainAssembler {
 
 	/// Метод для создания главного экрана и зависимостей его VIP цикла
 	/// - Returns: Возвращает MainViewController для отображения главного экрана
-	static func assembly() -> UIViewController {
+	/// - Parameter coordinator: coordinator подписанный на протокол IMainCoordinator
+	static func assembly(coordinator: IMainCoordinator) -> UIViewController {
 		let mainViewController = MainViewController()
 		let fileProviderAdapter = FileProviderAdapter(fileProvider: FileProvider())
 
 		let mainPresenter = MainPresenter(viewController: mainViewController)
-		let mainInteractor = MainInteractor(presenter: mainPresenter, fileProviderAdapter: fileProviderAdapter)
+		let mainInteractor = MainInteractor(
+			presenter: mainPresenter,
+			fileProviderAdapter: fileProviderAdapter,
+			coordinator: coordinator)
 		mainViewController.interactor = mainInteractor
 
 		return mainViewController

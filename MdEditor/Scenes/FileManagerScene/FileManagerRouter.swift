@@ -32,10 +32,10 @@ class FileManagerRouter: IFileManagerRouter {
 
 	/// Метод для перехода на новый экран фалового менеджера
 	func openFileManager(with file: FileManagerModel.ViewModel.File, router: IFileManagerRouter?) {
-		if let newFileManagerViewController = FileManagerAssembler.assembly() as? FileManagerViewController {
-			newFileManagerViewController.currentFile = file
-			newFileManagerViewController.router = router
-			fileManagerViewController.navigationController?.pushViewController(newFileManagerViewController, animated: true)
-		}
+//		if let newFileManagerViewController = FileManagerAssembler.assembly() as? FileManagerViewController {
+//			newFileManagerViewController.currentFile = file
+//			newFileManagerViewController.router = router
+//			fileManagerViewController.navigationController?.pushViewController(newFileManagerViewController, animated: true)
+//		}
 	}
 }
