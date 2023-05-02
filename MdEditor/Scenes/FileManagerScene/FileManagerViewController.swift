@@ -103,7 +103,7 @@ final class FileManagerViewController: UITableViewController {
 		return tableView
 	}
 
-	private func mapFileType(_ fileType: FileManagerModel.ViewModel.FileTypes) -> FileManagerModel.Request.FileType {
+	private func mapFileType(_ fileType: FileManagerModel.ViewModel.FileType) -> FileManagerModel.Request.FileType {
 		switch fileType {
 		case .file:
 			return .file

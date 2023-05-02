@@ -11,7 +11,7 @@ import UIKit
 /// Enum, описывающий модели VIP цикла для экрана файлового менеджера
 enum FileManagerModel {
 	struct ViewModel {
-		enum FileTypes {
+		enum FileType {
 			case file
 			case folder
 		}
@@ -20,7 +20,7 @@ enum FileManagerModel {
 			let url: URL
 			let name: String
 			let attributes: String
-			let type: FileTypes
+			let type: FileType
 			let image: UIImage
 		}
 

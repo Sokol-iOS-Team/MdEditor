@@ -83,7 +83,7 @@ final class FileManagerPresenter: IFileManagerPresenter {
 		return String(format: "%4.2f %@", value, tokens[multiplyFactor])
 	}
 
-	private func getFileType(with file: File) -> FileManagerModel.ViewModel.FileTypes {
+	private func getFileType(with file: File) -> FileManagerModel.ViewModel.FileType {
 		if (file.attr[FileAttributeKey.type] as? FileAttributeType) == .typeDirectory {
 			return .folder
 		} else {
