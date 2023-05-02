@@ -10,6 +10,7 @@ import Foundation
 /// Протокол для реализации бизнес логики главного экрана
 protocol IMainInteractor {
 	func fetchData()
+	func openFileManager()
 	func createFile(request: MainModel.NewFile.Request)
 }
 
@@ -20,15 +21,22 @@ class MainInteractor: IMainInteractor {
 
 	private let presenter: IMainPresenter
 	private var fileProviderAdapter: IFileProviderAdapter
+	private let coordinator: IMainCoordinator
 
 	// MARK: - Lifecycle
 
 	/// Метод инициализации MainInteractor
 	/// - Parameter presenter: presenter подписанный на протокол IMainPresenter
 	/// - Parameter fileProviderAdapter: FileProviderAdapter подписанный на протокол IFileProviderAdapter
-	init(presenter: IMainPresenter, fileProviderAdapter: IFileProviderAdapter) {
-		self.fileProviderAdapter = fileProviderAdapter
+	/// - Parameter coordinator: coordinator подписанный на протокол IMainCoordinator
+	init(
+		presenter: IMainPresenter,
+		fileProviderAdapter: IFileProviderAdapter,
+		coordinator: IMainCoordinator
+	) {
 		self.presenter = presenter
+		self.fileProviderAdapter = fileProviderAdapter
+		self.coordinator = coordinator
 	}
 
 	// MARK: - Internal Methods
@@ -53,5 +61,10 @@ class MainInteractor: IMainInteractor {
 		} catch {}
 		let response = MainModel.NewFile.Response.success
 		presenter.provideAlertInfo(response: response)
+	}
+
+	/// Метод открытия файл менеджера
+	func openFileManager() {
+		coordinator.showFileManagerFlow()
 	}
 }

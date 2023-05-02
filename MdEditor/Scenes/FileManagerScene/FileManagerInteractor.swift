@@ -9,7 +9,8 @@ import Foundation
 
 /// Протокол для реализации бизнес логики файлового менеджера
 protocol IFileManagerInteractor {
-	func fetchData(request: FileManagerModel.Request.FileURL)
+	func fetchData()
+	func openFile(_ file: FileManagerModel.Request.File)
 }
 
 /// Класс для реализации бизнес логики файлового менеджера
@@ -19,6 +20,9 @@ final class FileManagerInteractor: IFileManagerInteractor {
 
 	private var presenter: IFileManagerPresenter
 	private var fileProviderAdapter: IFileProviderAdapter
+	private var coordinator: IFileManagerCoordinator
+
+	private var currentURL: URL?
 
 	// MARK: - Lifecycle
 
@@ -26,27 +30,46 @@ final class FileManagerInteractor: IFileManagerInteractor {
 	/// - Parameters:
 	///   - presenter: presenter подписанный на протокол IFileManagerPresenter
 	///   - fileProviderAdapter: fileProviderAdapter подписанный на протокол IFileManagerFileProviderAdapter
-	init(presenter: IFileManagerPresenter, fileProviderAdapter: IFileProviderAdapter) {
-		self.fileProviderAdapter = fileProviderAdapter
+	///   - coordinator: coordinator одписанный на протокол IFileManagerCoordinator
+	///   - currentURL: url для получения файлов
+	init(
+		presenter: IFileManagerPresenter,
+		fileProviderAdapter: IFileProviderAdapter,
+		coordinator: IFileManagerCoordinator,
+		currentURL: URL?
+	) {
 		self.presenter = presenter
+		self.fileProviderAdapter = fileProviderAdapter
+		self.coordinator = coordinator
+		self.currentURL = currentURL
 	}
 
 	// MARK: - Internal Methods
 
 	/// Метод получения файлов и их отправки для подготовки отображения
-	/// - Parameter request: Содержит url, который нужен для получения информации о файлах/папках
-	func fetchData(request: FileManagerModel.Request.FileURL) {
+	func fetchData() {
 		var files = [File]()
 
-		if let url = request.url {
-			files = fileProviderAdapter.scan(with: url)
+		if let currentURL = currentURL {
+			files = fileProviderAdapter.scan(with: currentURL)
 		} else {
 			files = fileProviderAdapter.getRootFolders()
 		}
 
 		let responseData = FileManagerModel.Response.Section(files: files)
-		let response = FileManagerModel.Response(data: responseData)
+		let response = FileManagerModel.Response(data: responseData, currentURL: currentURL)
 
 		presenter.present(response: response)
+	}
+
+	/// Метод открытия файла или папки
+	/// - Parameter file: Файл типа FileManagerModel.Request.File//
+	func openFile(_ file: FileManagerModel.Request.File) {
+		switch file.type {
+		case .file:
+			break
+		case .folder:
+			coordinator.openFolder(at: file.url)
+		}
 	}
 }

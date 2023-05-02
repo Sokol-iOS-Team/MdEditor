@@ -17,13 +17,16 @@
 		71B00C7C29EDD7D100D55690 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B00C7B29EDD7D100D55690 /* MainViewController.swift */; };
 		71B00C8129EDD7D200D55690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B00C8029EDD7D200D55690 /* Assets.xcassets */; };
 		71B00C8429EDD7D200D55690 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B00C8229EDD7D200D55690 /* LaunchScreen.storyboard */; };
+		8905DD8B29FBF25300F2CE57 /* ICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8905DD8A29FBF25300F2CE57 /* ICoordinator.swift */; };
+		8905DD8D29FBF2D100F2CE57 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8905DD8C29FBF2D100F2CE57 /* AppCoordinator.swift */; };
+		8905DD8F29FBF30000F2CE57 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8905DD8E29FBF30000F2CE57 /* MainCoordinator.swift */; };
+		8905DD9129FBF51100F2CE57 /* FileManagerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8905DD9029FBF51100F2CE57 /* FileManagerCoordinator.swift */; };
 		895422E929F1AD7E00751559 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895422E729F1AD7E00751559 /* Assets.swift */; };
 		895422EA29F1AD7E00751559 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895422E829F1AD7E00751559 /* Strings.swift */; };
 		89D6F1D329F127E2004280BB /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1D229F127E2004280BB /* MainModel.swift */; };
 		89D6F1D629F12945004280BB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1D529F12945004280BB /* MenuItem.swift */; };
 		89D6F1DA29F1302D004280BB /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1D929F1302D004280BB /* MainInteractor.swift */; };
 		89D6F1DC29F130E0004280BB /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1DB29F130E0004280BB /* MainPresenter.swift */; };
-		89D6F1DE29F14921004280BB /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1DD29F14921004280BB /* MainRouter.swift */; };
 		89D6F1E229F14BA3004280BB /* MainAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1E129F14BA3004280BB /* MainAssembler.swift */; };
 		89D6F1E429F1596F004280BB /* MenuRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1E329F1596F004280BB /* MenuRepository.swift */; };
 		C4B37CD029F8FF3300777400 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B37CCF29F8FF3300777400 /* Extension+UIViewController.swift */; };
@@ -36,7 +39,6 @@
 		E707722129F1D7AA006C022F /* FileProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707722029F1D7AA006C022F /* FileProvider.swift */; };
 		E707722329F1D840006C022F /* FileManagerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707722229F1D840006C022F /* FileManagerAssembler.swift */; };
 		E707722729F1E942006C022F /* FileProviderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707722629F1E942006C022F /* FileProviderAdapter.swift */; };
-		E710275829F361CB00EB0AE9 /* FileManagerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E710275729F361CB00EB0AE9 /* FileManagerRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,13 +56,16 @@
 		71B00C8029EDD7D200D55690 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71B00C8329EDD7D200D55690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71B00C8529EDD7D200D55690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8905DD8A29FBF25300F2CE57 /* ICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICoordinator.swift; sourceTree = "<group>"; };
+		8905DD8C29FBF2D100F2CE57 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		8905DD8E29FBF30000F2CE57 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		8905DD9029FBF51100F2CE57 /* FileManagerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerCoordinator.swift; sourceTree = "<group>"; };
 		895422E729F1AD7E00751559 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		895422E829F1AD7E00751559 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		89D6F1D229F127E2004280BB /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		89D6F1D529F12945004280BB /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		89D6F1D929F1302D004280BB /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		89D6F1DB29F130E0004280BB /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		89D6F1DD29F14921004280BB /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		89D6F1E129F14BA3004280BB /* MainAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembler.swift; sourceTree = "<group>"; };
 		89D6F1E329F1596F004280BB /* MenuRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRepository.swift; sourceTree = "<group>"; };
 		C4B37CCF29F8FF3300777400 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
@@ -72,7 +77,6 @@
 		E707722029F1D7AA006C022F /* FileProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProvider.swift; sourceTree = "<group>"; };
 		E707722229F1D840006C022F /* FileManagerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerAssembler.swift; sourceTree = "<group>"; };
 		E707722629F1E942006C022F /* FileProviderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderAdapter.swift; sourceTree = "<group>"; };
-		E710275729F361CB00EB0AE9 /* FileManagerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 		71B00C7629EDD7D100D55690 /* MdEditor */ = {
 			isa = PBXGroup;
 			children = (
+				8905DD8929FBF23E00F2CE57 /* Common */,
 				E72B81B129F68D2300BF2932 /* Services */,
 				89D6F1D429F12937004280BB /* Models */,
 				E0B7942529F07A7D005ED2FB /* Assets */,
@@ -156,6 +161,15 @@
 				71B00C7729EDD7D100D55690 /* AppDelegate.swift */,
 			);
 			path = MdEditor;
+			sourceTree = "<group>";
+		};
+		8905DD8929FBF23E00F2CE57 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8905DD8A29FBF25300F2CE57 /* ICoordinator.swift */,
+				8905DD8C29FBF2D100F2CE57 /* AppCoordinator.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		89D6F1D429F12937004280BB /* Models */ = {
@@ -190,9 +204,9 @@
 				89D6F1D929F1302D004280BB /* MainInteractor.swift */,
 				89D6F1DB29F130E0004280BB /* MainPresenter.swift */,
 				89D6F1D229F127E2004280BB /* MainModel.swift */,
-				89D6F1DD29F14921004280BB /* MainRouter.swift */,
 				89D6F1E129F14BA3004280BB /* MainAssembler.swift */,
 				89D6F1E329F1596F004280BB /* MenuRepository.swift */,
+				8905DD8E29FBF30000F2CE57 /* MainCoordinator.swift */,
 			);
 			path = MainScene;
 			sourceTree = "<group>";
@@ -213,8 +227,8 @@
 				E707721B29F1C844006C022F /* FileManagerInteractor.swift */,
 				E707721929F1C837006C022F /* FileManagerPresenter.swift */,
 				E707721729F1C82A006C022F /* FileManagerModel.swift */,
-				E710275729F361CB00EB0AE9 /* FileManagerRouter.swift */,
 				E707722229F1D840006C022F /* FileManagerAssembler.swift */,
+				8905DD9029FBF51100F2CE57 /* FileManagerCoordinator.swift */,
 			);
 			path = FileManagerScene;
 			sourceTree = "<group>";
@@ -357,23 +371,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				89D6F1D329F127E2004280BB /* MainModel.swift in Sources */,
+				8905DD8F29FBF30000F2CE57 /* MainCoordinator.swift in Sources */,
 				895422E929F1AD7E00751559 /* Assets.swift in Sources */,
 				E707721629F1C816006C022F /* FileManagerViewController.swift in Sources */,
 				E707722729F1E942006C022F /* FileProviderAdapter.swift in Sources */,
 				E707722329F1D840006C022F /* FileManagerAssembler.swift in Sources */,
 				E707721829F1C82A006C022F /* FileManagerModel.swift in Sources */,
+				8905DD8D29FBF2D100F2CE57 /* AppCoordinator.swift in Sources */,
 				71B00C7C29EDD7D100D55690 /* MainViewController.swift in Sources */,
 				89D6F1E229F14BA3004280BB /* MainAssembler.swift in Sources */,
+				8905DD9129FBF51100F2CE57 /* FileManagerCoordinator.swift in Sources */,
 				C4B37CD029F8FF3300777400 /* Extension+UIViewController.swift in Sources */,
 				89D6F1DC29F130E0004280BB /* MainPresenter.swift in Sources */,
-				E710275829F361CB00EB0AE9 /* FileManagerRouter.swift in Sources */,
+				8905DD8B29FBF25300F2CE57 /* ICoordinator.swift in Sources */,
 				71B00C7829EDD7D100D55690 /* AppDelegate.swift in Sources */,
 				895422EA29F1AD7E00751559 /* Strings.swift in Sources */,
 				71B00C7A29EDD7D100D55690 /* SceneDelegate.swift in Sources */,
 				89D6F1E429F1596F004280BB /* MenuRepository.swift in Sources */,
 				89D6F1DA29F1302D004280BB /* MainInteractor.swift in Sources */,
 				89D6F1D629F12945004280BB /* MenuItem.swift in Sources */,
-				89D6F1DE29F14921004280BB /* MainRouter.swift in Sources */,
 				E707721C29F1C844006C022F /* FileManagerInteractor.swift in Sources */,
 				E707721A29F1C837006C022F /* FileManagerPresenter.swift in Sources */,
 				E707722129F1D7AA006C022F /* FileProvider.swift in Sources */,

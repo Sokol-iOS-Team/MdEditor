@@ -18,31 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	) {
 		guard let scene = (scene as? UIWindowScene) else { return }
 		let window = UIWindow(windowScene: scene)
-		window.rootViewController = UINavigationController(rootViewController: assembly())
+
+		let navigationController = UINavigationController(rootViewController: UIViewController())
+		let appCoordinator = AppCoordinator(navigationController: navigationController)
+
+		window.rootViewController = navigationController
 		window.makeKeyAndVisible()
 
+		appCoordinator.start()
+
 		self.window = window
-	}
-
-	private func assembly() -> UIViewController {
-		let mainViewController = MainAssembler.assembly()
-		let fileManagerViewController = FileManagerAssembler.assembly()
-
-		let mainRouter = MainRouter(
-			mainViewController: mainViewController,
-			fileManagerViewController: fileManagerViewController
-		)
-
-		let fileManagerRouter = FileManagerRouter(fileManagerViewController: fileManagerViewController)
-
-		if let mainViewController = mainViewController as? MainViewController {
-			mainViewController.router = mainRouter
-		}
-
-		if let fileManagerViewController = fileManagerViewController as? FileManagerViewController {
-			fileManagerViewController.router = fileManagerRouter
-		}
-
-		return mainViewController
 	}
 }

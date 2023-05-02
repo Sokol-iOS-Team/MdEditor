@@ -31,11 +31,12 @@ final class FileManagerPresenter: IFileManagerPresenter {
 	// MARK: - Internal Methods
 
 	/// Метод для подготовки отображения данных и передачи их viewController
-	/// - Parameter response: Содержит модель массива файлов, полученных из файлового менеджера
+	/// - Parameter response: Содержит модель массива файлов, полученных из файлового менеджера и url текущей директории
 	func present(response: FileManagerModel.Response) {
 		let section = FileManagerModel.ViewModel.Section(files: mapFilesData(with: response.data.files))
+		let title = getTitle(from: response.currentURL)
 
-		let viewModel = FileManagerModel.ViewModel(filesBySection: section)
+		let viewModel = FileManagerModel.ViewModel(title: title, filesBySection: section)
 
 		viewController?.render(viewModel: viewModel)
 	}
@@ -82,7 +83,7 @@ final class FileManagerPresenter: IFileManagerPresenter {
 		return String(format: "%4.2f %@", value, tokens[multiplyFactor])
 	}
 
-	private func getFileType(with file: File) -> FileManagerModel.ViewModel.FileTypes {
+	private func getFileType(with file: File) -> FileManagerModel.ViewModel.FileType {
 		if (file.attr[FileAttributeKey.type] as? FileAttributeType) == .typeDirectory {
 			return .folder
 		} else {
@@ -103,5 +104,11 @@ final class FileManagerPresenter: IFileManagerPresenter {
 		} else {
 			return "\"\(ext)\" – \(dateFormatter.string(from: modificationDate)) | \(formattedSize)"
 		}
+	}
+
+	private func getTitle(from url: URL?) -> String {
+		guard let url = url else { return "/" }
+
+		return url.lastPathComponent
 	}
 }

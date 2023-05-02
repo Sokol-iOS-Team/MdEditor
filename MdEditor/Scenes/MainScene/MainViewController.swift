@@ -20,7 +20,6 @@ class MainViewController: UIViewController {
 	// MARK: - Dependencies
 
 	var interactor: IMainInteractor?
-	var router: IMainRouter?
 
 	// MARK: - Constants
 
@@ -76,7 +75,7 @@ extension MainViewController: UITableViewDelegate {
 
 		switch menuItemData.menuType {
 		case .open:
-			router?.routeFileManager()
+			interactor?.openFileManager()
 		case .new:
 			presentTextFieldAlert(
 				title: L10n.Main.NewFileAlert.title,
