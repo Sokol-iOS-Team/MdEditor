@@ -20,7 +20,7 @@ class MainInteractor: IMainInteractor {
 	// MARK: - Dependencies
 
 	private let presenter: IMainPresenter
-	private var fileProviderAdapter: IFileProviderAdapter
+	private var mdFileManager: IMdFileManager
 	private let coordinator: IMainCoordinator
 
 	// MARK: - Lifecycle
@@ -31,11 +31,11 @@ class MainInteractor: IMainInteractor {
 	/// - Parameter coordinator: coordinator подписанный на протокол IMainCoordinator
 	init(
 		presenter: IMainPresenter,
-		fileProviderAdapter: IFileProviderAdapter,
+		mdFileManager: IMdFileManager,
 		coordinator: IMainCoordinator
 	) {
 		self.presenter = presenter
-		self.fileProviderAdapter = fileProviderAdapter
+		self.mdFileManager = mdFileManager
 		self.coordinator = coordinator
 	}
 
@@ -47,10 +47,11 @@ class MainInteractor: IMainInteractor {
 
 		presenter.present(response: MainModel.FetchMenu.Response(menuItems: menuItems))
 	}
+
 	/// Метод по созданию файла
 	func createFile(request: MainModel.NewFile.Request) {
 		do {
-			try fileProviderAdapter.createFile(withName: request.name)
+			try mdFileManager.createFile(withName: request.name)
 		} catch CreateFileErrors.fileExist {
 			let response = MainModel.NewFile.Response.failure(
 				title: L10n.Main.Interactor.ErrorResponse.FileExist.title,
