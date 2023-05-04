@@ -48,20 +48,24 @@ final class FileManagerPresenter: IFileManagerPresenter {
 		var onlyFiles = [FileManagerModel.ViewModel.File]()
 
 		files.forEach {
-			if getFileType(with: $0) == .folder {
-				onlyFolders.append(mapFileData(with: $0))
+			let type = getFileType(with: $0)
+
+			if type == .folder {
+				onlyFolders.append(mapFileData(with: $0, type: type))
 			} else {
-				onlyFiles.append(mapFileData(with: $0))
+				onlyFiles.append(mapFileData(with: $0, type: type))
 			}
 		}
 
 		return onlyFolders + onlyFiles
 	}
 
-	private func mapFileData(with file: File) -> FileManagerModel.ViewModel.File {
+	private func mapFileData(
+		with file: File,
+		type: FileManagerModel.ViewModel.FileType
+	) -> FileManagerModel.ViewModel.File {
 		let folderImageName = "folder"
 		let fileImageName = "doc.text"
-		let type = getFileType(with: file)
 
 		return FileManagerModel.ViewModel.File(
 			url: file.url,

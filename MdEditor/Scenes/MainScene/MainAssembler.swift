@@ -17,12 +17,12 @@ class MainAssembler {
 	/// - Parameter coordinator: coordinator подписанный на протокол IMainCoordinator
 	static func assembly(coordinator: IMainCoordinator) -> UIViewController {
 		let mainViewController = MainViewController()
-		let fileProviderAdapter = FileProviderAdapter(fileProvider: FileProvider())
+		let mdFileManager = MdFileManager()
 
 		let mainPresenter = MainPresenter(viewController: mainViewController)
 		let mainInteractor = MainInteractor(
 			presenter: mainPresenter,
-			fileProviderAdapter: fileProviderAdapter,
+			mdFileManager: mdFileManager,
 			coordinator: coordinator)
 		mainViewController.interactor = mainInteractor
 

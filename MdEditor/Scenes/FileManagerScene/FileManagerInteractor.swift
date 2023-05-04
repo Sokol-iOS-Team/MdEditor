@@ -19,7 +19,7 @@ final class FileManagerInteractor: IFileManagerInteractor {
 	// MARK: - Dependencies
 
 	private var presenter: IFileManagerPresenter
-	private var fileProviderAdapter: IFileProviderAdapter
+	private var mdFileManager: IMdFileManager
 	private var coordinator: IFileManagerCoordinator
 
 	private var currentURL: URL?
@@ -29,17 +29,17 @@ final class FileManagerInteractor: IFileManagerInteractor {
 	/// Метод инициализации FileManagerInteractor
 	/// - Parameters:
 	///   - presenter: presenter подписанный на протокол IFileManagerPresenter
-	///   - fileProviderAdapter: fileProviderAdapter подписанный на протокол IFileManagerFileProviderAdapter
+	///   - mdFileManager: mdFileManager подписанный на протокол IMdFileManager
 	///   - coordinator: coordinator одписанный на протокол IFileManagerCoordinator
 	///   - currentURL: url для получения файлов
 	init(
 		presenter: IFileManagerPresenter,
-		fileProviderAdapter: IFileProviderAdapter,
+		mdFileManager: IMdFileManager,
 		coordinator: IFileManagerCoordinator,
 		currentURL: URL?
 	) {
 		self.presenter = presenter
-		self.fileProviderAdapter = fileProviderAdapter
+		self.mdFileManager = mdFileManager
 		self.coordinator = coordinator
 		self.currentURL = currentURL
 	}
@@ -51,9 +51,9 @@ final class FileManagerInteractor: IFileManagerInteractor {
 		var files = [File]()
 
 		if let currentURL = currentURL {
-			files = fileProviderAdapter.scan(with: currentURL)
+			files = mdFileManager.scanFolder(with: currentURL)
 		} else {
-			files = fileProviderAdapter.getRootFolders()
+			files = mdFileManager.getRootFolders()
 		}
 
 		let responseData = FileManagerModel.Response.Section(files: files)

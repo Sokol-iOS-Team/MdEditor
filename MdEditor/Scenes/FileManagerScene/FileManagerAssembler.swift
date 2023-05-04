@@ -19,11 +19,11 @@ final class FileManagerAssembler {
 	///   - currentURL: url текущей директории файл менеджера
 	static func assembly(coordinator: IFileManagerCoordinator, currentURL: URL?) -> UIViewController {
 		let fileManagerViewController = FileManagerViewController()
-		let fileProviderAdapter = FileProviderAdapter(fileProvider: FileProvider())
+		let mdFileManager = MdFileManager()
 		let fileManagerPresenter = FileManagerPresenter(viewController: fileManagerViewController)
 		let filetManagerInteractor = FileManagerInteractor(
 			presenter: fileManagerPresenter,
-			fileProviderAdapter: fileProviderAdapter,
+			mdFileManager: mdFileManager,
 			coordinator: coordinator,
 			currentURL: currentURL
 		)
