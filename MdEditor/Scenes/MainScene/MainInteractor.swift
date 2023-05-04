@@ -27,7 +27,7 @@ class MainInteractor: IMainInteractor {
 
 	/// Метод инициализации MainInteractor
 	/// - Parameter presenter: presenter подписанный на протокол IMainPresenter
-	/// - Parameter fileProviderAdapter: FileProviderAdapter подписанный на протокол IFileProviderAdapter
+	/// - Parameter mdFileManager: IMdFileManager подписанный на протокол IMdFileManager
 	/// - Parameter coordinator: coordinator подписанный на протокол IMainCoordinator
 	init(
 		presenter: IMainPresenter,

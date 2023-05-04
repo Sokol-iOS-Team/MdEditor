@@ -29,7 +29,7 @@ final class FileManagerInteractor: IFileManagerInteractor {
 	/// Метод инициализации FileManagerInteractor
 	/// - Parameters:
 	///   - presenter: presenter подписанный на протокол IFileManagerPresenter
-	///   - fileProviderAdapter: fileProviderAdapter подписанный на протокол IFileManagerFileProviderAdapter
+	///   - mdFileManager: mdFileManager подписанный на протокол IMdFileManager
 	///   - coordinator: coordinator одписанный на протокол IFileManagerCoordinator
 	///   - currentURL: url для получения файлов
 	init(
