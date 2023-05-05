@@ -147,11 +147,11 @@
 		71B00C7629EDD7D100D55690 /* MdEditor */ = {
 			isa = PBXGroup;
 			children = (
+				89CF45492A0524160061D44A /* Flows */,
 				8905DD8929FBF23E00F2CE57 /* Common */,
 				E72B81B129F68D2300BF2932 /* Services */,
 				89D6F1D429F12937004280BB /* Models */,
 				E0B7942529F07A7D005ED2FB /* Assets */,
-				E0B7942029F0781C005ED2FB /* Scenes */,
 				7114C02429EFE1BA00E63321 /* SwiftGen */,
 				7114C02929F03B4E00E63321 /* Supporting Files */,
 				C4B37CCE29F8FF3300777400 /* Extensions */,
@@ -170,6 +170,33 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		89CF45492A0524160061D44A /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				89CF454B2A0524420061D44A /* FileManagerFlow */,
+				89CF454A2A05241D0061D44A /* MainFlow */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		89CF454A2A05241D0061D44A /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				E0B7942129F0782A005ED2FB /* MainScene */,
+				8905DD8E29FBF30000F2CE57 /* MainCoordinator.swift */,
+			);
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		89CF454B2A0524420061D44A /* FileManagerFlow */ = {
+			isa = PBXGroup;
+			children = (
+				8905DD9029FBF51100F2CE57 /* FileManagerCoordinator.swift */,
+				E707721429F1C739006C022F /* FileManagerScene */,
+			);
+			path = FileManagerFlow;
+			sourceTree = "<group>";
+		};
 		89D6F1D429F12937004280BB /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,15 +213,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E0B7942029F0781C005ED2FB /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				E0B7942129F0782A005ED2FB /* MainScene */,
-				E707721429F1C739006C022F /* FileManagerScene */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
 		E0B7942129F0782A005ED2FB /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +222,6 @@
 				89D6F1D229F127E2004280BB /* MainModel.swift */,
 				89D6F1E129F14BA3004280BB /* MainAssembler.swift */,
 				89D6F1E329F1596F004280BB /* MenuRepository.swift */,
-				8905DD8E29FBF30000F2CE57 /* MainCoordinator.swift */,
 			);
 			path = MainScene;
 			sourceTree = "<group>";
@@ -226,7 +243,6 @@
 				E707721929F1C837006C022F /* FileManagerPresenter.swift */,
 				E707721729F1C82A006C022F /* FileManagerModel.swift */,
 				E707722229F1D840006C022F /* FileManagerAssembler.swift */,
-				8905DD9029FBF51100F2CE57 /* FileManagerCoordinator.swift */,
 			);
 			path = FileManagerScene;
 			sourceTree = "<group>";
