@@ -24,7 +24,7 @@ class AboutAppViewController: UIViewController {
 
 	private lazy var aboutAppWebView = makeWebView()
 
-	// MARK: Object lifecycle
+	// MARK: - Object lifecycle
 
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -34,7 +34,7 @@ class AboutAppViewController: UIViewController {
 		super.init(coder: aDecoder)
 	}
 
-	// MARK: View lifecycle
+	// MARK: - View lifecycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -66,7 +66,7 @@ class AboutAppViewController: UIViewController {
 }
 
 extension AboutAppViewController: IAboutAppViewController {
-	/// Метод для отображения данных на главном экране
+	/// Метод для отображения данных на экране "О приложении"
 	/// - Parameter viewModel: принимает  AboutAppModel.ViewModel в качестве параметра
 	func render(viewModel: AboutAppModel.ViewModel) {
 		self.viewModel = viewModel

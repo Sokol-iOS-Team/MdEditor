@@ -7,13 +7,13 @@
 
 import UIKit
 
-/// Класс для создания главного экрана
+/// Класс для создания экрана "о приложении".
 class AboutAppAssembler {
 
 	// MARK: - Internal Methods
 
-	/// Метод для создания главного экрана и зависимостей его VIP цикла
-	/// - Returns: Возвращает AboutAppViewController для отображения главного экрана
+	/// Метод для создания главного экрана "о приложении" и зависимостей его VIP цикла.
+	/// - Returns: Возвращает AboutAppViewController для отображения экрана "О приложении".
 	static func assembly(coordinator: IAboutAppCoordinator) -> UIViewController {
 		let aboutAppViewController = AboutAppViewController()
 		let mdFileManager = MdFileManager()

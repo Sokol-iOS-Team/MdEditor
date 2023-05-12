@@ -18,7 +18,8 @@ enum CreateFileErrors: Error {
 	case fileExist
 }
 
-enum FolderNames: String {
+/// Перечисление доступных директорий.
+enum FolderName: String {
 	case rootFolder = "Examples"
 }
 
@@ -27,7 +28,7 @@ enum FileExtension: String {
 	case css = "css"
 }
 
-/// Протокол для файлового менеджера
+/// Протокол для файлового менеджера.
 protocol IMdFileManager {
 	func createFile(withName name: String) throws
 	func readFile(with url: URL) -> File?
@@ -36,13 +37,13 @@ protocol IMdFileManager {
 	func scanFolder(with url: URL) -> [File]
 	func getRootFolders() -> [File]
 	func getFileUrlByName(
-		folderName: FolderNames,
+		folderName: FolderName,
 		fileName: String,
 		fileExtension: FileExtension
 	) -> URL?
 }
 
-/// Класса для реализации работы файлового менеджера
+/// Класса для реализации работы файлового менеджера.
 final class MdFileManager: IMdFileManager {
 
 	// MARK: - Internal methods
@@ -118,7 +119,7 @@ final class MdFileManager: IMdFileManager {
 	///   - folderName: FolderNames перечисление доступных директорий
 	///   - fileName: String с именем файла
 	func getFileUrlByName(
-		folderName: FolderNames,
+		folderName: FolderName,
 		fileName: String,
 		fileExtension: FileExtension
 	) -> URL? {
@@ -133,7 +134,7 @@ final class MdFileManager: IMdFileManager {
 	// MARK: - Private methods
 
 	private func getMainFolderURL() -> URL? {
-		let rootFolderName = FolderNames.rootFolder.rawValue
+		let rootFolderName = FolderName.rootFolder.rawValue
 
 		return Bundle.main.url(forResource: rootFolderName, withExtension: "")
 	}

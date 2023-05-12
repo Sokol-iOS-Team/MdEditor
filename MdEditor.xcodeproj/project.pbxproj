@@ -37,9 +37,9 @@
 		E045933F2A05067000D6B533 /* AboutAppModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E045933A2A05066F00D6B533 /* AboutAppModels.swift */; };
 		E04593402A05067000D6B533 /* AboutAppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E045933B2A05067000D6B533 /* AboutAppAssembler.swift */; };
 		E04593412A05067000D6B533 /* AboutAppPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E045933C2A05067000D6B533 /* AboutAppPresenter.swift */; };
-		E04593432A05079C00D6B533 /* AboutAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593422A05079C00D6B533 /* AboutAppCoordinator.swift */; };
 		E04593472A0699E800D6B533 /* String+RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593462A0699E800D6B533 /* String+RegularExpression.swift */; };
 		E04593492A06AD4F00D6B533 /* NSRegularExpression+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593482A06AD4F00D6B533 /* NSRegularExpression+Extension.swift */; };
+		E05DD8142A0EAB5500636801 /* AboutAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05DD8132A0EAB5500636801 /* AboutAppCoordinator.swift */; };
 		E0B7942429F07A4B005ED2FB /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E0B7942329F07A4B005ED2FB /* PinLayout */; };
 		E0B7942729F07AF7005ED2FB /* Examples in Resources */ = {isa = PBXBuildFile; fileRef = E0B7942629F07AF7005ED2FB /* Examples */; };
 		E707721629F1C816006C022F /* FileManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707721529F1C816006C022F /* FileManagerViewController.swift */; };
@@ -85,9 +85,9 @@
 		E045933A2A05066F00D6B533 /* AboutAppModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppModels.swift; sourceTree = "<group>"; };
 		E045933B2A05067000D6B533 /* AboutAppAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppAssembler.swift; sourceTree = "<group>"; };
 		E045933C2A05067000D6B533 /* AboutAppPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppPresenter.swift; sourceTree = "<group>"; };
-		E04593422A05079C00D6B533 /* AboutAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutAppCoordinator.swift; path = "../../../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/MdEditor 12.27.01/Services/AboutAppCoordinator.swift"; sourceTree = "<group>"; };
 		E04593462A0699E800D6B533 /* String+RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RegularExpression.swift"; sourceTree = "<group>"; };
 		E04593482A06AD4F00D6B533 /* NSRegularExpression+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extension.swift"; sourceTree = "<group>"; };
+		E05DD8132A0EAB5500636801 /* AboutAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppCoordinator.swift; sourceTree = "<group>"; };
 		E0B7942629F07AF7005ED2FB /* Examples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Examples; sourceTree = "<group>"; };
 		E707721529F1C816006C022F /* FileManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerViewController.swift; sourceTree = "<group>"; };
 		E707721729F1C82A006C022F /* FileManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerModel.swift; sourceTree = "<group>"; };
@@ -220,12 +220,12 @@
 		E04593372A05065D00D6B533 /* AboutScene */ = {
 			isa = PBXGroup;
 			children = (
+				E05DD8132A0EAB5500636801 /* AboutAppCoordinator.swift */,
 				E04593392A05066F00D6B533 /* AboutAppViewController.swift */,
 				E04593382A05066F00D6B533 /* AboutAppInteractor.swift */,
 				E045933C2A05067000D6B533 /* AboutAppPresenter.swift */,
 				E045933A2A05066F00D6B533 /* AboutAppModels.swift */,
 				E045933B2A05067000D6B533 /* AboutAppAssembler.swift */,
-				E04593422A05079C00D6B533 /* AboutAppCoordinator.swift */,
 			);
 			path = AboutScene;
 			sourceTree = "<group>";
@@ -419,7 +419,6 @@
 				E04593412A05067000D6B533 /* AboutAppPresenter.swift in Sources */,
 				E707721629F1C816006C022F /* FileManagerViewController.swift in Sources */,
 				E04593402A05067000D6B533 /* AboutAppAssembler.swift in Sources */,
-				E04593432A05079C00D6B533 /* AboutAppCoordinator.swift in Sources */,
 				E707722329F1D840006C022F /* FileManagerAssembler.swift in Sources */,
 				E707721829F1C82A006C022F /* FileManagerModel.swift in Sources */,
 				8905DD8D29FBF2D100F2CE57 /* AppCoordinator.swift in Sources */,
@@ -434,6 +433,7 @@
 				E04593362A05064700D6B533 /* MarkdownСonverter.swift in Sources */,
 				E045933F2A05067000D6B533 /* AboutAppModels.swift in Sources */,
 				C4B37CD029F8FF3300777400 /* Extension+UIViewController.swift in Sources */,
+				E05DD8142A0EAB5500636801 /* AboutAppCoordinator.swift in Sources */,
 				89D6F1DC29F130E0004280BB /* MainPresenter.swift in Sources */,
 				8905DD8B29FBF25300F2CE57 /* ICoordinator.swift in Sources */,
 				71B00C7829EDD7D100D55690 /* AppDelegate.swift in Sources */,

@@ -57,6 +57,6 @@ final class MarkdownСonverter: IMarkdownСonverter {
 		) else { return " "}
 		guard let cssString = try? String(contentsOf: cssURL) else { return " "}
 
-		return "<!DOCTYPE html><html><head><style>\(cssString)</style></head><boby><div class=\"mdViewer\">\(text)</div></boby></html>"
+		return "<!DOCTYPE html><html><head><style>\(cssString)</style></head><boby><div class=\"mdViewer\">\(text)</div></boby></html>" // swiftlint:disable:this line_length
 	}
 }

@@ -17,13 +17,15 @@ class AboutAppPresenter: IAboutAppPresenter {
 
 	// MARK: - Lifecycle
 
-	/// Метод инициализации MainPresenter
-	/// - Parameter viewController: viewController подписанный на протокол IMainViewController
+	/// Метод инициализации AboutAppPresenter
+	/// - Parameter viewController: viewController подписанный на протокол AboutAppViewController
 	init(viewController: IAboutAppViewController, markdownConverter: IMarkdownСonverter) {
 		self.viewController = viewController
 		self.markdownConverter = markdownConverter
 	}
 
+	// MARK: - Internal Methods
+	
 	func present(response: AboutAppModel.Response) {
 		guard let mdString = try? String(contentsOf: response.url) else { fatalError("Some error") }
 		guard let html = markdownConverter?.convertMDtoHTML(text: mdString) else {return}

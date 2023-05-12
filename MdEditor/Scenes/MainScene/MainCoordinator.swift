@@ -48,7 +48,7 @@ class MainCoordinator: IMainCoordinator {
 		childCoordinators.append(fileManagerCoordinator)
 		fileManagerCoordinator.start()
 	}
-	
+
 	/// Стартует сценарий экрана "AboutApp"
 	func showAboutAppFlow() {
 		let aboutAppCordintaor = AboutAppCoordinator(navigationController: self.navigationController)

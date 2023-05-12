@@ -18,14 +18,16 @@ class AboutAppInteractor: IAboutAppInteractor {
 
 	// MARK: - Lifecycle
 
-	/// Метод инициализации MainInteractor
-	/// - Parameter presenter: presenter подписанный на протокол IMainPresenter
-	/// - Parameter mdFileManager: FileProviderAdapter подписанный на протокол IFileProviderAdapter
+	/// Метод инициализации AboutAppInteractor
+	/// - Parameter presenter: presenter подписанный на протокол IAboutPresenter
+	/// - Parameter mdFileManager: mdFileManager подписанный на протокол IMdFileManager
 	init(presenter: IAboutAppPresenter, mdFileManager: IMdFileManager) {
 		self.presenter = presenter
 		self.mdFileManager = mdFileManager
 	}
-
+	
+	// MARK: - Internal Methods
+	
 	func fetchData() {
 		let fileName = "About"
 		guard let fileUrl = mdFileManager?.getFileUrlByName(
