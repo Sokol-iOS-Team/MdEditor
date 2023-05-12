@@ -11,6 +11,8 @@ import UIKit
 protocol IMainCoordinator: ICoordinator {
 	/// Стартует сценарий файл менеджера
 	func showFileManagerFlow()
+	/// Стартует сценарий экрана "AboutApp"
+	func showAboutAppFlow()
 }
 
 /// Координатор главного экрана
@@ -45,5 +47,12 @@ class MainCoordinator: IMainCoordinator {
 		let fileManagerCoordinator = FileManagerCoordinator(navigationController: navigationController)
 		childCoordinators.append(fileManagerCoordinator)
 		fileManagerCoordinator.start()
+	}
+
+	/// Стартует сценарий экрана "AboutApp"
+	func showAboutAppFlow() {
+		let aboutAppCordintaor = AboutAppCoordinator(navigationController: self.navigationController)
+		childCoordinators.append(aboutAppCordintaor)
+		aboutAppCordintaor.start()
 	}
 }

@@ -30,6 +30,16 @@
 		89D6F1E229F14BA3004280BB /* MainAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1E129F14BA3004280BB /* MainAssembler.swift */; };
 		89D6F1E429F1596F004280BB /* MenuRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6F1E329F1596F004280BB /* MenuRepository.swift */; };
 		C4B37CD029F8FF3300777400 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B37CCF29F8FF3300777400 /* Extension+UIViewController.swift */; };
+		E04593352A05064700D6B533 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593322A05064700D6B533 /* MarkdownParser.swift */; };
+		E04593362A05064700D6B533 /* MarkdownСonverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593332A05064700D6B533 /* MarkdownСonverter.swift */; };
+		E045933D2A05067000D6B533 /* AboutAppInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593382A05066F00D6B533 /* AboutAppInteractor.swift */; };
+		E045933E2A05067000D6B533 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593392A05066F00D6B533 /* AboutAppViewController.swift */; };
+		E045933F2A05067000D6B533 /* AboutAppModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E045933A2A05066F00D6B533 /* AboutAppModels.swift */; };
+		E04593402A05067000D6B533 /* AboutAppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E045933B2A05067000D6B533 /* AboutAppAssembler.swift */; };
+		E04593412A05067000D6B533 /* AboutAppPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E045933C2A05067000D6B533 /* AboutAppPresenter.swift */; };
+		E04593472A0699E800D6B533 /* String+RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593462A0699E800D6B533 /* String+RegularExpression.swift */; };
+		E04593492A06AD4F00D6B533 /* NSRegularExpression+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593482A06AD4F00D6B533 /* NSRegularExpression+Extension.swift */; };
+		E05DD8142A0EAB5500636801 /* AboutAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05DD8132A0EAB5500636801 /* AboutAppCoordinator.swift */; };
 		E0B7942429F07A4B005ED2FB /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E0B7942329F07A4B005ED2FB /* PinLayout */; };
 		E0B7942729F07AF7005ED2FB /* Examples in Resources */ = {isa = PBXBuildFile; fileRef = E0B7942629F07AF7005ED2FB /* Examples */; };
 		E707721629F1C816006C022F /* FileManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707721529F1C816006C022F /* FileManagerViewController.swift */; };
@@ -68,6 +78,16 @@
 		89D6F1E129F14BA3004280BB /* MainAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembler.swift; sourceTree = "<group>"; };
 		89D6F1E329F1596F004280BB /* MenuRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRepository.swift; sourceTree = "<group>"; };
 		C4B37CCF29F8FF3300777400 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		E04593322A05064700D6B533 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
+		E04593332A05064700D6B533 /* MarkdownСonverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MarkdownСonverter.swift"; sourceTree = "<group>"; };
+		E04593382A05066F00D6B533 /* AboutAppInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppInteractor.swift; sourceTree = "<group>"; };
+		E04593392A05066F00D6B533 /* AboutAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
+		E045933A2A05066F00D6B533 /* AboutAppModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppModels.swift; sourceTree = "<group>"; };
+		E045933B2A05067000D6B533 /* AboutAppAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppAssembler.swift; sourceTree = "<group>"; };
+		E045933C2A05067000D6B533 /* AboutAppPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppPresenter.swift; sourceTree = "<group>"; };
+		E04593462A0699E800D6B533 /* String+RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RegularExpression.swift"; sourceTree = "<group>"; };
+		E04593482A06AD4F00D6B533 /* NSRegularExpression+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extension.swift"; sourceTree = "<group>"; };
+		E05DD8132A0EAB5500636801 /* AboutAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppCoordinator.swift; sourceTree = "<group>"; };
 		E0B7942629F07AF7005ED2FB /* Examples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Examples; sourceTree = "<group>"; };
 		E707721529F1C816006C022F /* FileManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerViewController.swift; sourceTree = "<group>"; };
 		E707721729F1C82A006C022F /* FileManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerModel.swift; sourceTree = "<group>"; };
@@ -182,8 +202,32 @@
 			isa = PBXGroup;
 			children = (
 				C4B37CCF29F8FF3300777400 /* Extension+UIViewController.swift */,
+				E04593462A0699E800D6B533 /* String+RegularExpression.swift */,
+				E04593482A06AD4F00D6B533 /* NSRegularExpression+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E04593302A0504B400D6B533 /* MarkdownConverter */ = {
+			isa = PBXGroup;
+			children = (
+				E04593332A05064700D6B533 /* MarkdownСonverter.swift */,
+				E04593322A05064700D6B533 /* MarkdownParser.swift */,
+			);
+			path = MarkdownConverter;
+			sourceTree = "<group>";
+		};
+		E04593372A05065D00D6B533 /* AboutScene */ = {
+			isa = PBXGroup;
+			children = (
+				E05DD8132A0EAB5500636801 /* AboutAppCoordinator.swift */,
+				E04593392A05066F00D6B533 /* AboutAppViewController.swift */,
+				E04593382A05066F00D6B533 /* AboutAppInteractor.swift */,
+				E045933C2A05067000D6B533 /* AboutAppPresenter.swift */,
+				E045933A2A05066F00D6B533 /* AboutAppModels.swift */,
+				E045933B2A05067000D6B533 /* AboutAppAssembler.swift */,
+			);
+			path = AboutScene;
 			sourceTree = "<group>";
 		};
 		E0B7942029F0781C005ED2FB /* Scenes */ = {
@@ -191,6 +235,7 @@
 			children = (
 				E0B7942129F0782A005ED2FB /* MainScene */,
 				E707721429F1C739006C022F /* FileManagerScene */,
+				E04593372A05065D00D6B533 /* AboutScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -234,6 +279,7 @@
 		E72B81B129F68D2300BF2932 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E04593302A0504B400D6B533 /* MarkdownConverter */,
 				E7F108A229FA890200439C4E /* MdFileManager.swift */,
 			);
 			path = Services;
@@ -370,15 +416,24 @@
 				89D6F1D329F127E2004280BB /* MainModel.swift in Sources */,
 				8905DD8F29FBF30000F2CE57 /* MainCoordinator.swift in Sources */,
 				895422E929F1AD7E00751559 /* Assets.swift in Sources */,
+				E04593412A05067000D6B533 /* AboutAppPresenter.swift in Sources */,
 				E707721629F1C816006C022F /* FileManagerViewController.swift in Sources */,
+				E04593402A05067000D6B533 /* AboutAppAssembler.swift in Sources */,
 				E707722329F1D840006C022F /* FileManagerAssembler.swift in Sources */,
 				E707721829F1C82A006C022F /* FileManagerModel.swift in Sources */,
 				8905DD8D29FBF2D100F2CE57 /* AppCoordinator.swift in Sources */,
+				E045933D2A05067000D6B533 /* AboutAppInteractor.swift in Sources */,
 				E7F108A329FA890200439C4E /* MdFileManager.swift in Sources */,
 				71B00C7C29EDD7D100D55690 /* MainViewController.swift in Sources */,
+				E045933E2A05067000D6B533 /* AboutAppViewController.swift in Sources */,
 				89D6F1E229F14BA3004280BB /* MainAssembler.swift in Sources */,
 				8905DD9129FBF51100F2CE57 /* FileManagerCoordinator.swift in Sources */,
+				E04593472A0699E800D6B533 /* String+RegularExpression.swift in Sources */,
+				E04593492A06AD4F00D6B533 /* NSRegularExpression+Extension.swift in Sources */,
+				E04593362A05064700D6B533 /* MarkdownСonverter.swift in Sources */,
+				E045933F2A05067000D6B533 /* AboutAppModels.swift in Sources */,
 				C4B37CD029F8FF3300777400 /* Extension+UIViewController.swift in Sources */,
+				E05DD8142A0EAB5500636801 /* AboutAppCoordinator.swift in Sources */,
 				89D6F1DC29F130E0004280BB /* MainPresenter.swift in Sources */,
 				8905DD8B29FBF25300F2CE57 /* ICoordinator.swift in Sources */,
 				71B00C7829EDD7D100D55690 /* AppDelegate.swift in Sources */,
@@ -389,6 +444,7 @@
 				89D6F1D629F12945004280BB /* MenuItem.swift in Sources */,
 				E707721C29F1C844006C022F /* FileManagerInteractor.swift in Sources */,
 				E707721A29F1C837006C022F /* FileManagerPresenter.swift in Sources */,
+				E04593352A05064700D6B533 /* MarkdownParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

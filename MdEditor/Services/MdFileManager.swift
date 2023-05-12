@@ -18,7 +18,17 @@ enum CreateFileErrors: Error {
 	case fileExist
 }
 
-/// Протокол для файлового менеджера
+/// Перечисление доступных директорий.
+enum FolderName: String {
+	case rootFolder = "Examples"
+}
+
+enum FileExtension: String {
+	case markDown = "md"
+	case css = "css"
+}
+
+/// Протокол для файлового менеджера.
 protocol IMdFileManager {
 	func createFile(withName name: String) throws
 	func readFile(with url: URL) -> File?
@@ -26,12 +36,17 @@ protocol IMdFileManager {
 	func deleteFile()
 	func scanFolder(with url: URL) -> [File]
 	func getRootFolders() -> [File]
+	func getFileUrlByName(
+		folderName: FolderName,
+		fileName: String,
+		fileExtension: FileExtension
+	) -> URL?
 }
 
-/// Класса для реализации работы файлового менеджера
+/// Класса для реализации работы файлового менеджера.
 final class MdFileManager: IMdFileManager {
 
-	// MARK: - Internal Properties
+	// MARK: - Internal methods
 
 	/// Создает новый файл
 	/// - Parameters:
@@ -87,6 +102,7 @@ final class MdFileManager: IMdFileManager {
 		return files
 	}
 
+	/// Метод getRootFolders возвращает массив корневых папок
 	func getRootFolders() -> [File] {
 		guard
 			let mainFolderURL = getMainFolderURL(),
@@ -98,8 +114,27 @@ final class MdFileManager: IMdFileManager {
 		return [mainFolder, documentsFolder]
 	}
 
+	/// Метод getFileUrlByName Возвращает URL файла с разрешением "md"
+	/// - Parameters:
+	///   - folderName: FolderNames перечисление доступных директорий
+	///   - fileName: String с именем файла
+	func getFileUrlByName(
+		folderName: FolderName,
+		fileName: String,
+		fileExtension: FileExtension
+	) -> URL? {
+		guard let folderUrl = Bundle.main.url(forResource: folderName.rawValue, withExtension: "") else {return nil}
+		let fileUrl = folderUrl
+			.appending(component: fileName)
+			.appendingPathExtension(fileExtension.rawValue)
+
+		return fileUrl
+	}
+
+	// MARK: - Private methods
+
 	private func getMainFolderURL() -> URL? {
-		let rootFolderName = "Examples"
+		let rootFolderName = FolderName.rootFolder.rawValue
 
 		return Bundle.main.url(forResource: rootFolderName, withExtension: "")
 	}

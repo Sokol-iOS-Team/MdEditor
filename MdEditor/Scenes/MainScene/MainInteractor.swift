@@ -11,6 +11,7 @@ import Foundation
 protocol IMainInteractor {
 	func fetchData()
 	func openFileManager()
+	func openAboutApp()
 	func createFile(request: MainModel.NewFile.Request)
 }
 
@@ -67,5 +68,9 @@ class MainInteractor: IMainInteractor {
 	/// Метод открытия файл менеджера
 	func openFileManager() {
 		coordinator.showFileManagerFlow()
+	}
+
+	func openAboutApp() {
+		coordinator.showAboutAppFlow()
 	}
 }
