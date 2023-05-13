@@ -186,7 +186,6 @@
 		71B00C7629EDD7D100D55690 /* MdEditor */ = {
 			isa = PBXGroup;
 			children = (
-				89DBCC6B2A0FB7BD0078A1BC /* Scenes */,
 				89CF45492A0524160061D44A /* Flows */,
 				8905DD8929FBF23E00F2CE57 /* Common */,
 				E72B81B129F68D2300BF2932 /* Services */,
@@ -213,6 +212,7 @@
 		89CF45492A0524160061D44A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				89DBCC792A0FC6C20078A1BC /* AboutAppFlow */,
 				89CF454D2A0524A20061D44A /* EditFileFlow */,
 				89CF454B2A0524420061D44A /* FileManagerFlow */,
 				89CF454A2A05241D0061D44A /* MainFlow */,
@@ -280,15 +280,7 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		89DBCC6B2A0FB7BD0078A1BC /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				89DBCC6C2A0FB7BD0078A1BC /* AboutScene */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		89DBCC6C2A0FB7BD0078A1BC /* AboutScene */ = {
+		89DBCC6C2A0FB7BD0078A1BC /* AboutAppScene */ = {
 			isa = PBXGroup;
 			children = (
 				89DBCC6D2A0FB7BD0078A1BC /* AboutAppInteractor.swift */,
@@ -296,9 +288,17 @@
 				89DBCC6F2A0FB7BD0078A1BC /* AboutAppViewController.swift */,
 				89DBCC702A0FB7BD0078A1BC /* AboutAppPresenter.swift */,
 				89DBCC712A0FB7BD0078A1BC /* AboutAppModels.swift */,
-				89DBCC722A0FB7BD0078A1BC /* AboutAppCoordinator.swift */,
 			);
-			path = AboutScene;
+			path = AboutAppScene;
+			sourceTree = "<group>";
+		};
+		89DBCC792A0FC6C20078A1BC /* AboutAppFlow */ = {
+			isa = PBXGroup;
+			children = (
+				89DBCC722A0FB7BD0078A1BC /* AboutAppCoordinator.swift */,
+				89DBCC6C2A0FB7BD0078A1BC /* AboutAppScene */,
+			);
+			path = AboutAppFlow;
 			sourceTree = "<group>";
 		};
 		C4B37CCE29F8FF3300777400 /* Extensions */ = {
