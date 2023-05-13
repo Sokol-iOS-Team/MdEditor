@@ -17,10 +17,14 @@ final class EditFileAssembler {
 	static func assembly(coordinator: IEditFileCoordinator, currentURL: URL?) -> UIViewController {
 		let editFileViewController = EditFileViewController()
 		let mdFileManager = MdFileManager()
-		let editFilePresenter = EditFilePresenter(viewControler: editFileViewController)
+		let markdownConverter = MarkdownСonverter(markdownParser: MarkdownParser(), mdFileManager: mdFileManager)
+
+		let editFilePresenter = EditFilePresenter(
+			viewController: editFileViewController,
+			markdownConverter: markdownConverter
+		)
 		let editFileInteractor = EditFileInteractor(
 			presenter: editFilePresenter,
-			mdFileManager: mdFileManager,
 			coordinator: coordinator,
 			currentURL: currentURL
 		)

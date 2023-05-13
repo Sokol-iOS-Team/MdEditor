@@ -12,6 +12,9 @@ protocol IAboutAppPresenter {
 }
 
 class AboutAppPresenter: IAboutAppPresenter {
+
+	// MARK: - Dependencies
+
 	weak var viewController: IAboutAppViewController?
 	private var markdownConverter: IMarkdownСonverter?
 
@@ -25,7 +28,7 @@ class AboutAppPresenter: IAboutAppPresenter {
 	}
 
 	// MARK: - Internal Methods
-	
+
 	func present(response: AboutAppModel.Response) {
 		guard let mdString = try? String(contentsOf: response.url) else { fatalError("Some error") }
 		guard let html = markdownConverter?.convertMDtoHTML(text: mdString) else {return}

@@ -15,6 +15,6 @@ enum EditFileModel {
 	}
 
 	struct Response {
-		let text: String
+		let url: URL
 	}
 }

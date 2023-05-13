@@ -25,9 +25,9 @@ class AboutAppInteractor: IAboutAppInteractor {
 		self.presenter = presenter
 		self.mdFileManager = mdFileManager
 	}
-	
+
 	// MARK: - Internal Methods
-	
+
 	func fetchData() {
 		let fileName = "About"
 		guard let fileUrl = mdFileManager?.getFileUrlByName(

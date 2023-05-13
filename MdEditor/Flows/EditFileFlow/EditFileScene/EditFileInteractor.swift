@@ -19,7 +19,6 @@ final class EditFileInteractor: IEditFileInteractor {
 	// MARK: - Dependencies
 
 	private var presenter: IEditFilePresenter
-	private var mdFileManager: IMdFileManager
 	private var coordinator: IEditFileCoordinator
 
 	private var currentURL: URL?
@@ -34,12 +33,10 @@ final class EditFileInteractor: IEditFileInteractor {
 	///   - currentURL: url для получения файла
 	init(
 		presenter: IEditFilePresenter,
-		mdFileManager: IMdFileManager,
 		coordinator: IEditFileCoordinator,
 		currentURL: URL?
 	) {
 		self.presenter = presenter
-		self.mdFileManager = mdFileManager
 		self.coordinator = coordinator
 		self.currentURL = currentURL
 	}
@@ -53,25 +50,8 @@ final class EditFileInteractor: IEditFileInteractor {
 
 	/// Метод для получения текста по ссылке и его дальнейшей отправки
 	func fetchData() {
-		guard let htmlText = makeHTMLtext() else { return }
-		let response = EditFileModel.Response(text: htmlText)
+		guard let currentURL = currentURL else { return }
+		let response = EditFileModel.Response(url: currentURL)
 		presenter.present(response: response)
-	}
-
-	// MARK: - Private
-
-	private func makeHTMLtext() -> String? {
-		guard let text = getFileText(from: currentURL) else { return nil }
-
-		return "<!DOCTYPE html><html><head><style> body {font-size: 300%;}</style></head><boby>\(text)</boby></html>"
-	}
-
-	private func getFileText(from url: URL?) -> String? {
-		guard
-			let currentURL = currentURL,
-			let fileText = try? String(contentsOf: currentURL)
-		else { return nil }
-
-		return fileText
 	}
 }
