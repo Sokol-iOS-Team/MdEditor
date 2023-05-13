@@ -85,8 +85,8 @@ extension MainViewController: UITableViewDelegate {
 				let request = MainModel.NewFile.Request(name: name)
 				self?.interactor?.createFile(request: request)
 			}
-		default:
-			break
+		case .about:
+			interactor?.openAboutApp()
 		}
 		tableView.deselectRow(at: indexPath, animated: true)
 	}

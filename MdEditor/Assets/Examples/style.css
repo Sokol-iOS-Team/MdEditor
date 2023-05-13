@@ -1,0 +1,36 @@
+body {
+	font-size:250%;
+	margin: 20px;
+	padding: 20px;
+}
+.mdViewer {
+	background: white; 
+}
+
+h1 {
+	color: #6655BB;
+}
+
+h2 {
+	color: #7787FF;
+}
+
+h3 {
+	color: #4AC192;
+}
+
+h4 {
+	color: #93FE6E;
+}
+
+p {
+	color: #5965BD;
+}
+
+em {
+	color: #5965BD;
+}
+
+strong {
+	color: #5965BD;
+}
