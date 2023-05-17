@@ -35,7 +35,8 @@ final class EditFilePresenter: IEditFilePresenter {
 	func present(response: EditFileModel.Response) {
 		guard let mdString = try? String(contentsOf: response.url) else { fatalError("Some error") }
 		let htmlString = markdownConverter.convertMDtoHTML(text: mdString)
-		let viewModel = EditFileModel.ViewModel(text: htmlString)
+		let title = response.url.deletingPathExtension().lastPathComponent
+		let viewModel = EditFileModel.ViewModel(title: title, text: htmlString)
 		viewController?.render(viewModel: viewModel)
 	}
 }

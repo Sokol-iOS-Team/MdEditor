@@ -11,6 +11,7 @@ import Foundation
 enum EditFileModel {
 
 	struct ViewModel {
+		let title: String
 		let text: String
 	}
 

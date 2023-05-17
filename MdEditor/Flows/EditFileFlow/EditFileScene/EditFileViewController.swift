@@ -68,5 +68,6 @@ extension EditFileViewController: IEditFileViewController {
 	/// - Parameter viewModel: принимает EditFileModel.ViewModel в качестве параметра
 	func render(viewModel: EditFileModel.ViewModel) {
 		webView.loadHTMLString(viewModel.text, baseURL: nil)
+		title = viewModel.title
 	}
 }
