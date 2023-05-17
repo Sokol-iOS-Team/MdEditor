@@ -37,4 +37,3 @@ class AboutAppCoordinator: IAboutAppCoordinator {
 		navigationController.pushViewController(aboutAppViewController, animated: true)
 	}
 }
- 

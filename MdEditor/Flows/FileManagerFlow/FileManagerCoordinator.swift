@@ -44,6 +44,7 @@ class FileManagerCoordinator: IFileManagerCoordinator {
 		navigationController.pushViewController(fileManagerViewController, animated: true)
 	}
 
+	/// Открытие файла по ссылке
 	func openFile(at url: URL) {
 		let editFileCoordinator = EditFileCoordinator(
 			navigationController: navigationController,

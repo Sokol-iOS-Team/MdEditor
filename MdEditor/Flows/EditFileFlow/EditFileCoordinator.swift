@@ -29,7 +29,7 @@ final class EditFileCoordinator: IEditFileCoordinator {
 	/// - Parameters:
 	///   - navigationController: навигационный viewController для отображения экрана
 	///   - finishDelegate: класс, подписанный на протокол ICoordinatorFinishDelegate
-	///   - currentURL: url файлв
+	///   - currentURL: url файла
 	init(
 		navigationController: UINavigationController,
 		finishDelegate: ICoordinatorFinishDelegate?,
