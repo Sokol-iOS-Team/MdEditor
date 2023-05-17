@@ -9,6 +9,7 @@ import UIKit
 
 protocol IFileManagerCoordinator: ICoordinator {
 	func openFolder(at url: URL)
+	func openFile(at url: URL)
 }
 
 class FileManagerCoordinator: IFileManagerCoordinator {
@@ -43,4 +44,21 @@ class FileManagerCoordinator: IFileManagerCoordinator {
 		navigationController.pushViewController(fileManagerViewController, animated: true)
 	}
 
+	/// Открытие файла по ссылке
+	func openFile(at url: URL) {
+		let editFileCoordinator = EditFileCoordinator(
+			navigationController: navigationController,
+			finishDelegate: self,
+			currentURL: url
+		)
+		childCoordinators.append(editFileCoordinator)
+
+		editFileCoordinator.start()
+	}
+}
+
+extension FileManagerCoordinator: ICoordinatorFinishDelegate {
+	func didFinish(_ coordinator: ICoordinator) {
+		childCoordinators.removeAll { $0 === coordinator }
+	}
 }

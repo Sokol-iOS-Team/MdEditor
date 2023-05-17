@@ -67,7 +67,7 @@ final class FileManagerInteractor: IFileManagerInteractor {
 	func openFile(_ file: FileManagerModel.Request.File) {
 		switch file.type {
 		case .file:
-			break
+			coordinator.openFile(at: file.url)
 		case .folder:
 			coordinator.openFolder(at: file.url)
 		}
