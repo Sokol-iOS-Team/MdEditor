@@ -55,8 +55,8 @@ class MainInteractor: IMainInteractor {
 			try mdFileManager.createFile(withName: request.name)
 		} catch CreateFileErrors.fileExist {
 			let response = MainModel.NewFile.Response.failure(
-				title: L10n.Main.Interactor.ErrorResponse.FileExist.title,
-				message: L10n.Main.Interactor.ErrorResponse.FileExist.message
+				title: MdEditorStrings.Localizable.Main.Interactor.ErrorResponse.FileExist.title,
+				message: MdEditorStrings.Localizable.Main.Interactor.ErrorResponse.FileExist.message
 			)
 			presenter.provideAlertInfo(response: response)
 			return

@@ -30,7 +30,7 @@ extension UIViewController {
 			)
 		}
 		alert.addAction(UIAlertAction(
-			title: L10n.Extensions.UIViewController.CustomAlert.cancelButton,
+			title: MdEditorStrings.Localizable.Extensions.UIViewController.CustomAlert.cancelButton,
 			style: .destructive
 		))
 		alert.addAction(
@@ -59,7 +59,7 @@ extension UIViewController {
 	func presentAlert(title: String, message: String) {
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		alert.addAction(UIAlertAction(
-			title: L10n.Extensions.UIViewController.SimpleAlert.buttonTitle,
+			title: MdEditorStrings.Localizable.Extensions.UIViewController.SimpleAlert.buttonTitle,
 			style: .default
 		))
 		present(alert, animated: true)

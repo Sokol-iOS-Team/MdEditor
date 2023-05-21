@@ -50,7 +50,7 @@ class MainViewController: UIViewController {
 	// MARK: - Private
 
 	private func configureViewController() {
-		title = L10n.Main.title
+		title = MdEditorStrings.Localizable.Main.title
 	}
 
 	private func addSubviews() {
@@ -78,9 +78,9 @@ extension MainViewController: UITableViewDelegate {
 			interactor?.openFileManager()
 		case .new:
 			presentTextFieldAlert(
-				title: L10n.Main.NewFileAlert.title,
-				placeholder: L10n.Main.NewFileAlert.placeholder,
-				okActionTitle: L10n.Main.NewFileAlert.okActionTitle
+				title: MdEditorStrings.Localizable.Main.NewFileAlert.title,
+				placeholder: MdEditorStrings.Localizable.Main.NewFileAlert.placeholder,
+				okActionTitle: MdEditorStrings.Localizable.Main.NewFileAlert.okActionTitle
 			) { [weak self] name in
 				let request = MainModel.NewFile.Request(name: name)
 				self?.interactor?.createFile(request: request)
@@ -130,8 +130,8 @@ extension MainViewController: IMainViewController {
 		case .success:
 			// router.routeToNewFile()
 			presentAlert(
-				title: L10n.Main.FileCreatedAlert.title,
-				message: L10n.Main.FileCreatedAlert.message
+				title: MdEditorStrings.Localizable.Main.FileCreatedAlert.title,
+				message: MdEditorStrings.Localizable.Main.FileCreatedAlert.message
 			)
 		case .failure(title: let title, message: let message):
 			presentAlert(title: title, message: message)
