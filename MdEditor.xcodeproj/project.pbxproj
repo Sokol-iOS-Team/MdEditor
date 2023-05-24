@@ -454,6 +454,7 @@
 				2ED88EC158EFB2BDBC373244 /* Resources */,
 				EFD6D557A83A5C4FBBA31CD2 /* Embed Frameworks */,
 				20E853C9F83204F23E6AA71B /* Frameworks */,
+				5D06D2518EF2C71CB836B596 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -522,6 +523,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D06D2518EF2C71CB836B596 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SwiftLint/swiftlint --fix && SwiftLint/swiftlint\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4DB3A8BD2CC1ECA66F13BF9A /* Sources */ = {
@@ -735,7 +757,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = QT2PBP26TP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "MdEditor/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;

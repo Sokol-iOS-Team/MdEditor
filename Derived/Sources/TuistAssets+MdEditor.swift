@@ -1,77 +1,81 @@
+// Generated using SwiftGen, by O.Halligon — https://github.com/SwiftGen/SwiftGen
+
+#if os(OSX)
+  import AppKit.NSImage
+  public typealias AssetColorTypeAlias = NSColor
+  public typealias Image = NSImage
+#elseif os(iOS) || os(tvOS) || os(watchOS)
+  import UIKit.UIImage
+  public typealias AssetColorTypeAlias = UIColor
+  public typealias Image = UIImage
+#endif
+
 // swiftlint:disable all
-// swift-format-ignore-file
-// swiftformat:disable all
-// Generated using tuist — https://github.com/tuist/tuist
 
-#if os(macOS)
-  import AppKit
-#elseif os(iOS)
-  import UIKit
-#elseif os(tvOS) || os(watchOS)
-  import UIKit
-#endif
-#if canImport(SwiftUI)
-  import SwiftUI
-#endif
+@available(*, deprecated, renamed: "ImageAsset")
+public typealias AssetType = ImageAsset
 
-// swiftlint:disable superfluous_disable_command file_length implicit_return
-
-// MARK: - Asset Catalogs
-
-// swiftlint:disable identifier_name line_length nesting type_body_length type_name
-public enum MdEditorAsset {
-  public static let accentColor = MdEditorColors(name: "AccentColor")
-}
-// swiftlint:enable identifier_name line_length nesting type_body_length type_name
-
-// MARK: - Implementation Details
-
-public final class MdEditorColors {
+public struct ImageAsset {
   public fileprivate(set) var name: String
 
-  #if os(macOS)
-  public typealias Color = NSColor
-  #elseif os(iOS) || os(tvOS) || os(watchOS)
-  public typealias Color = UIColor
-  #endif
-
-  @available(iOS 11.0, tvOS 11.0, watchOS 4.0, macOS 10.13, *)
-  public private(set) lazy var color: Color = {
-    guard let color = Color(asset: self) else {
-      fatalError("Unable to load color asset named \(name).")
-    }
-    return color
-  }()
-
-  #if canImport(SwiftUI)
-  private var _swiftUIColor: Any? = nil
-  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-  public private(set) var swiftUIColor: SwiftUI.Color {
-    get {
-      if self._swiftUIColor == nil {
-        self._swiftUIColor = SwiftUI.Color(asset: self)
-      }
-
-      return self._swiftUIColor as! SwiftUI.Color
-    }
-    set {
-      self._swiftUIColor = newValue
-    }
-  }
-  #endif
-
-  fileprivate init(name: String) {
-    self.name = name
+  public var image: Image {
+    let bundle = Bundle(for: BundleToken.self)
+    #if os(iOS) || os(tvOS)
+    let image = Image(named: name, in: bundle, compatibleWith: nil)
+    #elseif os(OSX)
+    let image = bundle.image(forResource: NSImage.Name(name))
+    #elseif os(watchOS)
+    let image = Image(named: name)
+    #endif
+    guard let result = image else { fatalError("Unable to load image named \(name).") }
+    return result
   }
 }
 
-public extension MdEditorColors.Color {
-  @available(iOS 11.0, tvOS 11.0, watchOS 4.0, macOS 10.13, *)
-  convenience init?(asset: MdEditorColors) {
-    let bundle = MdEditorResources.bundle
+public struct ColorAsset {
+  public fileprivate(set) var name: String
+
+  @available(iOS 11.0, tvOS 11.0, watchOS 4.0, OSX 10.13, *)
+  public var color: AssetColorTypeAlias {
+    return AssetColorTypeAlias(asset: self)
+  }
+}
+
+public enum Asset {
+  public static let accentColor = ColorAsset(name: "AccentColor")
+
+  public static let allColors: [ColorAsset] = [
+    accentColor,
+  ]
+  public static let allImages: [ImageAsset] = [
+  ]
+  @available(*, deprecated, renamed: "allImages")
+  public static let allValues: [AssetType] = allImages
+}
+
+public extension Image {
+  @available(iOS 1.0, tvOS 1.0, watchOS 1.0, *)
+  @available(OSX, deprecated,
+    message: "This initializer is unsafe on macOS, please use the ImageAsset.image property")
+  convenience init!(asset: ImageAsset) {
+    #if os(iOS) || os(tvOS)
+    let bundle = Bundle(for: BundleToken.self)
+    self.init(named: asset.name, in: bundle, compatibleWith: nil)
+    #elseif os(OSX)
+    self.init(named: NSImage.Name(asset.name))
+    #elseif os(watchOS)
+    self.init(named: asset.name)
+    #endif
+  }
+}
+
+public extension AssetColorTypeAlias {
+  @available(iOS 11.0, tvOS 11.0, watchOS 4.0, OSX 10.13, *)
+  convenience init!(asset: ColorAsset) {
+    let bundle = Bundle(for: BundleToken.self)
     #if os(iOS) || os(tvOS)
     self.init(named: asset.name, in: bundle, compatibleWith: nil)
-    #elseif os(macOS)
+    #elseif os(OSX)
     self.init(named: NSColor.Name(asset.name), bundle: bundle)
     #elseif os(watchOS)
     self.init(named: asset.name)
@@ -79,15 +83,6 @@ public extension MdEditorColors.Color {
   }
 }
 
-#if canImport(SwiftUI)
-@available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-public extension SwiftUI.Color {
-  init(asset: MdEditorColors) {
-    let bundle = MdEditorResources.bundle
-    self.init(asset.name, bundle: bundle)
-  }
-}
-#endif
+private final class BundleToken {}
 
 // swiftlint:enable all
-// swiftformat:enable all

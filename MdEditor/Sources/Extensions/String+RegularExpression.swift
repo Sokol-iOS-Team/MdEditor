@@ -18,7 +18,7 @@ extension String {
 			   let group = Range(match.range(at: 1), in: text) {
 				return String(text[group])
 			}
-		} catch let error {
+		} catch {
 			print("invalid regex: \(error.localizedDescription)")
 		}
 		return nil

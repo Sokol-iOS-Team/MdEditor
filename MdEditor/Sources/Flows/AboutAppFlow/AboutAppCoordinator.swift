@@ -8,7 +8,6 @@
 import UIKit
 
 protocol IAboutAppCoordinator: ICoordinator {
-
 }
 
 class AboutAppCoordinator: IAboutAppCoordinator {

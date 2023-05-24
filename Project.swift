@@ -1,5 +1,9 @@
 import ProjectDescription
 
+
+let swiftLintScriptBody = "SwiftLint/swiftlint --fix && SwiftLint/swiftlint"
+let swiftLintScript = TargetScript.post(script: swiftLintScriptBody, name: "SwiftLint")
+
 let target = Target(
 	name: "MdEditor",
 	platform: .iOS,
@@ -10,6 +14,7 @@ let target = Target(
 	infoPlist: "MdEditor/Supporting Files/Info.plist",
 	sources: ["MdEditor/Sources/**"],
 	resources: ["MdEditor/Resources/**"],
+	scripts: [swiftLintScript],
 	dependencies: [
 		.external(name: "PinLayout")
 	]

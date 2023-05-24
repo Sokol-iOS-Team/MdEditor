@@ -26,5 +26,4 @@ class MenuBuilder: IMenuBuilder {
 			MenuItem(title: "About", iconName: "info.circle", menuType: .about)
 		]
 	}
-
 }
