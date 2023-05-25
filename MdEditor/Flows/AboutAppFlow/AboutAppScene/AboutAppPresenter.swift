@@ -31,7 +31,7 @@ class AboutAppPresenter: IAboutAppPresenter {
 
 	func present(response: AboutAppModel.Response) {
 		guard let mdString = try? String(contentsOf: response.url) else { fatalError("Some error") }
-		guard let html = markdownConverter?.convertMDtoHTML(text: mdString) else {return}
+		guard let html = markdownConverter?.convertMDToHTML(markdownText: mdString) else {return}
 
 		viewController?.render(viewModel: AboutAppModel.ViewModel(html: html))
 	}

@@ -24,3 +24,17 @@ extension String {
 		return nil
 	}
 }
+
+extension String {
+	var attributed: NSMutableAttributedString {
+		return NSMutableAttributedString(string: self)
+	}
+
+	static var lineBreak: NSMutableAttributedString {
+		return NSMutableAttributedString(string: "\n")
+	}
+
+	static var tab: NSMutableAttributedString {
+		return NSMutableAttributedString(string: "\t")
+	}
+}

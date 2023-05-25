@@ -42,10 +42,26 @@
 		89DBCC772A0FB7BD0078A1BC /* AboutAppModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DBCC712A0FB7BD0078A1BC /* AboutAppModels.swift */; };
 		89DBCC782A0FB7BD0078A1BC /* AboutAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DBCC722A0FB7BD0078A1BC /* AboutAppCoordinator.swift */; };
 		C4B37CD029F8FF3300777400 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B37CCF29F8FF3300777400 /* Extension+UIViewController.swift */; };
-		E04593352A05064700D6B533 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593322A05064700D6B533 /* MarkdownParser.swift */; };
+		E0405FDC2A1D101D007C79E2 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FDB2A1D101D007C79E2 /* Node.swift */; };
+		E0405FDF2A1D1233007C79E2 /* IVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FDE2A1D1233007C79E2 /* IVisitor.swift */; };
+		E0405FE12A1D1258007C79E2 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FE02A1D1258007C79E2 /* Document.swift */; };
+		E0405FE32A1D1280007C79E2 /* HeaderNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FE22A1D1280007C79E2 /* HeaderNode.swift */; };
+		E0405FE52A1D141D007C79E2 /* CiteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FE42A1D141D007C79E2 /* CiteNode.swift */; };
+		E0405FE82A1D18D3007C79E2 /* ParagraphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FE72A1D18D3007C79E2 /* ParagraphNode.swift */; };
+		E0405FEB2A1D1902007C79E2 /* ImageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FEA2A1D1902007C79E2 /* ImageNode.swift */; };
+		E0405FED2A1D1917007C79E2 /* TextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FEC2A1D1917007C79E2 /* TextNode.swift */; };
+		E0405FEF2A1D19E7007C79E2 /* Sequense+Joined.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FEE2A1D19E7007C79E2 /* Sequense+Joined.swift */; };
+		E0405FF32A1D3053007C79E2 /* AttributedTextVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FF22A1D3053007C79E2 /* AttributedTextVisitor.swift */; };
+		E0405FF52A1E11A6007C79E2 /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FF42A1E11A6007C79E2 /* Lexer.swift */; };
+		E0405FF72A1E12CD007C79E2 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FF62A1E12CD007C79E2 /* Token.swift */; };
+		E0405FF92A1E1301007C79E2 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FF82A1E1301007C79E2 /* Text.swift */; };
+		E0405FFC2A1F6F34007C79E2 /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FFB2A1F6F34007C79E2 /* Markdown.swift */; };
+		E0405FFE2A1F733B007C79E2 /* HtmlVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FFD2A1F733B007C79E2 /* HtmlVisitor.swift */; };
+		E04060002A1F7778007C79E2 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FFF2A1F7778007C79E2 /* Parser.swift */; };
 		E04593362A05064700D6B533 /* MarkdownСonverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593332A05064700D6B533 /* MarkdownСonverter.swift */; };
 		E04593472A0699E800D6B533 /* String+RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593462A0699E800D6B533 /* String+RegularExpression.swift */; };
 		E04593492A06AD4F00D6B533 /* NSRegularExpression+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593482A06AD4F00D6B533 /* NSRegularExpression+Extension.swift */; };
+		E0B100792A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B100782A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift */; };
 		E0B7942429F07A4B005ED2FB /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E0B7942329F07A4B005ED2FB /* PinLayout */; };
 		E0B7942729F07AF7005ED2FB /* Examples in Resources */ = {isa = PBXBuildFile; fileRef = E0B7942629F07AF7005ED2FB /* Examples */; };
 		E707721629F1C816006C022F /* FileManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707721529F1C816006C022F /* FileManagerViewController.swift */; };
@@ -96,7 +112,22 @@
 		89DBCC712A0FB7BD0078A1BC /* AboutAppModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppModels.swift; sourceTree = "<group>"; };
 		89DBCC722A0FB7BD0078A1BC /* AboutAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppCoordinator.swift; sourceTree = "<group>"; };
 		C4B37CCF29F8FF3300777400 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
-		E04593322A05064700D6B533 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
+		E0405FDB2A1D101D007C79E2 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		E0405FDE2A1D1233007C79E2 /* IVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVisitor.swift; sourceTree = "<group>"; };
+		E0405FE02A1D1258007C79E2 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		E0405FE22A1D1280007C79E2 /* HeaderNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderNode.swift; sourceTree = "<group>"; };
+		E0405FE42A1D141D007C79E2 /* CiteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiteNode.swift; sourceTree = "<group>"; };
+		E0405FE72A1D18D3007C79E2 /* ParagraphNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphNode.swift; sourceTree = "<group>"; };
+		E0405FEA2A1D1902007C79E2 /* ImageNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNode.swift; sourceTree = "<group>"; };
+		E0405FEC2A1D1917007C79E2 /* TextNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNode.swift; sourceTree = "<group>"; };
+		E0405FEE2A1D19E7007C79E2 /* Sequense+Joined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequense+Joined.swift"; sourceTree = "<group>"; };
+		E0405FF22A1D3053007C79E2 /* AttributedTextVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedTextVisitor.swift; sourceTree = "<group>"; };
+		E0405FF42A1E11A6007C79E2 /* Lexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
+		E0405FF62A1E12CD007C79E2 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		E0405FF82A1E1301007C79E2 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		E0405FFB2A1F6F34007C79E2 /* Markdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
+		E0405FFD2A1F733B007C79E2 /* HtmlVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlVisitor.swift; sourceTree = "<group>"; };
+		E0405FFF2A1F7778007C79E2 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		E04593332A05064700D6B533 /* MarkdownСonverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MarkdownСonverter.swift"; sourceTree = "<group>"; };
 		E04593382A05066F00D6B533 /* AboutAppInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppInteractor.swift; sourceTree = "<group>"; };
 		E04593392A05066F00D6B533 /* AboutAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +137,7 @@
 		E04593462A0699E800D6B533 /* String+RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RegularExpression.swift"; sourceTree = "<group>"; };
 		E04593482A06AD4F00D6B533 /* NSRegularExpression+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extension.swift"; sourceTree = "<group>"; };
 		E05DD8132A0EAB5500636801 /* AboutAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppCoordinator.swift; sourceTree = "<group>"; };
+		E0B100782A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawAttribitedTextVisitor.swift; sourceTree = "<group>"; };
 		E0B7942629F07AF7005ED2FB /* Examples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Examples; sourceTree = "<group>"; };
 		E707721529F1C816006C022F /* FileManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerViewController.swift; sourceTree = "<group>"; };
 		E707721729F1C82A006C022F /* FileManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerModel.swift; sourceTree = "<group>"; };
@@ -307,15 +339,55 @@
 				C4B37CCF29F8FF3300777400 /* Extension+UIViewController.swift */,
 				E04593462A0699E800D6B533 /* String+RegularExpression.swift */,
 				E04593482A06AD4F00D6B533 /* NSRegularExpression+Extension.swift */,
+				E0405FEE2A1D19E7007C79E2 /* Sequense+Joined.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E0405FDA2A1D100C007C79E2 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				E0405FDD2A1D1215007C79E2 /* Visitor */,
+				E0405FDB2A1D101D007C79E2 /* Node.swift */,
+				E0405FE02A1D1258007C79E2 /* Document.swift */,
+				E0405FE22A1D1280007C79E2 /* HeaderNode.swift */,
+				E0405FE42A1D141D007C79E2 /* CiteNode.swift */,
+				E0405FE72A1D18D3007C79E2 /* ParagraphNode.swift */,
+				E0405FEA2A1D1902007C79E2 /* ImageNode.swift */,
+				E0405FEC2A1D1917007C79E2 /* TextNode.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		E0405FDD2A1D1215007C79E2 /* Visitor */ = {
+			isa = PBXGroup;
+			children = (
+				E0405FDE2A1D1233007C79E2 /* IVisitor.swift */,
+				E0405FF22A1D3053007C79E2 /* AttributedTextVisitor.swift */,
+				E0405FFD2A1F733B007C79E2 /* HtmlVisitor.swift */,
+				E0B100782A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift */,
+			);
+			path = Visitor;
+			sourceTree = "<group>";
+		};
+		E0405FFA2A1F6F01007C79E2 /* Markdown */ = {
+			isa = PBXGroup;
+			children = (
+				E0405FF42A1E11A6007C79E2 /* Lexer.swift */,
+				E0405FFF2A1F7778007C79E2 /* Parser.swift */,
+				E0405FF62A1E12CD007C79E2 /* Token.swift */,
+				E0405FF82A1E1301007C79E2 /* Text.swift */,
+				E0405FFB2A1F6F34007C79E2 /* Markdown.swift */,
+			);
+			path = Markdown;
 			sourceTree = "<group>";
 		};
 		E04593302A0504B400D6B533 /* MarkdownConverter */ = {
 			isa = PBXGroup;
 			children = (
 				E04593332A05064700D6B533 /* MarkdownСonverter.swift */,
-				E04593322A05064700D6B533 /* MarkdownParser.swift */,
+				E0405FFA2A1F6F01007C79E2 /* Markdown */,
+				E0405FDA2A1D100C007C79E2 /* Nodes */,
 			);
 			path = MarkdownConverter;
 			sourceTree = "<group>";
@@ -491,32 +563,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0B100792A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift in Sources */,
 				89D6F1D329F127E2004280BB /* MainModel.swift in Sources */,
 				89DBCC752A0FB7BD0078A1BC /* AboutAppViewController.swift in Sources */,
+				E0405FDF2A1D1233007C79E2 /* IVisitor.swift in Sources */,
 				8905DD8F29FBF30000F2CE57 /* MainCoordinator.swift in Sources */,
 				89CF45552A052C8C0061D44A /* EditFileInteractor.swift in Sources */,
 				89DBCC782A0FB7BD0078A1BC /* AboutAppCoordinator.swift in Sources */,
+				E0405FEB2A1D1902007C79E2 /* ImageNode.swift in Sources */,
 				895422E929F1AD7E00751559 /* Assets.swift in Sources */,
 				E707721629F1C816006C022F /* FileManagerViewController.swift in Sources */,
+				E0405FE52A1D141D007C79E2 /* CiteNode.swift in Sources */,
+				E0405FFC2A1F6F34007C79E2 /* Markdown.swift in Sources */,
+				E0405FE12A1D1258007C79E2 /* Document.swift in Sources */,
 				E707722329F1D840006C022F /* FileManagerAssembler.swift in Sources */,
 				89DBCC772A0FB7BD0078A1BC /* AboutAppModels.swift in Sources */,
 				89DBCC732A0FB7BD0078A1BC /* AboutAppInteractor.swift in Sources */,
 				E707721829F1C82A006C022F /* FileManagerModel.swift in Sources */,
+				E0405FF72A1E12CD007C79E2 /* Token.swift in Sources */,
+				E0405FE82A1D18D3007C79E2 /* ParagraphNode.swift in Sources */,
 				89CF45592A052ED10061D44A /* EditFileViewController.swift in Sources */,
 				8905DD8D29FBF2D100F2CE57 /* AppCoordinator.swift in Sources */,
 				89DBCC742A0FB7BD0078A1BC /* AboutAppAssembler.swift in Sources */,
 				E7F108A329FA890200439C4E /* MdFileManager.swift in Sources */,
 				71B00C7C29EDD7D100D55690 /* MainViewController.swift in Sources */,
+				E0405FE32A1D1280007C79E2 /* HeaderNode.swift in Sources */,
 				89D6F1E229F14BA3004280BB /* MainAssembler.swift in Sources */,
 				89CF454F2A0524BF0061D44A /* EditFileCoordinator.swift in Sources */,
+				E0405FDC2A1D101D007C79E2 /* Node.swift in Sources */,
 				8905DD9129FBF51100F2CE57 /* FileManagerCoordinator.swift in Sources */,
+				E0405FED2A1D1917007C79E2 /* TextNode.swift in Sources */,
 				E04593472A0699E800D6B533 /* String+RegularExpression.swift in Sources */,
 				E04593492A06AD4F00D6B533 /* NSRegularExpression+Extension.swift in Sources */,
 				E04593362A05064700D6B533 /* MarkdownСonverter.swift in Sources */,
 				C4B37CD029F8FF3300777400 /* Extension+UIViewController.swift in Sources */,
+				E0405FF52A1E11A6007C79E2 /* Lexer.swift in Sources */,
 				89CF45532A052C280061D44A /* EditFileModel.swift in Sources */,
+				E0405FF92A1E1301007C79E2 /* Text.swift in Sources */,
 				89D6F1DC29F130E0004280BB /* MainPresenter.swift in Sources */,
 				8905DD8B29FBF25300F2CE57 /* ICoordinator.swift in Sources */,
+				E0405FEF2A1D19E7007C79E2 /* Sequense+Joined.swift in Sources */,
 				89CF455B2A052FA10061D44A /* EditFileAssembler.swift in Sources */,
 				71B00C7829EDD7D100D55690 /* AppDelegate.swift in Sources */,
 				895422EA29F1AD7E00751559 /* Strings.swift in Sources */,
@@ -528,7 +614,9 @@
 				E707721C29F1C844006C022F /* FileManagerInteractor.swift in Sources */,
 				E707721A29F1C837006C022F /* FileManagerPresenter.swift in Sources */,
 				89DBCC762A0FB7BD0078A1BC /* AboutAppPresenter.swift in Sources */,
-				E04593352A05064700D6B533 /* MarkdownParser.swift in Sources */,
+				E04060002A1F7778007C79E2 /* Parser.swift in Sources */,
+				E0405FFE2A1F733B007C79E2 /* HtmlVisitor.swift in Sources */,
+				E0405FF32A1D3053007C79E2 /* AttributedTextVisitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

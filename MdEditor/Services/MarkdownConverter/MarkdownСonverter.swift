@@ -9,7 +9,9 @@ import UIKit
 
 /// Протокол MarkdownСonverter.
 protocol IMarkdownСonverter {
-	func convertMDtoHTML(text: String) -> String
+	func convertMDToHTML(markdownText: String) -> String
+	func convertMDToAttributedTextConverter(markdownText: String) -> NSMutableAttributedString
+	func convertMDToPDF(markdownText: String, pdfAuthor: String, pdfTitle: String) -> Data
 }
 
 /// Методы класса MarkdownСonverter осушествляют конвертацию текста с разметкой MarkDown в код HTML страницы.
@@ -17,33 +19,46 @@ final class MarkdownСonverter: IMarkdownСonverter {
 
 	// MARK: - Public properties
 
-	var markdownParser: IMarkdownParser
-	var mdFileManager: IMdFileManager
+	private let lexer = Markdown.Lexer()
+	private let parser = Markdown.Parser()
+	private var mdFileManager: IMdFileManager
 
 	// MARK: - Lifecycle
 
-	init(markdownParser: IMarkdownParser, mdFileManager: IMdFileManager) {
-		self.markdownParser = markdownParser
+	init(mdFileManager: IMdFileManager) {
 		self.mdFileManager = mdFileManager
 	}
 
 	// MARK: - Public methods
 
-	func convertMDtoHTML(text: String) -> String {
-		let lines = text.components(separatedBy: .newlines)
-		var html = [String?]()
+	func convertMDToHTML(markdownText: String) -> String {
+		let tokens = lexer.tokenize(markdownText)
+		let document = parser.parse(tokens: tokens)
 
-		lines.forEach { line in
-			let htmlLine = markdownParser.fixHtmlChar(text: line)
-			html.append(markdownParser.parseHeader(text: htmlLine))
-			html.append(markdownParser.parseCite(text: htmlLine))
-			html.append(markdownParser.parseParagraph(text: htmlLine))
-		}
+		let visitor = HtmlVisitor()
+		let html = document.accept(visitor: visitor)
 
-		return makeHtml(html.compactMap { $0 }.joined(separator: "\n"))
+		return makeHtml(html.joined())
 	}
 
+	func convertMDToAttributedTextConverter(markdownText: String) -> NSMutableAttributedString {
+		let tokens = lexer.tokenize(markdownText)
+		let document = parser.parse(tokens: tokens)
+
+		return convert(document: document)
+	}
+
+	func convertMDToPDF(markdownText: String, pdfAuthor: String, pdfTitle: String) -> Data {
+		Data()
+	}
 	// MARK: - Private methods
+
+	private func convert(document: Document) -> NSMutableAttributedString {
+		let visitor = AttribitedTextVisitor()
+
+		let result = document.accept(visitor: visitor)
+		return result.joined()
+	}
 
 	/// Метод оборачивает текст в базовый ситаксес html разметки и подключает CSS файл со стилями.
 	/// - Parameter text: текст с разметкой html.
