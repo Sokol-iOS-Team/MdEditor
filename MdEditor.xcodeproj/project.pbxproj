@@ -62,6 +62,8 @@
 		E04593472A0699E800D6B533 /* String+RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593462A0699E800D6B533 /* String+RegularExpression.swift */; };
 		E04593492A06AD4F00D6B533 /* NSRegularExpression+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04593482A06AD4F00D6B533 /* NSRegularExpression+Extension.swift */; };
 		E0B100792A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B100782A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift */; };
+		E0B1007B2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1007A2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift */; };
+		E0B1007D2A1F7FC3007C5D2A /* NSAttributedString+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1007C2A1F7FC3007C5D2A /* NSAttributedString+Height.swift */; };
 		E0B7942429F07A4B005ED2FB /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E0B7942329F07A4B005ED2FB /* PinLayout */; };
 		E0B7942729F07AF7005ED2FB /* Examples in Resources */ = {isa = PBXBuildFile; fileRef = E0B7942629F07AF7005ED2FB /* Examples */; };
 		E707721629F1C816006C022F /* FileManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707721529F1C816006C022F /* FileManagerViewController.swift */; };
@@ -138,6 +140,8 @@
 		E04593482A06AD4F00D6B533 /* NSRegularExpression+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extension.swift"; sourceTree = "<group>"; };
 		E05DD8132A0EAB5500636801 /* AboutAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppCoordinator.swift; sourceTree = "<group>"; };
 		E0B100782A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawAttribitedTextVisitor.swift; sourceTree = "<group>"; };
+		E0B1007A2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGraphicsPDFRendererContext.swift; sourceTree = "<group>"; };
+		E0B1007C2A1F7FC3007C5D2A /* NSAttributedString+Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Height.swift"; sourceTree = "<group>"; };
 		E0B7942629F07AF7005ED2FB /* Examples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Examples; sourceTree = "<group>"; };
 		E707721529F1C816006C022F /* FileManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerViewController.swift; sourceTree = "<group>"; };
 		E707721729F1C82A006C022F /* FileManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerModel.swift; sourceTree = "<group>"; };
@@ -340,6 +344,8 @@
 				E04593462A0699E800D6B533 /* String+RegularExpression.swift */,
 				E04593482A06AD4F00D6B533 /* NSRegularExpression+Extension.swift */,
 				E0405FEE2A1D19E7007C79E2 /* Sequense+Joined.swift */,
+				E0B1007A2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift */,
+				E0B1007C2A1F7FC3007C5D2A /* NSAttributedString+Height.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -569,9 +575,11 @@
 				E0405FDF2A1D1233007C79E2 /* IVisitor.swift in Sources */,
 				8905DD8F29FBF30000F2CE57 /* MainCoordinator.swift in Sources */,
 				89CF45552A052C8C0061D44A /* EditFileInteractor.swift in Sources */,
+				E0B1007D2A1F7FC3007C5D2A /* NSAttributedString+Height.swift in Sources */,
 				89DBCC782A0FB7BD0078A1BC /* AboutAppCoordinator.swift in Sources */,
 				E0405FEB2A1D1902007C79E2 /* ImageNode.swift in Sources */,
 				895422E929F1AD7E00751559 /* Assets.swift in Sources */,
+				E0B1007B2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift in Sources */,
 				E707721629F1C816006C022F /* FileManagerViewController.swift in Sources */,
 				E0405FE52A1D141D007C79E2 /* CiteNode.swift in Sources */,
 				E0405FFC2A1F6F34007C79E2 /* Markdown.swift in Sources */,

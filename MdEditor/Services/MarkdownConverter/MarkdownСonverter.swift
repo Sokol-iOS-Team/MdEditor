@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PDFKit
 
 /// Протокол MarkdownСonverter.
 protocol IMarkdownСonverter {
@@ -49,7 +50,39 @@ final class MarkdownСonverter: IMarkdownСonverter {
 	}
 
 	func convertMDToPDF(markdownText: String, pdfAuthor: String, pdfTitle: String) -> Data {
-		Data()
+		let tokens = lexer.tokenize(markdownText)
+		let document = parser.parse(tokens: tokens)
+
+		let visitor = AttribitedTextVisitor()
+		let lines = document.accept(visitor: visitor)
+
+		let pdfMetaData  = [
+			kCGPDFContextAuthor: pdfAuthor,
+			kCGPDFContextTitle: pdfTitle
+		]
+
+		let format = UIGraphicsPDFRendererFormat()
+		format.documentInfo = pdfMetaData as [String: Any]
+
+		let pageRect = CGRect(x: 10, y: 10, width: 595.2, height: 841.8)
+		let graphicsRenderer = UIGraphicsPDFRenderer(bounds: pageRect, format: format)
+
+		let data = graphicsRenderer.pdfData { context in
+			context.beginPage()
+
+			var cursor: CGFloat = 40
+
+			lines.forEach { line in
+				cursor = context.addAttributedText(
+					text: line,
+					indent: 24.0,
+					cursor: cursor,
+					pdfSize: pageRect.size
+				)
+				cursor += 24
+			}
+		}
+		return data
 	}
 	// MARK: - Private methods
 
