@@ -17,7 +17,7 @@ class AboutAppAssembler {
 	static func assembly(coordinator: IAboutAppCoordinator) -> UIViewController {
 		let aboutAppViewController = AboutAppViewController()
 		let mdFileManager = MdFileManager()
-		let markdownConverter = MarkdownСonverter(markdownParser: MarkdownParser(), mdFileManager: mdFileManager)
+		let markdownConverter = MarkdownСonverter(mdFileManager: mdFileManager)
 
 		let aboutAppPresenter = AboutAppPresenter(
 			viewController: aboutAppViewController,
