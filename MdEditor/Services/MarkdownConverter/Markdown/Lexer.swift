@@ -64,9 +64,10 @@ private extension Markdown.Lexer {
 
 	func parseHeader(rawText: String) -> Markdown.Token? {
 		let pattern = RegexPatern.header
-		// TODO - Исправить баг использования знака "#" внутри тексте.
-		if let text = rawText.group(for: pattern) {
+		if let header = rawText.range(of: pattern, options: .regularExpression) {
+			let text = String(rawText[header.upperBound...])
 			let level = rawText.filter { $0 == "#" }.count
+
 			return .header(level: level, text: parseText(rawText: text))
 		}
 

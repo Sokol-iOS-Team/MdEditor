@@ -11,6 +11,7 @@ import Foundation
 protocol IEditFileInteractor: AnyObject {
 	func fetchData()
 	func closeFile()
+	func showFilePreview()
 }
 
 /// Класс для реализации бизнес логики редактирования файла
@@ -43,15 +44,20 @@ final class EditFileInteractor: IEditFileInteractor {
 
 	// MARK: - Internal Methods
 
-	/// Метод закрытия файла
-	func closeFile() {
-		coordinator.finish()
-	}
-
 	/// Метод для получения текста по ссылке и его дальнейшей отправки
 	func fetchData() {
 		guard let currentURL = currentURL else { return }
 		let response = EditFileModel.Response(url: currentURL)
 		presenter.present(response: response)
+	}
+
+	/// Метод закрытия файла
+	func closeFile() {
+		coordinator.finish()
+	}
+
+	/// Метод открытия экрана просмотра превью файла в PDF
+	func showFilePreview() {
+		coordinator.showFilePreview()
 	}
 }

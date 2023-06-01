@@ -8,7 +8,9 @@
 import UIKit
 
 /// Протокол координатора экрана редактирования файла
-protocol IEditFileCoordinator: ICoordinator {}
+protocol IEditFileCoordinator: ICoordinator {
+	func showFilePreview()
+}
 
 /// Класс координатора экрана редактирования файла
 final class EditFileCoordinator: IEditFileCoordinator {
@@ -51,5 +53,12 @@ final class EditFileCoordinator: IEditFileCoordinator {
 		navigationController.popViewController(animated: false)
 		childCoordinators.removeAll()
 		finishDelegate?.didFinish(self)
+	}
+
+	// MARK: - IEditFileCoordinator
+
+	func showFilePreview() {
+		let previewMarkdownViewController = PreviewMarkdownAssembler.assembly(coordinator: self, currentURL: currentURL)
+		navigationController.pushViewController(previewMarkdownViewController, animated: false)
 	}
 }
