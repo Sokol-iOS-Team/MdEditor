@@ -22,9 +22,13 @@ final class PreviewMarkdownViewController: UIViewController {
 
 	// MARK: - Constants
 
+	private let smallIndent: CGFloat = 8
+	private let mediumIndent: CGFloat = 16
+
 	// MARK: - Private Properties
 
 	private lazy var pdfView = makePDFView()
+	private var viewModel = PreviewMarkdownModel.ViewModel(data: Data())
 
 	// MARK: - Lifecycle
 
@@ -35,6 +39,8 @@ final class PreviewMarkdownViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		navigationItem.rightBarButtonItems = [makePrintBarButtonItem(), makeShareBarButtonItem()]
+
 		interactor?.fetchData()
 	}
 
@@ -44,18 +50,59 @@ final class PreviewMarkdownViewController: UIViewController {
 		let pdfView = PDFView()
 		pdfView.autoScales = true
 		pdfView.pageBreakMargins = UIEdgeInsets(
-			top: 8,
-			left: 16,
-			bottom: 8,
-			right: 16
+			top: smallIndent,
+			left: mediumIndent,
+			bottom: smallIndent,
+			right: mediumIndent
 		)
 
 		return pdfView
 	}
+
+	private func makePrintBarButtonItem() -> UIBarButtonItem {
+		let previewButton = UIBarButtonItem(
+			image: UIImage(systemName: "printer"),
+			style: .done,
+			target: self,
+			action: #selector(didTouchUpInsidePrintButton(_:))
+		)
+
+		return previewButton
+	}
+
+	private func makeShareBarButtonItem() -> UIBarButtonItem {
+		let previewButton = UIBarButtonItem(
+			image: UIImage(systemName: "square.and.arrow.up"),
+			style: .done,
+			target: self,
+			action: #selector(didTouchUpInsideShareButton(_:))
+		)
+
+		return previewButton
+	}
+
+	// MARK: - Actions
+
+	@objc private func didTouchUpInsidePrintButton(_ button: UIBarButtonItem) {
+		let printInteractionController = UIPrintInteractionController.shared
+		printInteractionController.printingItem = viewModel.data
+		printInteractionController.present(animated: true)
+	}
+
+	@objc private func didTouchUpInsideShareButton(_ button: UIBarButtonItem) {
+		let activityViewController = UIActivityViewController(
+			activityItems: [viewModel.data],
+			applicationActivities: nil
+		)
+
+		present(activityViewController, animated: true, completion: nil)
+	}
+
 }
 
 extension PreviewMarkdownViewController: IPreviewMarkdownViewController {
 	func render(viewModel: PreviewMarkdownModel.ViewModel) {
+		self.viewModel = viewModel
 		pdfView.document = PDFDocument(data: viewModel.data)
 	}
 }
