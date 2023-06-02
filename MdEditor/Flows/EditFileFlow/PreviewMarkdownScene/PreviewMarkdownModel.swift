@@ -13,10 +13,6 @@ enum PreviewMarkdownModel {
 		let data: Data
 	}
 
-	struct Request {
-
-	}
-
 	struct Responce {
 		let url: URL
 	}

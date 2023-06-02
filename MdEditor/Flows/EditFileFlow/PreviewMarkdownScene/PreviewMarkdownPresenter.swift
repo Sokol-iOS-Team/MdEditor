@@ -31,6 +31,7 @@ final class PreviewMarkdownPresenter: IPreviewMarkdownPresenter {
 
 	// MARK: - Internal Methods
 
+	/// Метод для получения текста, его обработки и дальнейшей передачи во ViewController
 	func present(response: PreviewMarkdownModel.Responce) {
 		guard let mdString = try? String(contentsOf: response.url) else { fatalError("Some error") }
 		let data = markdownConverter.convertMDToPDF(markdownText: mdString, pdfAuthor: "", pdfTitle: "")

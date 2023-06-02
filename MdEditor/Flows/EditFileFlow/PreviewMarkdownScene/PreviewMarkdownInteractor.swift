@@ -24,6 +24,11 @@ final class PreviewMarkdownInteractor: IPreviewMarkdownInteractor {
 
 	// MARK: - Lifecycle
 
+	/// Метод инициализации PreviewMarkdownInteractor
+	/// - Parameters:
+	///   - presenter: presenter подписанный на протокол IPreviewMarkdownPresenter
+	///   - coordinator: coordinator одписанный на протокол IEditFileCoordinator
+	///   - currentURL: url для получения файла
 	init(presenter: IPreviewMarkdownPresenter, coordinator: IEditFileCoordinator, currentURL: URL?) {
 		self.presenter = presenter
 		self.coordinator = coordinator
@@ -32,6 +37,7 @@ final class PreviewMarkdownInteractor: IPreviewMarkdownInteractor {
 
 	// MARK: - Internal Methods
 
+	/// Метод для получения текста по ссылке и его дальнейшей отправки
 	func fetchData() {
 		guard let currentURL else { return }
 		let response = PreviewMarkdownModel.Responce(url: currentURL)

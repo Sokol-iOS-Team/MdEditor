@@ -29,7 +29,6 @@ final class EditFileInteractor: IEditFileInteractor {
 	/// Метод инициализации EditFileInteractor
 	/// - Parameters:
 	///   - presenter: presenter подписанный на протокол IEditFilePresenter
-	///   - mdFileManager: mdFileManager подписанный на протокол IMdFileManager
 	///   - coordinator: coordinator одписанный на протокол IEditFileCoordinator
 	///   - currentURL: url для получения файла
 	init(

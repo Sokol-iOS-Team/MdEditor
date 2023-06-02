@@ -101,6 +101,8 @@ final class PreviewMarkdownViewController: UIViewController {
 }
 
 extension PreviewMarkdownViewController: IPreviewMarkdownViewController {
+	/// Метод для отображения данных на экране превью
+	/// - Parameter viewModel: принимает PreviewMarkdownModel.ViewModel в качестве параметра
 	func render(viewModel: PreviewMarkdownModel.ViewModel) {
 		self.viewModel = viewModel
 		pdfView.document = PDFDocument(data: viewModel.data)
