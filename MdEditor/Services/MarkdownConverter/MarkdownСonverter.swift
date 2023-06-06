@@ -18,11 +18,21 @@ protocol IMarkdownСonverter {
 /// Методы класса MarkdownСonverter осушествляют конвертацию текста с разметкой MarkDown в код HTML страницы.
 final class MarkdownСonverter: IMarkdownСonverter {
 
-	// MARK: - Public properties
+	// MARK: - Private properties
 
 	private let lexer = Markdown.Lexer()
 	private let parser = Markdown.Parser()
 	private var mdFileManager: IMdFileManager
+
+	// MARK: - Constants
+
+	private enum Constants {
+		enum PDF {
+			static let pageSizeA4 = CGSize(width: 595.2, height: 841.8)
+			static let defaultCursor: CGFloat = 24
+			static let indent: CGFloat = 24
+		}
+	}
 
 	// MARK: - Lifecycle
 
@@ -64,22 +74,23 @@ final class MarkdownСonverter: IMarkdownСonverter {
 		let format = UIGraphicsPDFRendererFormat()
 		format.documentInfo = pdfMetaData as [String: Any]
 
-		let pageRect = CGRect(x: 10, y: 10, width: 595.2, height: 841.8)
+		let pageRect = CGRect(origin: .zero, size: Constants.PDF.pageSizeA4)
 		let graphicsRenderer = UIGraphicsPDFRenderer(bounds: pageRect, format: format)
 
 		let data = graphicsRenderer.pdfData { context in
 			context.beginPage()
 
-			var cursor: CGFloat = 40
+			var cursor = Constants.PDF.defaultCursor
 
 			lines.forEach { line in
 				cursor = context.addAttributedText(
 					text: line,
-					indent: 24.0,
-					cursor: cursor,
+					indent: Constants.PDF.indent,
+					startCursor: cursor,
+					defaultCursor: Constants.PDF.defaultCursor,
 					pdfSize: pageRect.size
 				)
-				cursor += 24
+				cursor += Constants.PDF.defaultCursor
 			}
 		}
 		return data

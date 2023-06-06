@@ -7,7 +7,10 @@
 
 import UIKit
 
+/// Класс для создания экрана просмотра и редактирования
 final class EditFileAssembler {
+
+	// MARK: - Internal Methods
 
 	/// Метод для создания экрана редактирования файла и зависимостей его VIP цикла
 	/// - Parameters:

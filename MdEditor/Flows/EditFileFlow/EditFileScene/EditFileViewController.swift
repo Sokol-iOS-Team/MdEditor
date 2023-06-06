@@ -22,17 +22,17 @@ final class EditFileViewController: UIViewController {
 
 	// MARK: - Private Properties
 
-	private var webView: WKWebView!
+	private lazy var webView = makeWebView()
 
 	// MARK: - Lifecycle
 
 	override func loadView() {
-		webView = WKWebView()
 		view = webView
 	}
 
 	override func viewDidLoad() {
 		navigationItem.leftBarButtonItem = makeCloseBarButtonItem()
+		navigationItem.rightBarButtonItem = makePreviewBarButtonItem()
 
 		interactor?.fetchData()
 	}
@@ -56,10 +56,25 @@ final class EditFileViewController: UIViewController {
 		return closeButton
 	}
 
+	private func makePreviewBarButtonItem() -> UIBarButtonItem {
+		let previewButton = UIBarButtonItem(
+			image: UIImage(systemName: "doc"),
+			style: .done,
+			target: self,
+			action: #selector(didTouchUpInsidePreviewButton(_:))
+		)
+
+		return previewButton
+	}
+
 	// MARK: - Actions
 
 	@objc private func didTouchUpInsideCloseButton(_ button: UIBarButtonItem) {
 		interactor?.closeFile()
+	}
+
+	@objc private func didTouchUpInsidePreviewButton(_ button: UIBarButtonItem) {
+		interactor?.showFilePreview()
 	}
 }
 
