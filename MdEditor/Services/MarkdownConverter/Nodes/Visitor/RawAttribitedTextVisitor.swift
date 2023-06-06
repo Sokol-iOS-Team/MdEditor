@@ -114,6 +114,22 @@ class RawAttribitedTextVisitor: IVisitor {
 		return result
 	}
 
+	func visit(node: InlineCodeNode) -> NSMutableAttributedString {
+		let attributes: [NSAttributedString.Key: Any] = [
+			.foregroundColor: UIColor.lightGray,
+			.font: UIFont.monospacedSystemFont(ofSize: 16.0, weight: .regular)
+		]
+		let mdcode = makeMarkDownCode("`")
+		let attributedString = NSMutableAttributedString(string: node.text, attributes: attributes)
+
+		let result = NSMutableAttributedString()
+		result.append(mdcode)
+		result.append(attributedString)
+		result.append(mdcode)
+
+		return result
+	}
+
 	func visit(node: ImageNode) -> NSMutableAttributedString {
 		let imageAttachment = NSTextAttachment()
 		imageAttachment.image = UIImage(named: node.url)

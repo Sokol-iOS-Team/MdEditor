@@ -76,7 +76,6 @@ private extension Markdown.Lexer {
 
 	func parseCite(rawText: String) -> Markdown.Token? {
 		let pattern = RegexPatern.cite
-		// TODO - Исправить баг использования знака ">" внутри тексте.
 		if let text = rawText.group(for: pattern) {
 			let level = rawText.filter { $0 == ">" }.count
 			return .cite(level: level, text: parseText(rawText: text))

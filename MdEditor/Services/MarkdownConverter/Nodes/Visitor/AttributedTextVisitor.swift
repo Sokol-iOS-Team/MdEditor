@@ -94,6 +94,16 @@ class AttribitedTextVisitor: IVisitor {
 		return result
 	}
 
+	func visit(node: InlineCodeNode) -> NSMutableAttributedString {
+		let attributes: [NSAttributedString.Key: Any] = [
+			.foregroundColor: UIColor.lightGray,
+			.font: UIFont.monospacedSystemFont(ofSize: 16.0, weight: .regular)
+		]
+		let attributedString = NSMutableAttributedString(string: node.text, attributes: attributes)
+
+		return attributedString
+	}
+
 	func visit(node: ImageNode) -> NSMutableAttributedString {
 		let imageAttachment = NSTextAttachment()
 		imageAttachment.image = UIImage(named: node.url)

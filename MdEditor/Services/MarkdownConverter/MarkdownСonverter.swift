@@ -26,6 +26,7 @@ final class MarkdownСonverter: IMarkdownСonverter {
 
 	// MARK: - Constants
 
+	// swiftlint:disable nesting
 	private enum Constants {
 		enum PDF {
 			static let pageSizeA4 = CGSize(width: 595.2, height: 841.8)
@@ -33,6 +34,7 @@ final class MarkdownСonverter: IMarkdownСonverter {
 			static let indent: CGFloat = 24
 		}
 	}
+	// swiftlint:enable nesting
 
 	// MARK: - Lifecycle
 

@@ -402,11 +402,11 @@
 		E0405FFA2A1F6F01007C79E2 /* Markdown */ = {
 			isa = PBXGroup;
 			children = (
+				E0405FFB2A1F6F34007C79E2 /* Markdown.swift */,
 				E0405FF42A1E11A6007C79E2 /* Lexer.swift */,
 				E0405FFF2A1F7778007C79E2 /* Parser.swift */,
 				E0405FF62A1E12CD007C79E2 /* Token.swift */,
 				E0405FF82A1E1301007C79E2 /* Text.swift */,
-				E0405FFB2A1F6F34007C79E2 /* Markdown.swift */,
 			);
 			path = Markdown;
 			sourceTree = "<group>";
