@@ -21,6 +21,7 @@ protocol IVisitor {
 	func visit(node: InlineCodeNode) -> Result
 	func visit(node: LineBreakNode) -> Result
 	func visit(node: ImageNode) -> Result
+	func visit(node: BulletedListNode) -> Result
 }
 
 // swiftlint:disable cyclomatic_complexity
@@ -47,6 +48,8 @@ extension IVisitor {
 			case let child as LineBreakNode:
 				return visit(node: child)
 			case let child as ImageNode:
+				return visit(node: child)
+			case let child as BulletedListNode:
 				return visit(node: child)
 			default:
 				return nil

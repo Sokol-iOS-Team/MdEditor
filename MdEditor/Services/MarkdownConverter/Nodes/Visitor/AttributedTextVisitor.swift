@@ -119,4 +119,19 @@ class AttribitedTextVisitor: IVisitor {
 	func visit(node: LineBreakNode) -> NSMutableAttributedString {
 		NSMutableAttributedString(string: "\n")
 	}
+
+	func visit(node: BulletedListNode) -> NSMutableAttributedString {
+		let text = visitChildren(of: node).joined()
+		let spacing = String(repeating: "  ", count: node.level)
+
+		let markerAttributes: [NSAttributedString.Key: Any] = [
+			.foregroundColor: UIColor.black,
+			.font: UIFont.systemFont(ofSize: 10)
+		]
+
+		let marker = NSMutableAttributedString(string: spacing + "●  ", attributes: markerAttributes)
+		marker.append(text)
+
+		return marker
+	}
 }

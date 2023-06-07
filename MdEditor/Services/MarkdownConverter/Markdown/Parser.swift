@@ -20,6 +20,7 @@ extension Markdown {
 				nodes.append(parseCite(tokens: &tokens))
 				nodes.append(parseParagraph(tokens: &tokens))
 				nodes.append(parseImage(tokens: &tokens))
+				nodes.append(parseBulletedList(tokens: &tokens))
 				nodes.append(parseLineBreak(tokens: &tokens))
 
 				let resultNodes = nodes.compactMap { $0 }
@@ -127,6 +128,20 @@ extension Markdown {
 			if case .lineBreak = token {
 				tokens.removeFirst()
 				return LineBreakNode()
+			}
+
+			return nil
+		}
+
+		func parseBulletedList(tokens: inout [Token]) -> BulletedListNode? {
+			guard let token = tokens.first else {
+				return nil
+			}
+
+			if case let .bulletedListItem(level, text) = token {
+				tokens.removeFirst()
+				let textNodes = parseText(token: text)
+				return BulletedListNode(level: level, children: textNodes)
 			}
 
 			return nil

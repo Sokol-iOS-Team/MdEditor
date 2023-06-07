@@ -36,19 +36,19 @@ class HtmlVisitor: IVisitor {
 	}
 
 	func visit(node: BoldNode) -> String {
-		"<strong>\(fixHTMLChar(text: node.text) )</strong>"
+		"<strong>\(fixHTMLChar(text: node.text))</strong>"
 	}
 
 	func visit(node: ItalicNode) -> String {
-		"<em>\(fixHTMLChar(text: node.text) )</em>"
+		"<em>\(fixHTMLChar(text: node.text))</em>"
 	}
 
 	func visit(node: BoldItalicNode) -> String {
-		"<strong><em>\(fixHTMLChar(text: node.text) )</em></strong>"
+		"<strong><em>\(fixHTMLChar(text: node.text))</em></strong>"
 	}
 
 	func visit(node: InlineCodeNode) -> String {
-		"<code>\(fixHTMLChar(text: node.text) )</code>"
+		"<code>\(fixHTMLChar(text: node.text))</code>"
 	}
 
 	func visit(node: ImageNode) -> String {
@@ -57,6 +57,11 @@ class HtmlVisitor: IVisitor {
 
 	func visit(node: LineBreakNode) -> String {
 		"<br/>"
+	}
+
+	func  visit(node: BulletedListNode) -> String {
+		let result = visitChildren(of: node).joined()
+		return "<li>\(result)</li>"
 	}
 
 	// MARK: - Private

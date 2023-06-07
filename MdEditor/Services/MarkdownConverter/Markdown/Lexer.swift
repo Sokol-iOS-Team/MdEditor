@@ -11,10 +11,9 @@ import Foundation
 enum RegexPatern {
 	static let header = #"^(#{1,6}) "#
 	static let cite = #"^>{1,6}(.*)"#
-	static let notParagraph = #"^[#>]"#
-
-	// TODO - Реализовать парсинг по регулярным выражениям для списка и нумерованного списка.
-	static let list = #"^([ \t]*)-\s+(.*)"#
+	static let notParagraph = #"^[#>-]|^([ \t]*)-\s(.*)"#
+	static let bulletedlist = #"^[ \t]*-\s+(.*)"#
+	// TODO - Реализовать парсинг по регулярным выражениям для нумерованного списка.
 	static let numberList = #"^([ \t]*)[\d]+\.\s+(.*)"#
 }
 
@@ -45,6 +44,7 @@ extension Markdown {
 				tokens.append(parseLineBreak(rawText: line))
 				tokens.append(parseHeader(rawText: line))
 				tokens.append(parseCite(rawText: line))
+				tokens.append(parseBulletedList(rawText: line))
 				tokens.append(parseTextBlock(rawText: line))
 			}
 
@@ -80,6 +80,20 @@ private extension Markdown.Lexer {
 			let level = rawText.filter { $0 == ">" }.count
 			return .cite(level: level, text: parseText(rawText: text))
 		}
+		return nil
+	}
+
+	func parseBulletedList(rawText: String) -> Markdown.Token? {
+		let pattern = RegexPatern.bulletedlist
+		if let text = rawText.group(for: pattern) {
+			if let firstNotSpace = rawText.first(where: { $0 != " " }),
+			   let firstNotSpaceIndex = rawText.firstIndex(of: firstNotSpace) {
+				let level = rawText.distance(from: rawText.startIndex, to: firstNotSpaceIndex) + 1
+
+				return .bulletedListItem(level: level, text: parseText(rawText: text))
+			}
+		}
+
 		return nil
 	}
 
