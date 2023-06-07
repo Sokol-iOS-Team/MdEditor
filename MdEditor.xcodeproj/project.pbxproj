@@ -21,6 +21,7 @@
 		8905DD8D29FBF2D100F2CE57 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8905DD8C29FBF2D100F2CE57 /* AppCoordinator.swift */; };
 		8905DD8F29FBF30000F2CE57 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8905DD8E29FBF30000F2CE57 /* MainCoordinator.swift */; };
 		8905DD9129FBF51100F2CE57 /* FileManagerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8905DD9029FBF51100F2CE57 /* FileManagerCoordinator.swift */; };
+		8932C6742A2F56A500EA8751 /* BulletedListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932C6732A2F56A500EA8751 /* BulletedListNode.swift */; };
 		895422E929F1AD7E00751559 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895422E729F1AD7E00751559 /* Assets.swift */; };
 		895422EA29F1AD7E00751559 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895422E829F1AD7E00751559 /* Strings.swift */; };
 		896C79212A276C0900568828 /* PreviewMarkdownAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896C79202A276C0900568828 /* PreviewMarkdownAssembler.swift */; };
@@ -98,6 +99,7 @@
 		8905DD8C29FBF2D100F2CE57 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8905DD8E29FBF30000F2CE57 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		8905DD9029FBF51100F2CE57 /* FileManagerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerCoordinator.swift; sourceTree = "<group>"; };
+		8932C6732A2F56A500EA8751 /* BulletedListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletedListNode.swift; sourceTree = "<group>"; };
 		895422E729F1AD7E00751559 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		895422E829F1AD7E00751559 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		896C79202A276C0900568828 /* PreviewMarkdownAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMarkdownAssembler.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				E0405FE72A1D18D3007C79E2 /* ParagraphNode.swift */,
 				E0405FEA2A1D1902007C79E2 /* ImageNode.swift */,
 				E0405FEC2A1D1917007C79E2 /* TextNode.swift */,
+				8932C6732A2F56A500EA8751 /* BulletedListNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -402,11 +405,11 @@
 		E0405FFA2A1F6F01007C79E2 /* Markdown */ = {
 			isa = PBXGroup;
 			children = (
+				E0405FFB2A1F6F34007C79E2 /* Markdown.swift */,
 				E0405FF42A1E11A6007C79E2 /* Lexer.swift */,
 				E0405FFF2A1F7778007C79E2 /* Parser.swift */,
 				E0405FF62A1E12CD007C79E2 /* Token.swift */,
 				E0405FF82A1E1301007C79E2 /* Text.swift */,
-				E0405FFB2A1F6F34007C79E2 /* Markdown.swift */,
 			);
 			path = Markdown;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 				89CF45532A052C280061D44A /* EditFileModel.swift in Sources */,
 				E0405FF92A1E1301007C79E2 /* Text.swift in Sources */,
 				89D6F1DC29F130E0004280BB /* MainPresenter.swift in Sources */,
+				8932C6742A2F56A500EA8751 /* BulletedListNode.swift in Sources */,
 				896C79232A276DD600568828 /* PreviewMarkdownModel.swift in Sources */,
 				8905DD8B29FBF25300F2CE57 /* ICoordinator.swift in Sources */,
 				E0405FEF2A1D19E7007C79E2 /* Sequense+Joined.swift in Sources */,

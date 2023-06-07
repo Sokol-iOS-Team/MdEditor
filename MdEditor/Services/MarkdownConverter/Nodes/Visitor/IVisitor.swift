@@ -18,10 +18,13 @@ protocol IVisitor {
 	func visit(node: BoldNode) -> Result
 	func visit(node: ItalicNode) -> Result
 	func visit(node: BoldItalicNode) -> Result
+	func visit(node: InlineCodeNode) -> Result
 	func visit(node: LineBreakNode) -> Result
 	func visit(node: ImageNode) -> Result
+	func visit(node: BulletedListNode) -> Result
 }
 
+// swiftlint:disable cyclomatic_complexity
 extension IVisitor {
 	public func visitChildren(of node: INode) -> [Result] {
 		return node.children.compactMap { child in
@@ -40,9 +43,13 @@ extension IVisitor {
 				return visit(node: child)
 			case let child as BoldItalicNode:
 				return visit(node: child)
+			case let child as InlineCodeNode:
+				return visit(node: child)
 			case let child as LineBreakNode:
 				return visit(node: child)
 			case let child as ImageNode:
+				return visit(node: child)
+			case let child as BulletedListNode:
 				return visit(node: child)
 			default:
 				return nil
@@ -50,3 +57,4 @@ extension IVisitor {
 		}
 	}
 }
+// swiftlint:enable cyclomatic_complexity

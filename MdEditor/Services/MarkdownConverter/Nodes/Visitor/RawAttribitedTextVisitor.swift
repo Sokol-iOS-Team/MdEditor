@@ -114,6 +114,22 @@ class RawAttribitedTextVisitor: IVisitor {
 		return result
 	}
 
+	func visit(node: InlineCodeNode) -> NSMutableAttributedString {
+		let attributes: [NSAttributedString.Key: Any] = [
+			.foregroundColor: UIColor.lightGray,
+			.font: UIFont.monospacedSystemFont(ofSize: 16.0, weight: .regular)
+		]
+		let mdcode = makeMarkDownCode("`")
+		let attributedString = NSMutableAttributedString(string: node.text, attributes: attributes)
+
+		let result = NSMutableAttributedString()
+		result.append(mdcode)
+		result.append(attributedString)
+		result.append(mdcode)
+
+		return result
+	}
+
 	func visit(node: ImageNode) -> NSMutableAttributedString {
 		let imageAttachment = NSTextAttachment()
 		imageAttachment.image = UIImage(named: node.url)
@@ -139,5 +155,20 @@ class RawAttribitedTextVisitor: IVisitor {
 
 	func visit(node: LineBreakNode) -> NSMutableAttributedString {
 		NSMutableAttributedString(string: "\n")
+	}
+
+	func visit(node: BulletedListNode) -> NSMutableAttributedString {
+		let text = visitChildren(of: node).joined()
+		let spacing = String(repeating: "  ", count: node.level)
+
+		let markerAttributes: [NSAttributedString.Key: Any] = [
+			.foregroundColor: UIColor.black,
+			.font: UIFont.systemFont(ofSize: 10)
+		]
+
+		let marker = NSMutableAttributedString(string: spacing + "●  ", attributes: markerAttributes)
+		marker.append(text)
+
+		return marker
 	}
 }

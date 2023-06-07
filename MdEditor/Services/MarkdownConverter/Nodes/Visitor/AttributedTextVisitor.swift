@@ -94,6 +94,16 @@ class AttribitedTextVisitor: IVisitor {
 		return result
 	}
 
+	func visit(node: InlineCodeNode) -> NSMutableAttributedString {
+		let attributes: [NSAttributedString.Key: Any] = [
+			.foregroundColor: UIColor.lightGray,
+			.font: UIFont.monospacedSystemFont(ofSize: 16.0, weight: .regular)
+		]
+		let attributedString = NSMutableAttributedString(string: node.text, attributes: attributes)
+
+		return attributedString
+	}
+
 	func visit(node: ImageNode) -> NSMutableAttributedString {
 		let imageAttachment = NSTextAttachment()
 		imageAttachment.image = UIImage(named: node.url)
@@ -108,5 +118,20 @@ class AttribitedTextVisitor: IVisitor {
 
 	func visit(node: LineBreakNode) -> NSMutableAttributedString {
 		NSMutableAttributedString(string: "\n")
+	}
+
+	func visit(node: BulletedListNode) -> NSMutableAttributedString {
+		let text = visitChildren(of: node).joined()
+		let spacing = String(repeating: "  ", count: node.level)
+
+		let markerAttributes: [NSAttributedString.Key: Any] = [
+			.foregroundColor: UIColor.black,
+			.font: UIFont.systemFont(ofSize: 10)
+		]
+
+		let marker = NSMutableAttributedString(string: spacing + "●  ", attributes: markerAttributes)
+		marker.append(text)
+
+		return marker
 	}
 }
