@@ -9,8 +9,8 @@ import Foundation
 
 enum AuthorizationModels {
 	struct Request {
-		var login: String
-		var password: String
+		var login: Login
+		var password: Password
 	}
 
 	struct Response {

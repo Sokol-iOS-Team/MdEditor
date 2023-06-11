@@ -82,6 +82,22 @@
 		E04AD4802A34ACF600C3A4D6 /* UIColor+HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD47F2A34ACF600C3A4D6 /* UIColor+HEX.swift */; };
 		E05AE9C32A35DE270099DAAA /* AuthContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9C22A35DE270099DAAA /* AuthContext.swift */; };
 		E05AE9C52A35DE560099DAAA /* StartEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9C42A35DE560099DAAA /* StartEntity.swift */; };
+		E05AE9C82A360A500099DAAA /* URLComponents+setParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9C72A360A500099DAAA /* URLComponents+setParameters.swift */; };
+		E05AE9CA2A360A890099DAAA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9C92A360A890099DAAA /* NetworkService.swift */; };
+		E05AE9CC2A360AB40099DAAA /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9CB2A360AB40099DAAA /* URLRequestBuilder.swift */; };
+		E05AE9CF2A360B290099DAAA /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9CE2A360B290099DAAA /* AuthToken.swift */; };
+		E05AE9D12A360B580099DAAA /* MaskStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9D02A360B580099DAAA /* MaskStringConvertible.swift */; };
+		E05AE9D32A360B780099DAAA /* HTTPNetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9D22A360B780099DAAA /* HTTPNetworkServiceError.swift */; };
+		E05AE9D52A360B8B0099DAAA /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9D42A360B8B0099DAAA /* ResponseStatus.swift */; };
+		E05AE9D72A360BA80099DAAA /* ResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9D62A360BA80099DAAA /* ResponseCode.swift */; };
+		E05AE9D92A360BD30099DAAA /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9D82A360BD30099DAAA /* NetworkResponse.swift */; };
+		E05AE9DB2A360C0D0099DAAA /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9DA2A360C0D0099DAAA /* Password.swift */; };
+		E05AE9DD2A360C3A0099DAAA /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9DC2A360C3A0099DAAA /* Parameters.swift */; };
+		E05AE9DF2A360C4D0099DAAA /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9DE2A360C4C0099DAAA /* ContentType.swift */; };
+		E05AE9E12A360C6D0099DAAA /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9E02A360C6D0099DAAA /* HTTPHeader.swift */; };
+		E05AE9E32A360C8D0099DAAA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9E22A360C8D0099DAAA /* HTTPMethod.swift */; };
+		E05AE9E52A360CA40099DAAA /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9E42A360CA30099DAAA /* NetworkRequest.swift */; };
+		E05AE9E92A3612C30099DAAA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AE9E82A3612C30099DAAA /* Login.swift */; };
 		E0B100792A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B100782A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift */; };
 		E0B1007B2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1007A2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift */; };
 		E0B1007D2A1F7FC3007C5D2A /* NSAttributedString+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1007C2A1F7FC3007C5D2A /* NSAttributedString+Height.swift */; };
@@ -182,6 +198,22 @@
 		E04AD47F2A34ACF600C3A4D6 /* UIColor+HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
 		E05AE9C22A35DE270099DAAA /* AuthContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthContext.swift; sourceTree = "<group>"; };
 		E05AE9C42A35DE560099DAAA /* StartEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartEntity.swift; sourceTree = "<group>"; };
+		E05AE9C72A360A500099DAAA /* URLComponents+setParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+setParameters.swift"; sourceTree = "<group>"; };
+		E05AE9C92A360A890099DAAA /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E05AE9CB2A360AB40099DAAA /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
+		E05AE9CE2A360B290099DAAA /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
+		E05AE9D02A360B580099DAAA /* MaskStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskStringConvertible.swift; sourceTree = "<group>"; };
+		E05AE9D22A360B780099DAAA /* HTTPNetworkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNetworkServiceError.swift; sourceTree = "<group>"; };
+		E05AE9D42A360B8B0099DAAA /* ResponseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
+		E05AE9D62A360BA80099DAAA /* ResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCode.swift; sourceTree = "<group>"; };
+		E05AE9D82A360BD30099DAAA /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		E05AE9DA2A360C0D0099DAAA /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
+		E05AE9DC2A360C3A0099DAAA /* Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
+		E05AE9DE2A360C4C0099DAAA /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
+		E05AE9E02A360C6D0099DAAA /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
+		E05AE9E22A360C8D0099DAAA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		E05AE9E42A360CA30099DAAA /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		E05AE9E82A3612C30099DAAA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		E05DD8132A0EAB5500636801 /* AboutAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppCoordinator.swift; sourceTree = "<group>"; };
 		E0B100782A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawAttribitedTextVisitor.swift; sourceTree = "<group>"; };
 		E0B1007A2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGraphicsPDFRendererContext.swift; sourceTree = "<group>"; };
@@ -290,6 +322,7 @@
 				8905DD8C29FBF2D100F2CE57 /* AppCoordinator.swift */,
 				E05AE9C22A35DE270099DAAA /* AuthContext.swift */,
 				E05AE9C42A35DE560099DAAA /* StartEntity.swift */,
+				E05AE9D02A360B580099DAAA /* MaskStringConvertible.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -504,6 +537,33 @@
 			path = Colors;
 			sourceTree = "<group>";
 		};
+		E05AE9C62A360A320099DAAA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E05AE9C72A360A500099DAAA /* URLComponents+setParameters.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		E05AE9CD2A360AFB0099DAAA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E05AE9E22A360C8D0099DAAA /* HTTPMethod.swift */,
+				E05AE9E42A360CA30099DAAA /* NetworkRequest.swift */,
+				E05AE9E02A360C6D0099DAAA /* HTTPHeader.swift */,
+				E05AE9DE2A360C4C0099DAAA /* ContentType.swift */,
+				E05AE9DC2A360C3A0099DAAA /* Parameters.swift */,
+				E05AE9DA2A360C0D0099DAAA /* Password.swift */,
+				E05AE9E82A3612C30099DAAA /* Login.swift */,
+				E05AE9D82A360BD30099DAAA /* NetworkResponse.swift */,
+				E05AE9D62A360BA80099DAAA /* ResponseCode.swift */,
+				E05AE9D42A360B8B0099DAAA /* ResponseStatus.swift */,
+				E05AE9D22A360B780099DAAA /* HTTPNetworkServiceError.swift */,
+				E05AE9CE2A360B290099DAAA /* AuthToken.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E0B7942129F0782A005ED2FB /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,9 +589,9 @@
 		E0B90FAD2A30AEB100363210 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E05AE9C62A360A320099DAAA /* Extension */,
 				E0B90FAF2A30AEE800363210 /* NetworkService */,
 				E0B90FAE2A30AEDC00363210 /* Authorization */,
-				E04AD4612A349DDF00C3A4D6 /* NetworkMonitor.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -547,6 +607,10 @@
 		E0B90FAF2A30AEE800363210 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				E05AE9CD2A360AFB0099DAAA /* Models */,
+				E04AD4612A349DDF00C3A4D6 /* NetworkMonitor.swift */,
+				E05AE9C92A360A890099DAAA /* NetworkService.swift */,
+				E05AE9CB2A360AB40099DAAA /* URLRequestBuilder.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -702,6 +766,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05AE9E12A360C6D0099DAAA /* HTTPHeader.swift in Sources */,
 				E0B100792A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift in Sources */,
 				89D6F1D329F127E2004280BB /* MainModel.swift in Sources */,
 				89DBCC752A0FB7BD0078A1BC /* AboutAppViewController.swift in Sources */,
@@ -713,15 +778,22 @@
 				89CF45552A052C8C0061D44A /* EditFileInteractor.swift in Sources */,
 				E0B1007D2A1F7FC3007C5D2A /* NSAttributedString+Height.swift in Sources */,
 				E04AD47E2A34ACB100C3A4D6 /* UIColor+Dynamic.swift in Sources */,
+				E05AE9CC2A360AB40099DAAA /* URLRequestBuilder.swift in Sources */,
 				E0C20E482A31F00700915256 /* OAuthManager.swift in Sources */,
 				E04AD4652A34A55400C3A4D6 /* AuthorizationCoordinator.swift in Sources */,
+				E05AE9D52A360B8B0099DAAA /* ResponseStatus.swift in Sources */,
+				E05AE9CA2A360A890099DAAA /* NetworkService.swift in Sources */,
 				89DBCC782A0FB7BD0078A1BC /* AboutAppCoordinator.swift in Sources */,
+				E05AE9D72A360BA80099DAAA /* ResponseCode.swift in Sources */,
 				E04AD4792A34A85500C3A4D6 /* Sizes.swift in Sources */,
+				E05AE9E32A360C8D0099DAAA /* HTTPMethod.swift in Sources */,
 				E0405FEB2A1D1902007C79E2 /* ImageNode.swift in Sources */,
 				895422E929F1AD7E00751559 /* Assets.swift in Sources */,
 				E04AD4732A34A58F00C3A4D6 /* AuthorizationAssembler.swift in Sources */,
+				E05AE9CF2A360B290099DAAA /* AuthToken.swift in Sources */,
 				E0B1007B2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift in Sources */,
 				E707721629F1C816006C022F /* FileManagerViewController.swift in Sources */,
+				E05AE9DF2A360C4D0099DAAA /* ContentType.swift in Sources */,
 				E0405FE52A1D141D007C79E2 /* CiteNode.swift in Sources */,
 				E0405FFC2A1F6F34007C79E2 /* Markdown.swift in Sources */,
 				E0405FE12A1D1258007C79E2 /* Document.swift in Sources */,
@@ -729,18 +801,23 @@
 				E04AD4722A34A58F00C3A4D6 /* AuthorizationViewController.swift in Sources */,
 				89DBCC772A0FB7BD0078A1BC /* AboutAppModels.swift in Sources */,
 				89DBCC732A0FB7BD0078A1BC /* AboutAppInteractor.swift in Sources */,
+				E05AE9DB2A360C0D0099DAAA /* Password.swift in Sources */,
 				E707721829F1C82A006C022F /* FileManagerModel.swift in Sources */,
 				E04AD4622A349DDF00C3A4D6 /* NetworkMonitor.swift in Sources */,
+				E05AE9DD2A360C3A0099DAAA /* Parameters.swift in Sources */,
 				E0405FF72A1E12CD007C79E2 /* Token.swift in Sources */,
 				E0405FE82A1D18D3007C79E2 /* ParagraphNode.swift in Sources */,
 				89CF45592A052ED10061D44A /* EditFileViewController.swift in Sources */,
+				E05AE9E52A360CA40099DAAA /* NetworkRequest.swift in Sources */,
 				8905DD8D29FBF2D100F2CE57 /* AppCoordinator.swift in Sources */,
 				E04AD47B2A34AC4700C3A4D6 /* Colors.swift in Sources */,
 				89DBCC742A0FB7BD0078A1BC /* AboutAppAssembler.swift in Sources */,
 				E7F108A329FA890200439C4E /* MdFileManager.swift in Sources */,
+				E05AE9D92A360BD30099DAAA /* NetworkResponse.swift in Sources */,
 				71B00C7C29EDD7D100D55690 /* MainViewController.swift in Sources */,
 				E0405FE32A1D1280007C79E2 /* HeaderNode.swift in Sources */,
 				89D6F1E229F14BA3004280BB /* MainAssembler.swift in Sources */,
+				E05AE9E92A3612C30099DAAA /* Login.swift in Sources */,
 				E04AD4702A34A58F00C3A4D6 /* AuthorizationModels.swift in Sources */,
 				89CF454F2A0524BF0061D44A /* EditFileCoordinator.swift in Sources */,
 				896C79212A276C0900568828 /* PreviewMarkdownAssembler.swift in Sources */,
@@ -750,6 +827,7 @@
 				E04593472A0699E800D6B533 /* String+RegularExpression.swift in Sources */,
 				E04593492A06AD4F00D6B533 /* NSRegularExpression+Extension.swift in Sources */,
 				E04593362A05064700D6B533 /* MarkdownСonverter.swift in Sources */,
+				E05AE9C82A360A500099DAAA /* URLComponents+setParameters.swift in Sources */,
 				C4B37CD029F8FF3300777400 /* UIViewController+PresentAlert.swift in Sources */,
 				896C79272A2774EB00568828 /* PreviewMarkdownPresenter.swift in Sources */,
 				E0405FF52A1E11A6007C79E2 /* Lexer.swift in Sources */,
@@ -776,6 +854,8 @@
 				E707721C29F1C844006C022F /* FileManagerInteractor.swift in Sources */,
 				E04AD4802A34ACF600C3A4D6 /* UIColor+HEX.swift in Sources */,
 				E707721A29F1C837006C022F /* FileManagerPresenter.swift in Sources */,
+				E05AE9D12A360B580099DAAA /* MaskStringConvertible.swift in Sources */,
+				E05AE9D32A360B780099DAAA /* HTTPNetworkServiceError.swift in Sources */,
 				E0C20E462A31E66E00915256 /* KeychainService.swift in Sources */,
 				89DBCC762A0FB7BD0078A1BC /* AboutAppPresenter.swift in Sources */,
 				E04060002A1F7778007C79E2 /* Parser.swift in Sources */,

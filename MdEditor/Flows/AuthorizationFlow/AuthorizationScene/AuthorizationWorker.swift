@@ -8,14 +8,20 @@
 import Foundation
 
 protocol IAuthorizationWorker {
-	func login(login: String, password: String) -> Bool
+	func login(
+		login: AuthorizationModels.Login,
+		password: AuthorizationModels.Password
+	) -> Bool
 }
 
 class AuthorizationWorker: IAuthorizationWorker {
 	private let validLogin = "1"
 	private let validPassword = "1"
 
-	func login(login: String, password: String) -> Bool {
-		login == validLogin && password == validPassword
+	func login(
+		login: AuthorizationModels.Login,
+		password: AuthorizationModels.Password
+	) -> Bool {
+		login.rawValue == validLogin && password.rawValue == validPassword
 	}
 }

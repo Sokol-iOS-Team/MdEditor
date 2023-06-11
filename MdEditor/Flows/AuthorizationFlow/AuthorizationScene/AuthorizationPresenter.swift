@@ -17,10 +17,7 @@ class AuthorizationPresenter: IAuthorizationPresenter {
 	}
 
 	func present(responce: AuthorizationModels.Response) {
-		let viewModel: AuthorizationModels.ViewModel =
-		responce.success
-		? .success
-		: .failure(L10n.Authorization.wrongCredentials)
+		let viewModel: AuthorizationModels.ViewModel = .failure(L10n.Authorization.wrongCredentials)
 		viewController?.render(viewModel: viewModel)
 	}
 }

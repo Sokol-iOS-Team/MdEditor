@@ -7,6 +7,8 @@ import Foundation
 internal enum L10n {
 
   internal enum Authorization {
+    /// Authorization Error
+    internal static let alertTitle = L10n.tr("Localizable", "Authorization.alertTitle")
     /// Enter
     internal static let authorization = L10n.tr("Localizable", "Authorization.authorization")
     /// Authorization

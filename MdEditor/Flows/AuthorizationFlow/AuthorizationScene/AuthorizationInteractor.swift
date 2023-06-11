@@ -30,6 +30,12 @@ class AuthorizationInteractor: IAuthorizationInteractor {
 		let result = worker.login(login: request.login, password: request.password)
 		let responce = AuthorizationModels.Response(success: result)
 
-		presenter?.present(responce: responce)
+		if responce.success {
+			let context = AuthContext()
+			context.setAuthDate(date: Date())
+			self.coordinator.showMainFlow()
+		} else {
+			presenter?.present(responce: responce)
+		}
 	}
 }

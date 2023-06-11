@@ -30,5 +30,6 @@
 
 "Authorization.authorization" = "Enter";
 "Authorization.title" = "Authorization";
+"Authorization.alertTitle" = "Authorization Error";
 "Authorization.wrongCredentials" = "Wrong login or password";
 

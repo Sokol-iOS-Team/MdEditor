@@ -7,4 +7,19 @@
 
 import Foundation
 
-class OAuthManager { }
+class OAuthManager {
+	let authorizationURL = "https://practice.swiftbook.org/api/auth/login"
+
+	private var networkService: INetworkService
+	private var urlRequestBuilder:IURLRequestBuilder
+
+	init(networkService: INetworkService, urlRequestBuilder: IURLRequestBuilder) {
+		self.networkService = networkService
+		self.urlRequestBuilder = urlRequestBuilder
+	}
+
+	func auth(login: Login, password: Password) {
+		let networkRequest = URLRequest(url: authorizationURL)
+
+	}
+}

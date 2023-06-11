@@ -56,7 +56,10 @@ class AuthorizationViewController: UIViewController {
 
 	@objc
 	func login() {
-		let request = AuthorizationModels.Request(login: loginText, password: passText)
+		let request = AuthorizationModels.Request(
+			login: Login(loginText),
+			password: Password(passText)
+		)
 		interactor?.login(request: request)
 	}
 
@@ -71,9 +74,11 @@ extension AuthorizationViewController: IAuthorizationViewController {
 	func render(viewModel: AuthorizationModels.ViewModel) {
 		switch viewModel {
 		case .success: break
-//			router?.routeToTodoList()
-		case .failure(let message): break
-//			router?.showError(message: message)
+		case .failure(let message):
+			presentAlert(
+				title: L10n.Authorization.alertTitle,
+				message: message
+			)
 		}
 	}
 }

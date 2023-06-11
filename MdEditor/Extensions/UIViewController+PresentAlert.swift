@@ -55,6 +55,7 @@ extension UIViewController {
 		else { return }
 		alert.actions.last?.isEnabled = textCount > 1
 	}
+
 	/// Метод вызывает простой UIAlertController для отображения title и message
 	func presentAlert(title: String, message: String) {
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
