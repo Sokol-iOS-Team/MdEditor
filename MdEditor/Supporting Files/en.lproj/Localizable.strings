@@ -28,4 +28,7 @@
 "Extensions.UIViewController.CustomAlert.CancelButton" = "Cancel";
 "Extensions.UIViewController.SimpleAlert.ButtonTitle" = "OK";
 
+"Authorization.authorization" = "Enter";
+"Authorization.title" = "Authorization";
+"Authorization.wrongCredentials" = "Wrong login or password";
 

@@ -33,7 +33,7 @@ class FileManagerCoordinator: IFileManagerCoordinator {
 	// MARK: - Internal Methods
 
 	/// Запуск и отображения файл менеджера с корненовой директории
-	func start() {
+	func start(_ flow: Flow? = nil) {
 		let fileManagerViewController = FileManagerAssembler.assembly(coordinator: self, currentURL: nil)
 		navigationController.pushViewController(fileManagerViewController, animated: true)
 	}

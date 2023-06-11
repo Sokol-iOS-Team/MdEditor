@@ -37,7 +37,7 @@ class MainCoordinator: IMainCoordinator {
 	// MARK: - Internal Methods
 
 	/// Запуск и отображения главного экрана
-	func start() {
+	func start(_ flow: Flow? = nil) {
 		let mainViewController = MainAssembler.assembly(coordinator: self)
 		navigationController.setViewControllers([mainViewController], animated: false)
 	}

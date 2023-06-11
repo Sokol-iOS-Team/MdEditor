@@ -25,7 +25,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		window.rootViewController = navigationController
 		window.makeKeyAndVisible()
 
-		appCoordinator.start()
+		let context = AuthContext()
+		let startEntity = StartEntity().selectStartFlow(context: context)
+
+		appCoordinator.start(startEntity)
 
 		self.window = window
 	}
