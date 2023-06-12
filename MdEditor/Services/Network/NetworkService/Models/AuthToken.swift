@@ -9,4 +9,8 @@
 public struct AuthToken: MaskStringConvertible, Codable {
 	/// Значение авторизационного токена
 	let rawValue: String
+
+	enum CodingKeys: String, CodingKey {
+		case rawValue = "access_token"
+	}
 }

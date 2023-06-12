@@ -216,6 +216,7 @@
 		E05AE9E42A360CA30099DAAA /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		E05AE9E82A3612C30099DAAA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		E05AE9EA2A3742F80099DAAA /* URLStab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStab.swift; sourceTree = "<group>"; };
+		E05AE9EC2A37809C0099DAAA /* MdEditorDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MdEditorDebug.entitlements; sourceTree = "<group>"; };
 		E05DD8132A0EAB5500636801 /* AboutAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppCoordinator.swift; sourceTree = "<group>"; };
 		E0B100782A1F7C02007C5D2A /* RawAttribitedTextVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawAttribitedTextVisitor.swift; sourceTree = "<group>"; };
 		E0B1007A2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGraphicsPDFRendererContext.swift; sourceTree = "<group>"; };
@@ -302,6 +303,7 @@
 		71B00C7629EDD7D100D55690 /* MdEditor */ = {
 			isa = PBXGroup;
 			children = (
+				E05AE9EC2A37809C0099DAAA /* MdEditorDebug.entitlements */,
 				8905DD8929FBF23E00F2CE57 /* Common */,
 				89CF45492A0524160061D44A /* Flows */,
 				E72B81B129F68D2300BF2932 /* Services */,
@@ -1013,6 +1015,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MdEditor/MdEditorDebug.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";

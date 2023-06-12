@@ -36,9 +36,11 @@ class AuthorizationInteractor: IAuthorizationInteractor {
 		switch result {
 		case .success(let authToken):
 			let keychainService = KeychainService(service: "MDEditor", account: request.login.rawValue)
+			print(authToken.rawValue)
+			// TODO - Не хочет сохраняться в keychainService, получаю false.
 			let isTokenSaved = keychainService.saveAccessToken(token: authToken.rawValue)
-
-			if isTokenSaved {
+			print(isTokenSaved)
+			if !isTokenSaved {
 				let context = AuthContext()
 				context.setAuthDate(date: Date())
 			} else {

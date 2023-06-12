@@ -81,6 +81,7 @@ final class NetworkService: INetworkService {
 					completion(.success(object))
 				} catch {
 					completion(.failure(.failedToDecodeResponse(error)))
+					print("Типа нету даты")
 				}
 			case let .failure(error):
 				completion(.failure(error))

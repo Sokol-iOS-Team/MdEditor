@@ -20,12 +20,12 @@ final class OAuthManager: IOAuthManager {
 
 	func login(login: Login, password: Password, completion: @escaping (Result<AuthToken, Error>) -> Void) {
 		let parametrs = ["login": login.rawValue, "password": password.rawValue]
-		let header = HeaderField.contentType(.json)
+		let header = ["Accept" : "application/json"]
 		let request = NetworkRequest(
 			path: URLStab.authorizationPath,
 			method: .post,
 			parameters: .json(parametrs),
-			header: [(header.key): header.value]
+			header: header
 		)
 
 		networkService.performAuth(request, token: nil) { result in
