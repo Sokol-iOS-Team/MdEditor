@@ -8,7 +8,7 @@
 import Foundation
 
 /// Протокол для создания сетевых запросов.
-public protocol NetworkRequest {
+public protocol INetworkRequest {
 	/// Путь запроса.
 	var path: String { get }
 	/// HTTP Метод, указывающий тип запроса.
@@ -20,7 +20,14 @@ public protocol NetworkRequest {
 }
 
 /// Расширение с пустым HTTP заголовком, для удобства составления запросов без заголовка.
-extension NetworkRequest {
+extension INetworkRequest {
 	/// Значение HTTPHeaders по умолчанию
 	public var header: HTTPHeader? { nil }
+}
+
+struct NetworkRequest: INetworkRequest {
+	var path: String
+	var method: HTTPMethod
+	var parameters: Parameters
+	var header: HTTPHeader?
 }

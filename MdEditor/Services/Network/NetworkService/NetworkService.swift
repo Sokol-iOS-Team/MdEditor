@@ -22,9 +22,14 @@ protocol INetworkService {
 		urlRequest: URLRequest,
 		completion: @escaping (Result<Data?, HTTPNetworkServiceError>) -> Void
 	)
+	func performAuth(
+		_ request: NetworkRequest,
+		token: AuthToken?,
+		completion: @escaping (Result<AuthToken, HTTPNetworkServiceError>) -> Void
+	)
 }
 
-final class NetworkService {
+final class NetworkService: INetworkService {
 	private let session: URLSession
 	private let requestBuilder: IURLRequestBuilder
 
@@ -48,6 +53,31 @@ final class NetworkService {
 				}
 				do {
 					let object = try JSONDecoder().decode(T.self, from: data)
+					completion(.success(object))
+				} catch {
+					completion(.failure(.failedToDecodeResponse(error)))
+				}
+			case let .failure(error):
+				completion(.failure(error))
+			}
+		}
+	}
+
+	func performAuth(
+		_ request: NetworkRequest,
+		token: AuthToken?,
+		completion: @escaping (Result<AuthToken, HTTPNetworkServiceError>) -> Void
+	) {
+		let urlRequest = requestBuilder.build(forRequest: request, token: token)
+		perform(urlRequest: urlRequest) { result in
+			switch result {
+			case let .success(data):
+				guard let data = data else {
+					completion(.failure(.noData))
+					return
+				}
+				do {
+					let object = try JSONDecoder().decode(AuthToken.self, from: data)
 					completion(.success(object))
 				} catch {
 					completion(.failure(.failedToDecodeResponse(error)))

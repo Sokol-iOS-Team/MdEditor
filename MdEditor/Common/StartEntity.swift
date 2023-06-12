@@ -15,7 +15,7 @@ protocol IStartEntity {
 /// selectStartFlow(context: AuthContext), который определяет, какой поток (flow)
 /// должен быть запущен в зависимости от состояния авторизации.
 class StartEntity: IStartEntity {
-	
+
 	/// Метод selectStartFlow(context: AuthContext) исползует контекст
 	/// для получения даты авторизации с помощью метода getAuthDate() из AuthContext.
 	/// - Parameter context: объект типа AuthContext.

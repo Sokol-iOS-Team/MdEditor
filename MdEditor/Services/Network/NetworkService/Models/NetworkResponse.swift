@@ -9,7 +9,7 @@ import Foundation
 
 public struct NetworkResponse {
 	let result: Result<Data?, HTTPNetworkServiceError>
-	
+
 	public init(data: Data? = nil, urlResponse: URLResponse? = nil, error: Error? = nil) {
 		guard let urlResponse = urlResponse as? HTTPURLResponse else {
 			self.result = .failure(.invalidResponse(urlResponse))

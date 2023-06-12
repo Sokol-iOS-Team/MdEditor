@@ -10,7 +10,7 @@ import Foundation
 /// Сервис, собирающий запрос из NetworkRequest.
 protocol IURLRequestBuilder {
 	/// Сервис, собирающий запрос из NetworkRequest.
-	func build(forRequest request: NetworkRequest, token: AuthToken?) -> URLRequest
+	func build(forRequest request: INetworkRequest, token: AuthToken?) -> URLRequest
 }
 
 /// Сервис, собирающий запрос из NetworkRequest.
@@ -23,7 +23,7 @@ struct URLRequestBuilder: IURLRequestBuilder {
 	///   - request: Сетевой запрос.
 	///   - token: Авторизационный токен.
 	/// - Returns: Сформированный URLRequest.
-	func build(forRequest request: NetworkRequest, token: AuthToken?) -> URLRequest {
+	func build(forRequest request: INetworkRequest, token: AuthToken?) -> URLRequest {
 		let url = baseUrl.appendingPathComponent(request.path)
 
 		var urlRequest = URLRequest(url: url)

@@ -9,19 +9,42 @@ import Foundation
 
 protocol IAuthorizationWorker {
 	func login(
-		login: AuthorizationModels.Login,
-		password: AuthorizationModels.Password
-	) -> Bool
+		login: Login,
+		password: Password
+	) -> AuthorizationResult
+}
+
+enum AuthorizationResult {
+	case success(AuthToken)
+	case failure(Error)
 }
 
 class AuthorizationWorker: IAuthorizationWorker {
-	private let validLogin = "1"
-	private let validPassword = "1"
+	let authManager: IOAuthManager
 
+	init(authManager: IOAuthManager) {
+		self.authManager = authManager
+	}
 	func login(
-		login: AuthorizationModels.Login,
-		password: AuthorizationModels.Password
-	) -> Bool {
-		login.rawValue == validLogin && password.rawValue == validPassword
+		login: Login,
+		password: Password
+	) -> AuthorizationResult {
+		let semaphore = DispatchSemaphore(value: 0)
+		var authorizationResult: AuthorizationResult = .failure(AuthorizationError.unknownError)
+
+		authManager.login(login: login, password: password) { result in
+			switch result {
+			case .success(let token):
+				authorizationResult = .success(token)
+			case .failure(let error):
+				authorizationResult = .failure(error)
+			}
+
+			semaphore.signal()
+		}
+
+		_ = semaphore.wait(timeout: .distantFuture)
+
+		return authorizationResult
 	}
 }

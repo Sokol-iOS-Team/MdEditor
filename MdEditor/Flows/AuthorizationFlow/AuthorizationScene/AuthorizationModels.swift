@@ -14,11 +14,10 @@ enum AuthorizationModels {
 	}
 
 	struct Response {
-		var success: Bool
+		var error: Error
 	}
 
-	enum ViewModel {
-		case success
-		case failure(String)
+	struct ViewModel {
+		let errorMessage: String
 	}
 }

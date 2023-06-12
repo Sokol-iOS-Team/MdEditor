@@ -20,7 +20,7 @@ public enum Parameters {
 	case formData([String: Any])
 	/// Любые бинарные данные для отправки методом POST. Содержит в себе данные и тип данных.
 	case data(Data, ContentType)
-	
+
 	public var contentType: ContentType? {
 		switch self {
 		case .none, .url: // Так как параметры отсутствуют, то и тип их тоже отсутствует.

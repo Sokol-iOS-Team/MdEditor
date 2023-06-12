@@ -12,7 +12,12 @@ final class AuthorizationAssembler {
 
 		let authorizationViewController = AuthorizationViewController()
 		let presenter = AuthorizationPresenter(viewController: authorizationViewController)
-		let worker = AuthorizationWorker()
+		let networkService = NetworkService(
+			session: URLSession(configuration: .default),
+			requestBuilder: URLRequestBuilder(baseUrl: URLStab.baseURL)
+		)
+		let authManager = OAuthManager(networkService: networkService)
+		let worker = AuthorizationWorker(authManager: authManager)
 		let interactor = AuthorizationInteractor(
 			worker: worker,
 			presenter: presenter,

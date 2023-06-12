@@ -11,7 +11,7 @@ import Foundation
 public struct Password: MaskStringConvertible {
 	/// Значение пароля.
 	let rawValue: String
-	
+
 	init(_ rawValue: String) {
 		self.rawValue = rawValue
 	}

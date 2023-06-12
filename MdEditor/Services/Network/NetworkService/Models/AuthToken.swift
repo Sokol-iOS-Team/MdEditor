@@ -6,7 +6,7 @@
 //
 
 /// Авторизационный токен.
-public struct AuthToken: MaskStringConvertible {
+public struct AuthToken: MaskStringConvertible, Codable {
 	/// Значение авторизационного токена
 	let rawValue: String
 }

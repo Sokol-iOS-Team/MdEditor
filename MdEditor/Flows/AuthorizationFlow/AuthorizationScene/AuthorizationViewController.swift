@@ -72,14 +72,11 @@ class AuthorizationViewController: UIViewController {
 
 extension AuthorizationViewController: IAuthorizationViewController {
 	func render(viewModel: AuthorizationModels.ViewModel) {
-		switch viewModel {
-		case .success: break
-		case .failure(let message):
+
 			presentAlert(
 				title: L10n.Authorization.alertTitle,
-				message: message
+				message: viewModel.errorMessage
 			)
-		}
 	}
 }
 

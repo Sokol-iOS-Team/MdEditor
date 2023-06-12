@@ -11,6 +11,11 @@ protocol IAuthorizationInteractor {
 	func login(request: AuthorizationModels.Request)
 }
 
+enum AuthorizationError: Error {
+	case unknownError
+	case tokenHasNotBeenSave
+}
+
 class AuthorizationInteractor: IAuthorizationInteractor {
 	private var worker: IAuthorizationWorker
 	private var presenter: IAuthorizationPresenter?
@@ -28,13 +33,21 @@ class AuthorizationInteractor: IAuthorizationInteractor {
 
 	func login(request: AuthorizationModels.Request) {
 		let result = worker.login(login: request.login, password: request.password)
-		let responce = AuthorizationModels.Response(success: result)
+		switch result {
+		case .success(let authToken):
+			let keychainService = KeychainService(service: "MDEditor", account: request.login.rawValue)
+			let isTokenSaved = keychainService.saveAccessToken(token: authToken.rawValue)
 
-		if responce.success {
-			let context = AuthContext()
-			context.setAuthDate(date: Date())
+			if isTokenSaved {
+				let context = AuthContext()
+				context.setAuthDate(date: Date())
+			} else {
+				let responce = AuthorizationModels.Response(error: AuthorizationError.tokenHasNotBeenSave)
+				presenter?.present(responce: responce)
+			}
 			self.coordinator.showMainFlow()
-		} else {
+		case .failure(let error):
+			let responce = AuthorizationModels.Response(error: error)
 			presenter?.present(responce: responce)
 		}
 	}

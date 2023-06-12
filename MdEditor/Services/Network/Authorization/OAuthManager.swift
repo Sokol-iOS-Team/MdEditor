@@ -7,19 +7,34 @@
 
 import Foundation
 
-class OAuthManager {
-	let authorizationURL = "https://practice.swiftbook.org/api/auth/login"
+protocol IOAuthManager {
+	func login(login: Login, password: Password, completion: @escaping (Result<AuthToken, Error>) -> Void)
+}
 
+final class OAuthManager: IOAuthManager {
 	private var networkService: INetworkService
-	private var urlRequestBuilder:IURLRequestBuilder
 
-	init(networkService: INetworkService, urlRequestBuilder: IURLRequestBuilder) {
+	init(networkService: INetworkService) {
 		self.networkService = networkService
-		self.urlRequestBuilder = urlRequestBuilder
 	}
 
-	func auth(login: Login, password: Password) {
-		let networkRequest = URLRequest(url: authorizationURL)
+	func login(login: Login, password: Password, completion: @escaping (Result<AuthToken, Error>) -> Void) {
+		let parametrs = ["login": login.rawValue, "password": password.rawValue]
+		let header = HeaderField.contentType(.json)
+		let request = NetworkRequest(
+			path: URLStab.authorizationPath,
+			method: .post,
+			parameters: .json(parametrs),
+			header: [(header.key): header.value]
+		)
 
+		networkService.performAuth(request, token: nil) { result in
+			switch result {
+			case .success(let token):
+				completion(.success(token))
+			case .failure(let error):
+				completion(.failure(error))
+			}
+		}
 	}
 }
