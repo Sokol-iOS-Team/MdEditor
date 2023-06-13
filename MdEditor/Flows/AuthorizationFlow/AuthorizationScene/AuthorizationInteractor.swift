@@ -7,7 +7,10 @@
 
 import Foundation
 
+/// Протокол для реализации авторизации
 protocol IAuthorizationInteractor {
+	/// Метод авторизации
+	/// - Parameter request: получает модель запроса, содержащую логин и пароль
 	func login(request: AuthorizationModels.Request)
 }
 
@@ -17,9 +20,14 @@ enum AuthorizationError: Error {
 }
 
 class AuthorizationInteractor: IAuthorizationInteractor {
+
+	// MARK: - Dependencies
+
 	private var worker: IAuthorizationWorker
 	private var presenter: IAuthorizationPresenter?
 	private let coordinator: IAuthorizationCoordinator
+
+	// MARK: - Lifecycle
 
 	init(
 		worker: IAuthorizationWorker,
@@ -31,17 +39,17 @@ class AuthorizationInteractor: IAuthorizationInteractor {
 		self.coordinator = coordinator
 	}
 
+	// MARK: - Internal Methods
+
 	func login(request: AuthorizationModels.Request) {
 		let result = worker.login(login: request.login, password: request.password)
 		switch result {
 		case .success(let authToken):
-			let keychainService = KeychainService(service: "MDEditor", account: request.login.rawValue)
-			print(authToken.rawValue)
-			// TODO - Не хочет сохраняться в keychainService, получаю false.
-			let isTokenSaved = keychainService.saveAccessToken(token: authToken.rawValue)
-			print(isTokenSaved)
-			if !isTokenSaved {
-				let context = AuthContext()
+			let authTokenRepository = AuthTokenRepository(service: "MDEditor", account: request.login.rawValue)
+			let context = AuthContext()
+			if authTokenRepository.saveSecret(authToken) {
+				context.setAuthDate(date: Date())
+			} else if authTokenRepository.updateSecret(authToken) {
 				context.setAuthDate(date: Date())
 			} else {
 				let responce = AuthorizationModels.Response(error: AuthorizationError.tokenHasNotBeenSave)

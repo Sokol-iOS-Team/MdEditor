@@ -29,6 +29,7 @@
 		896C79252A2771A700568828 /* PreviewMarkdownInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896C79242A2771A700568828 /* PreviewMarkdownInteractor.swift */; };
 		896C79272A2774EB00568828 /* PreviewMarkdownPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896C79262A2774EB00568828 /* PreviewMarkdownPresenter.swift */; };
 		896C79292A27815F00568828 /* PreviewMarkdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896C79282A27815F00568828 /* PreviewMarkdownViewController.swift */; };
+		899F29492A38AF08004F0C50 /* AuthTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F29482A38AF08004F0C50 /* AuthTokenRepository.swift */; };
 		89CF454F2A0524BF0061D44A /* EditFileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF454E2A0524BF0061D44A /* EditFileCoordinator.swift */; };
 		89CF45532A052C280061D44A /* EditFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF45522A052C280061D44A /* EditFileModel.swift */; };
 		89CF45552A052C8C0061D44A /* EditFileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF45542A052C8C0061D44A /* EditFileInteractor.swift */; };
@@ -141,6 +142,7 @@
 		896C79242A2771A700568828 /* PreviewMarkdownInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMarkdownInteractor.swift; sourceTree = "<group>"; };
 		896C79262A2774EB00568828 /* PreviewMarkdownPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMarkdownPresenter.swift; sourceTree = "<group>"; };
 		896C79282A27815F00568828 /* PreviewMarkdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMarkdownViewController.swift; sourceTree = "<group>"; };
+		899F29482A38AF08004F0C50 /* AuthTokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenRepository.swift; sourceTree = "<group>"; };
 		89CF454E2A0524BF0061D44A /* EditFileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFileCoordinator.swift; sourceTree = "<group>"; };
 		89CF45522A052C280061D44A /* EditFileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFileModel.swift; sourceTree = "<group>"; };
 		89CF45542A052C8C0061D44A /* EditFileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFileInteractor.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 			isa = PBXGroup;
 			children = (
 				E0C20E472A31F00700915256 /* OAuthManager.swift */,
+				899F29482A38AF08004F0C50 /* AuthTokenRepository.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				71B00C7A29EDD7D100D55690 /* SceneDelegate.swift in Sources */,
 				89D6F1E429F1596F004280BB /* MenuRepository.swift in Sources */,
 				E04AD46E2A34A58F00C3A4D6 /* AuthorizationWorker.swift in Sources */,
+				899F29492A38AF08004F0C50 /* AuthTokenRepository.swift in Sources */,
 				89D6F1DA29F1302D004280BB /* MainInteractor.swift in Sources */,
 				89CF45572A052DAC0061D44A /* EditFilePresenter.swift in Sources */,
 				89D6F1D629F12945004280BB /* MenuItem.swift in Sources */,

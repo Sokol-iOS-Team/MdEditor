@@ -8,45 +8,27 @@
 import Foundation
 import Security
 
-protocol AccessTokenRepository {
-	func saveAccessToken(token: String) -> Bool
-	func getAccessToken() -> String?
-	func deletetAccessToken() -> Bool
-	func updatetAccessToken(token: String) -> Bool
-}
+/// Структура для работы с Keychain
+struct KeychainService {
 
-final class KeychainService: AccessTokenRepository {
-	let service: String
-	let account: String
+	// MARK: - Internal Methods
 
-	init(service: String, account: String) {
-		self.service = service
-		self.account = account
-	}
-
-	func saveAccessToken(token: String) -> Bool {
-		let keychainItem = [
-			kSecAttrService: service,
-			kSecAttrAccount: account,
-			kSecValueData: token.data(using: .utf8)!,
-			kSecClass: kSecClassInternetPassword
-		] as [CFString: Any] as CFDictionary
-
-		let status = SecItemAdd(keychainItem, nil)
-		return status == errSecSuccess
-	}
-
-	func getAccessToken() -> String? {
+	/// Получает секретную информацию из Keychain.
+	/// - Parameters:
+	///   - service: Имя сервиса, связанного с секретной информацией.
+	///   - account: Имя учетной записи, связанной с секретной информацией.
+	/// - Returns: Секретная информация в виде строки или nil, если информация не найдена или возникла ошибка.
+	static func getSecret(service: String, account: String) -> String? {
 		let query = [
 			kSecAttrService: service,
 			kSecAttrAccount: account,
 			kSecReturnData: true,
 			kSecMatchLimit: kSecMatchLimitOne,
-			kSecClass: kSecClassInternetPassword
-		] as [CFString: Any] as CFDictionary
+			kSecClass: kSecClassGenericPassword
+		] as [CFString: Any]
 
 		var dataTypeRef: AnyObject?
-		let status = SecItemCopyMatching(query, &dataTypeRef)
+		let status = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
 
 		if status == errSecSuccess, let data = dataTypeRef as? Data {
 			return String(data: data, encoding: .utf8)
@@ -55,30 +37,55 @@ final class KeychainService: AccessTokenRepository {
 		}
 	}
 
-	func deletetAccessToken() -> Bool {
+	/// Сохраняет секретную информацию в Keychain.
+	/// - Parameters:
+	///   - service: Имя сервиса, связанного с секретной информацией.
+	///   - account: Имя учетной записи, связанной с секретной информацией.
+	///   - secret: Секретная информация, которую нужно сохранить.
+	/// - Returns: true, если секретная информация успешно сохранена, false в противном случае.
+	static func saveSecret(service: String, account: String, secret: String) -> Bool {
 		let query = [
 			kSecAttrService: service,
 			kSecAttrAccount: account,
-			kSecClass: kSecClassInternetPassword
-		] as [CFString: Any] as CFDictionary
+			kSecValueData: secret.data(using: .utf8)!,
+			kSecClass: kSecClassGenericPassword
+		] as [CFString: Any]
 
-		let status = SecItemDelete(query)
+		let status = SecItemAdd(query as CFDictionary, nil)
 		return status == errSecSuccess
 	}
 
-	func updatetAccessToken(token: String) -> Bool {
+	/// Удаляет секретную информацию из Keychain.
+	/// - Parameters:
+	///   - service: Имя сервиса, связанного с секретной информацией.
+	///   - account: Имя учетной записи, связанной с секретной информацией.
+	/// - Returns: true, если секретная информация успешно удалена, false в противном случае.
+	static func deleteSecret(service: String, account: String) -> Bool {
 		let query = [
 			kSecAttrService: service,
 			kSecAttrAccount: account,
-			kSecClass: kSecClassInternetPassword
-		] as [CFString: Any] as CFDictionary
+			kSecClass: kSecClassGenericPassword
+		] as [CFString: Any]
 
-		let field = [
-			kSecValueData: token.data(using: .utf8)!
-		] as [CFString: Any] as CFDictionary
+		let status = SecItemDelete(query as CFDictionary)
+		return status == errSecSuccess
+	}
 
-		let status = SecItemUpdate(query, field)
+	/// Обновляет секретную информацию в Keychain.
+	/// - Parameters:
+	///   - service: Имя сервиса, связанного с секретной информацией.
+	///   - account: Имя учетной записи, связанной с секретной информацией.
+	///   - secret: Новая секретная информация.
+	/// - Returns: true, если секретная информация успешно обновлена, false в противном случае.
+	static func updateSecret(service: String, account: String, secret: String) -> Bool {
+		let query = [
+			kSecAttrService: service,
+			kSecAttrAccount: account,
+			kSecClass: kSecClassGenericPassword
+		] as [CFString: Any]
 
+		let field = [kSecValueData: secret.data(using: .utf8)!] as CFDictionary
+		let status = SecItemUpdate(query as CFDictionary, field)
 		return status == errSecSuccess
 	}
 }

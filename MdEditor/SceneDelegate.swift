@@ -29,7 +29,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 #if DEBUG
 		context.removeAuthDate()
 #endif
-
 		let startEntity = StartEntity().selectStartFlow(context: context)
 
 		appCoordinator.start(startEntity)
