@@ -54,6 +54,9 @@ final class AppCoordinator: IAppCoordinator {
 		}
 	}
 
+	// TODO: - Фикс работы координатора.
+	// Изменить логику открытия сценария главного экрана просле авторизации.
+
 	/// Метод для старта сценария авторизации
 	func showAuthorizationFlow() {
 		let authorizationCoordinator = AuthorizationCoordinator(navigationController: navigationController)

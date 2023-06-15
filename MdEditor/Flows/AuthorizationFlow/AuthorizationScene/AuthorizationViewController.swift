@@ -13,36 +13,38 @@ import SwiftUI
 #endif
 
 protocol IAuthorizationViewController: AnyObject {
-	func render(viewModel: AuthorizationModels.ViewModel)
+	func render(viewModel: AuthorizationModel.ViewModel)
 }
 
 class AuthorizationViewController: UIViewController {
 
-	private lazy var textFieldLogin: UITextField = makeTextField()
-	private lazy var textFieldPass: UITextField = makeTextField()
-	private lazy var buttonLogin: UIButton = makeButtonLogin()
+	// MARK: - Dependencies
 
 	var interactor: IAuthorizationInteractor?
 
-	var loginText: String {
+	// MARK: - Private properties
+
+	private lazy var textFieldLogin: UITextField = makeTextField()
+	private lazy var textFieldPass: UITextField = makeTextField()
+	private lazy var buttonLogin: UIButton = makeButtonLogin()
+	private var loginText: String {
 		get {
 			textFieldLogin.text ?? ""
 		}
-
 		set {
 			textFieldLogin.text = newValue
 		}
 	}
-
-	var passText: String {
+	private var passText: String {
 		get {
 			textFieldPass.text ?? ""
 		}
-
 		set {
 			textFieldPass.text = newValue
 		}
 	}
+
+	// MARK: - Lifecycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -54,24 +56,28 @@ class AuthorizationViewController: UIViewController {
 		layoutPinLayout()
 	}
 
-	@objc
-	func login() {
-		let request = AuthorizationModels.Request(
-			login: Login(loginText),
-			password: Password(passText)
-		)
-		interactor?.login(request: request)
-	}
+	// MARK: - Private methods
 
 	private func setupUI() {
 		view.backgroundColor = .white
 		title = L10n.Authorization.title
 		navigationController?.navigationBar.prefersLargeTitles = true
 	}
+
+	// MARK: - Actions
+
+	@objc
+	func login() {
+		let request = AuthorizationModel.Request(
+			login: Login(loginText),
+			password: Password(passText)
+		)
+		interactor?.login(request: request)
+	}
 }
 
 extension AuthorizationViewController: IAuthorizationViewController {
-	func render(viewModel: AuthorizationModels.ViewModel) {
+	func render(viewModel: AuthorizationModel.ViewModel) {
 
 			presentAlert(
 				title: L10n.Authorization.alertTitle,
@@ -138,13 +144,3 @@ extension AuthorizationViewController {
 		return button
 	}
 }
-
-#if DEBUG
-struct ViewControllerProvider: PreviewProvider {
-	static var previews: some View {
-		Group {
-			AuthorizationViewController().preview()
-		}
-	}
-}
-#endif

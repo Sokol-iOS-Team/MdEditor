@@ -10,8 +10,9 @@ import Foundation
 protocol IAuthorizationWorker {
 	func login(
 		login: Login,
-		password: Password
-	) -> AuthorizationResult
+		password: Password,
+		completion: @escaping (AuthorizationResult) -> Void
+	)
 }
 
 enum AuthorizationResult {
@@ -20,31 +21,31 @@ enum AuthorizationResult {
 }
 
 class AuthorizationWorker: IAuthorizationWorker {
+
+	// MARK: - Dependencies
+
 	let authManager: IOAuthManager
+
+	// MARK: - Lifecycle
 
 	init(authManager: IOAuthManager) {
 		self.authManager = authManager
 	}
+
+	// MARK: - Internal Methods
+
 	func login(
 		login: Login,
-		password: Password
-	) -> AuthorizationResult {
-		let semaphore = DispatchSemaphore(value: 0)
-		var authorizationResult: AuthorizationResult = .failure(AuthorizationError.unknownError)
-
+		password: Password,
+		completion: @escaping (AuthorizationResult) -> Void
+	) {
 		authManager.login(login: login, password: password) { result in
-			switch result {
-			case .success(let token):
-				authorizationResult = .success(token)
-			case .failure(let error):
-				authorizationResult = .failure(error)
+				switch result {
+				case .success(let token):
+					completion(.success(token))
+				case .failure(let error):
+					completion(.failure(error))
+				}
 			}
-
-			semaphore.signal()
-		}
-
-		_ = semaphore.wait(timeout: .distantFuture)
-
-		return authorizationResult
 	}
 }

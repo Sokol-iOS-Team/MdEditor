@@ -6,24 +6,38 @@
 //
 
 protocol IAuthorizationPresenter {
-	func present(responce: AuthorizationModels.Response)
+	func present(responce: AuthorizationModel.Response)
 }
 
 class AuthorizationPresenter: IAuthorizationPresenter {
+
+	// MARK: - Dependencies
+
 	private weak var viewController: IAuthorizationViewController?
+
+	// MARK: - Lifecycle
 
 	init(viewController: IAuthorizationViewController?) {
 		self.viewController = viewController
 	}
 
-	func present(responce: AuthorizationModels.Response) {
-		let viewModel = AuthorizationModels.ViewModel.init(
+	// MARK: - Internal Methods
+
+	func present(responce: AuthorizationModel.Response) {
+		let viewModel = AuthorizationModel.ViewModel.init(
 			errorMessage: (handleError(error: responce.error))
 		)
 		viewController?.render(viewModel: viewModel)
 	}
 
-	func handleError(error: Error) -> String {
+	// MARK: - Private Methods
+// TODO: - реализовать подготовку сообщений об ошибке.
+
+	/// Метод handleError подготавливает сообщение для отображения на экране
+	/// в зависимости от типа полученной ошибки.
+	/// - Parameter error: Ошибка полученная в процессе авторизации.
+	/// - Returns: Релевантное сообщение из Localizable string.
+	private func handleError(error: Error) -> String {
 		return error.localizedDescription
 	}
 }

@@ -72,11 +72,10 @@
 		E04AD4652A34A55400C3A4D6 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD4642A34A55400C3A4D6 /* AuthorizationCoordinator.swift */; };
 		E04AD46E2A34A58F00C3A4D6 /* AuthorizationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD4672A34A58F00C3A4D6 /* AuthorizationWorker.swift */; };
 		E04AD46F2A34A58F00C3A4D6 /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD4682A34A58F00C3A4D6 /* AuthorizationPresenter.swift */; };
-		E04AD4702A34A58F00C3A4D6 /* AuthorizationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD4692A34A58F00C3A4D6 /* AuthorizationModels.swift */; };
+		E04AD4702A34A58F00C3A4D6 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD4692A34A58F00C3A4D6 /* AuthorizationModel.swift */; };
 		E04AD4722A34A58F00C3A4D6 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD46B2A34A58F00C3A4D6 /* AuthorizationViewController.swift */; };
 		E04AD4732A34A58F00C3A4D6 /* AuthorizationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD46C2A34A58F00C3A4D6 /* AuthorizationAssembler.swift */; };
 		E04AD4742A34A58F00C3A4D6 /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD46D2A34A58F00C3A4D6 /* AuthorizationInteractor.swift */; };
-		E04AD4762A34A78D00C3A4D6 /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD4752A34A78D00C3A4D6 /* UIViewController+Preview.swift */; };
 		E04AD4792A34A85500C3A4D6 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD4782A34A85500C3A4D6 /* Sizes.swift */; };
 		E04AD47B2A34AC4700C3A4D6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD47A2A34AC4700C3A4D6 /* Colors.swift */; };
 		E04AD47E2A34ACB100C3A4D6 /* UIColor+Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04AD47D2A34ACB100C3A4D6 /* UIColor+Dynamic.swift */; };
@@ -190,11 +189,10 @@
 		E04AD4642A34A55400C3A4D6 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		E04AD4672A34A58F00C3A4D6 /* AuthorizationWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationWorker.swift; sourceTree = "<group>"; };
 		E04AD4682A34A58F00C3A4D6 /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
-		E04AD4692A34A58F00C3A4D6 /* AuthorizationModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModels.swift; sourceTree = "<group>"; };
+		E04AD4692A34A58F00C3A4D6 /* AuthorizationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
 		E04AD46B2A34A58F00C3A4D6 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		E04AD46C2A34A58F00C3A4D6 /* AuthorizationAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAssembler.swift; sourceTree = "<group>"; };
 		E04AD46D2A34A58F00C3A4D6 /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
-		E04AD4752A34A78D00C3A4D6 /* UIViewController+Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
 		E04AD4782A34A85500C3A4D6 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		E04AD47A2A34AC4700C3A4D6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E04AD47D2A34ACB100C3A4D6 /* UIColor+Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Dynamic.swift"; sourceTree = "<group>"; };
@@ -449,7 +447,6 @@
 				E0405FEE2A1D19E7007C79E2 /* Sequense+Joined.swift */,
 				E0B1007A2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift */,
 				E0B1007C2A1F7FC3007C5D2A /* NSAttributedString+Height.swift */,
-				E04AD4752A34A78D00C3A4D6 /* UIViewController+Preview.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -518,7 +515,7 @@
 				E04AD46B2A34A58F00C3A4D6 /* AuthorizationViewController.swift */,
 				E04AD46D2A34A58F00C3A4D6 /* AuthorizationInteractor.swift */,
 				E04AD4682A34A58F00C3A4D6 /* AuthorizationPresenter.swift */,
-				E04AD4692A34A58F00C3A4D6 /* AuthorizationModels.swift */,
+				E04AD4692A34A58F00C3A4D6 /* AuthorizationModel.swift */,
 				E04AD4672A34A58F00C3A4D6 /* AuthorizationWorker.swift */,
 				E04AD46C2A34A58F00C3A4D6 /* AuthorizationAssembler.swift */,
 			);
@@ -827,7 +824,7 @@
 				E0405FE32A1D1280007C79E2 /* HeaderNode.swift in Sources */,
 				89D6F1E229F14BA3004280BB /* MainAssembler.swift in Sources */,
 				E05AE9E92A3612C30099DAAA /* Login.swift in Sources */,
-				E04AD4702A34A58F00C3A4D6 /* AuthorizationModels.swift in Sources */,
+				E04AD4702A34A58F00C3A4D6 /* AuthorizationModel.swift in Sources */,
 				89CF454F2A0524BF0061D44A /* EditFileCoordinator.swift in Sources */,
 				896C79212A276C0900568828 /* PreviewMarkdownAssembler.swift in Sources */,
 				E0405FDC2A1D101D007C79E2 /* Node.swift in Sources */,
@@ -845,7 +842,6 @@
 				E05AE9C52A35DE560099DAAA /* StartEntity.swift in Sources */,
 				89D6F1DC29F130E0004280BB /* MainPresenter.swift in Sources */,
 				8932C6742A2F56A500EA8751 /* BulletedListNode.swift in Sources */,
-				E04AD4762A34A78D00C3A4D6 /* UIViewController+Preview.swift in Sources */,
 				896C79232A276DD600568828 /* PreviewMarkdownModel.swift in Sources */,
 				8905DD8B29FBF25300F2CE57 /* ICoordinator.swift in Sources */,
 				E0405FEF2A1D19E7007C79E2 /* Sequense+Joined.swift in Sources */,

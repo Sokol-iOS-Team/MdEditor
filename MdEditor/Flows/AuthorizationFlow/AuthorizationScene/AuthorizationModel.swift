@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AuthorizationModels {
+enum AuthorizationModel {
 	struct Request {
 		var login: Login
 		var password: Password

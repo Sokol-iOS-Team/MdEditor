@@ -10,7 +10,9 @@ import Foundation
 /// Класс AuthContext представляет контекст авторизации
 ///  и предоставляет методы для установки и получения даты авторизации.
 final class AuthContext {
-	let userDefaults = UserDefaults.standard
+	private let userDefaults = UserDefaults.standard
+
+	// MARK: - Internal Methods
 
 /// Метод setAuthDate(date: Date) используется для сохранения даты авторизации в хранилище UserDefaults.
 	func setAuthDate(date: Date) {

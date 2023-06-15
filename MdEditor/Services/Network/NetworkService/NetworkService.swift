@@ -24,7 +24,6 @@ protocol INetworkService {
 	)
 	func performAuth(
 		_ request: NetworkRequest,
-		token: AuthToken?,
 		completion: @escaping (Result<AuthToken, HTTPNetworkServiceError>) -> Void
 	)
 }
@@ -65,10 +64,9 @@ final class NetworkService: INetworkService {
 
 	func performAuth(
 		_ request: NetworkRequest,
-		token: AuthToken?,
 		completion: @escaping (Result<AuthToken, HTTPNetworkServiceError>) -> Void
 	) {
-		let urlRequest = requestBuilder.build(forRequest: request, token: token)
+		let urlRequest = requestBuilder.build(forRequest: request, token: nil)
 		perform(urlRequest: urlRequest) { result in
 			switch result {
 			case let .success(data):
