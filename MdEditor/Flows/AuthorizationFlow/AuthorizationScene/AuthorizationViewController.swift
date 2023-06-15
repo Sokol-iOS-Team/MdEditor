@@ -78,11 +78,12 @@ class AuthorizationViewController: UIViewController {
 
 extension AuthorizationViewController: IAuthorizationViewController {
 	func render(viewModel: AuthorizationModel.ViewModel) {
-
-			presentAlert(
+		DispatchQueue.main.async {
+			self.presentAlert(
 				title: L10n.Authorization.alertTitle,
 				message: viewModel.errorMessage
 			)
+		}
 	}
 }
 
