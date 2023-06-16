@@ -45,6 +45,7 @@ class MainCoordinator: IMainCoordinator {
 	/// Стартует сценарий файл менеджера
 	func showFileManagerFlow() {
 		let fileManagerCoordinator = FileManagerCoordinator(navigationController: navigationController)
+		fileManagerCoordinator.finishDelegate = self
 		childCoordinators.append(fileManagerCoordinator)
 		fileManagerCoordinator.start()
 	}

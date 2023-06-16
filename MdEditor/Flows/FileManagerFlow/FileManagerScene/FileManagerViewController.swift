@@ -51,6 +51,12 @@ final class FileManagerViewController: UITableViewController {
 		self.tableView.pin.all()
 	}
 
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+
+		interactor?.close()
+	}
+
 	// MARK: - TableViewDataSource
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
