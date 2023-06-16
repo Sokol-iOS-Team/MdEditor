@@ -23,7 +23,8 @@ class MainAssembler {
 		let mainInteractor = MainInteractor(
 			presenter: mainPresenter,
 			mdFileManager: mdFileManager,
-			coordinator: coordinator)
+			coordinator: coordinator
+		)
 		mainViewController.interactor = mainInteractor
 
 		return mainViewController

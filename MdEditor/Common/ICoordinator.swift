@@ -25,7 +25,7 @@ protocol ICoordinator: AnyObject {
 	var childCoordinators: [ICoordinator] { get set }
 
 	/// Метод для запуска сценария (flow)
-	func start()
+	func start(_ flow: Flow?)
 
 	/// Метод для заверешния сценария (flow)
 	func finish()

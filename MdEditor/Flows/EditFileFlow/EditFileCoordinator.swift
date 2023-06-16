@@ -44,7 +44,7 @@ final class EditFileCoordinator: IEditFileCoordinator {
 
 	// MARK: - ICoordinator
 
-	func start() {
+	func start(_ flow: Flow? = nil) {
 		let editFileViewController = EditFileAssembler.assembly(coordinator: self, currentURL: currentURL)
 		navigationController.pushViewController(editFileViewController, animated: false)
 	}

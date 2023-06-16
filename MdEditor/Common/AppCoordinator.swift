@@ -7,8 +7,17 @@
 
 import UIKit
 
+enum Flow {
+	/// Навигация по документам и работа с ними.
+	case authorization
+	/// Стартовый экран для отображения списка документов и меню.
+	case main
+}
+
 /// Протокол координатора приложения
 protocol IAppCoordinator: ICoordinator {
+	/// Стартует сценарий авторизации
+	func showAuthorizationFlow()
 	/// Стартует сценарий главного экрана
 	func showMainFlow()
 }
@@ -34,8 +43,25 @@ final class AppCoordinator: IAppCoordinator {
 
 	// MARK: - Internal Methods
 
-	func start() {
-		showMainFlow()
+	func start(_ flow: Flow? = nil) {
+		switch flow {
+		case .authorization:
+			showAuthorizationFlow()
+		case .main:
+			showMainFlow()
+		case .none:
+			showAuthorizationFlow()
+		}
+	}
+
+	// TODO: - Фикс работы координатора.
+	// Изменить логику открытия сценария главного экрана просле авторизации.
+
+	/// Метод для старта сценария авторизации
+	func showAuthorizationFlow() {
+		let authorizationCoordinator = AuthorizationCoordinator(navigationController: navigationController)
+		childCoordinators.append(authorizationCoordinator)
+		authorizationCoordinator.start()
 	}
 
 	/// Метод для старта сценария главного экрана

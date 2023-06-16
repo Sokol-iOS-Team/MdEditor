@@ -32,7 +32,7 @@ class AboutAppCoordinator: IAboutAppCoordinator {
 	// MARK: - Internal Methods
 
 	/// Запуск и отображения экрана "О приложении"
-	func start() {
+	func start(_ flow: Flow? = nil) {
 		let aboutAppViewController = AboutAppAssembler.assembly(coordinator: self)
 		navigationController.pushViewController(aboutAppViewController, animated: true)
 	}
