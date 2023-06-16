@@ -32,6 +32,7 @@ class MainCoordinator: IMainCoordinator {
 
 	init(navigationController: UINavigationController) {
 		self.navigationController = navigationController
+		self.navigationController.navigationBar.prefersLargeTitles = false
 	}
 
 	// MARK: - Internal Methods
