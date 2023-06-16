@@ -51,8 +51,17 @@ class MainCoordinator: IMainCoordinator {
 
 	/// Стартует сценарий экрана "AboutApp"
 	func showAboutAppFlow() {
-		let aboutAppCordintaor = AboutAppCoordinator(navigationController: self.navigationController)
-		childCoordinators.append(aboutAppCordintaor)
-		aboutAppCordintaor.start()
+		let aboutAppCoordinator = AboutAppCoordinator(navigationController: navigationController)
+		aboutAppCoordinator.finishDelegate = self
+		childCoordinators.append(aboutAppCoordinator)
+		aboutAppCoordinator.start()
+	}
+}
+
+// MARK: - ICoordinatorFinishDelegate
+
+extension MainCoordinator: ICoordinatorFinishDelegate {
+	func didFinish(_ coordinator: ICoordinator) {
+		childCoordinators.removeAll { $0 === coordinator }
 	}
 }
