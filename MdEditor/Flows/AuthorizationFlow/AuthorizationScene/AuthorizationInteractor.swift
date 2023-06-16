@@ -49,26 +49,26 @@ class AuthorizationInteractor: IAuthorizationInteractor {
 	func login(request: AuthorizationModel.Request) {
 		worker.login(login: request.login, password: request.password) { [weak self] result in
 			guard let self = self else { return }
-			switch result {
-			case .success(let authToken):
-				let authTokenRepository = AuthTokenRepository(service: "MDEditor", account: request.login.rawValue)
-				let context = AuthContext()
-				if authTokenRepository.saveSecret(authToken) {
-					context.setAuthDate(date: Date())
-				} else if authTokenRepository.updateSecret(authToken) {
-					context.setAuthDate(date: Date())
-				} else {
-					let response = AuthorizationModel.Response(
-						error: AuthorizationError.tokenHasNotBeenSave
-					)
+			DispatchQueue.main.async {
+				switch result {
+				case .success(let authToken):
+					let authTokenRepository = AuthTokenRepository(service: "MDEditor", account: request.login.rawValue)
+					let context = AuthContext()
+					if authTokenRepository.saveSecret(authToken) {
+						context.setAuthDate(date: Date())
+					} else if authTokenRepository.updateSecret(authToken) {
+						context.setAuthDate(date: Date())
+					} else {
+						let response = AuthorizationModel.Response(
+							error: AuthorizationError.tokenHasNotBeenSave
+						)
+						self.presenter?.present(response: response)
+					}
+						self.coordinator.finish()
+				case .failure(let error):
+					let response = AuthorizationModel.Response(error: error)
 					self.presenter?.present(response: response)
 				}
-				DispatchQueue.main.async {
-					self.coordinator.showMainFlow()
-				}
-			case .failure(let error):
-				let response = AuthorizationModel.Response(error: error)
-				self.presenter?.present(response: response)
 			}
 		}
 	}
