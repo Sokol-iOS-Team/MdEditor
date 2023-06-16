@@ -43,8 +43,8 @@ class AuthorizationInteractor: IAuthorizationInteractor {
 
 	/// Метод логин производит авторизацию на сервере. В случае успеха полученный от сервера
 	/// Токен сохраняется в память устройства и производится переход к главной сцене.
-	/// В случае провала авторизации выполняется метод present(responce: )
-	/// AuthorizationPresenter, в качестве responce направляется полученная ошибка для дальнейшей обработки.
+	/// В случае провала авторизации выполняется метод present(response: )
+	/// AuthorizationPresenter, в качестве response направляется полученная ошибка для дальнейшей обработки.
 	/// - Parameter request: структура AuthorizationModels.Request содержит данные для авторизации.
 	func login(request: AuthorizationModel.Request) {
 		worker.login(login: request.login, password: request.password) { [weak self] result in
@@ -58,17 +58,17 @@ class AuthorizationInteractor: IAuthorizationInteractor {
 				} else if authTokenRepository.updateSecret(authToken) {
 					context.setAuthDate(date: Date())
 				} else {
-					let responce = AuthorizationModel.Response(
+					let response = AuthorizationModel.Response(
 						error: AuthorizationError.tokenHasNotBeenSave
 					)
-					self.presenter?.present(responce: responce)
+					self.presenter?.present(response: response)
 				}
 				DispatchQueue.main.async {
 					self.coordinator.showMainFlow()
 				}
 			case .failure(let error):
-				let responce = AuthorizationModel.Response(error: error)
-				self.presenter?.present(responce: responce)
+				let response = AuthorizationModel.Response(error: error)
+				self.presenter?.present(response: response)
 			}
 		}
 	}

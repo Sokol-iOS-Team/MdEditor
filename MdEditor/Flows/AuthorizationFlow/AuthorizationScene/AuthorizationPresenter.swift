@@ -6,7 +6,7 @@
 //
 
 protocol IAuthorizationPresenter {
-	func present(responce: AuthorizationModel.Response)
+	func present(response: AuthorizationModel.Response)
 }
 
 class AuthorizationPresenter: IAuthorizationPresenter {
@@ -23,9 +23,9 @@ class AuthorizationPresenter: IAuthorizationPresenter {
 
 	// MARK: - Internal Methods
 
-	func present(responce: AuthorizationModel.Response) {
+	func present(response: AuthorizationModel.Response) {
 		let viewModel = AuthorizationModel.ViewModel.init(
-			errorMessage: (handleError(error: responce.error))
+			errorMessage: (handleError(error: response.error))
 		)
 		viewController?.render(viewModel: viewModel)
 	}
