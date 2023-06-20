@@ -8,7 +8,7 @@
 import UIKit
 
 /// Класс для создания экрана "о приложении".
-class AboutAppAssembler {
+final class AboutAppAssembler {
 
 	// MARK: - Internal Methods
 
@@ -25,7 +25,8 @@ class AboutAppAssembler {
 		)
 		let aboutAppInteractor = AboutAppInteractor(
 			presenter: aboutAppPresenter,
-			mdFileManager: mdFileManager
+			mdFileManager: mdFileManager,
+			coordinator: coordinator
 		)
 		aboutAppViewController.interactor = aboutAppInteractor
 

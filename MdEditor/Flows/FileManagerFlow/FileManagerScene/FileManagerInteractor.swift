@@ -11,6 +11,7 @@ import Foundation
 protocol IFileManagerInteractor {
 	func fetchData()
 	func openFile(_ file: FileManagerModel.Request.File)
+	func close()
 }
 
 /// Класс для реализации бизнес логики файлового менеджера
@@ -71,5 +72,10 @@ final class FileManagerInteractor: IFileManagerInteractor {
 		case .folder:
 			coordinator.openFolder(at: file.url)
 		}
+	}
+
+	/// Метод  завершения сценария FileManager
+	func close() {
+		coordinator.finish()
 	}
 }

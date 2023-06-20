@@ -9,7 +9,12 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+	// MARK: - Internal Properties
+
 	var window: UIWindow?
+	var appCoordinator: IAppCoordinator?
+
+	// MARK: - Internal Methods
 
 	func scene(
 		_ scene: UIScene,
@@ -20,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		let window = UIWindow(windowScene: scene)
 
 		let navigationController = UINavigationController(rootViewController: UIViewController())
-		let appCoordinator = AppCoordinator(navigationController: navigationController)
+		appCoordinator = AppCoordinator(navigationController: navigationController)
 
 		window.rootViewController = navigationController
 		window.makeKeyAndVisible()
@@ -31,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 #endif
 		let startEntity = StartEntity().selectStartFlow(context: context)
 
-		appCoordinator.start(startEntity)
+		appCoordinator?.start(startEntity)
 
 		self.window = window
 	}

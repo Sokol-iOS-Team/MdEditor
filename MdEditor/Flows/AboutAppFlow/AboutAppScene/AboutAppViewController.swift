@@ -9,11 +9,13 @@ import UIKit
 import WebKit
 import PinLayout
 
+/// Протокол для отображения данных на экране "О приложении"
 protocol IAboutAppViewController: AnyObject {
+	/// Метод для отображения данных на экране "О приложении"
 	func render(viewModel: AboutAppModel.ViewModel)
 }
 
-class AboutAppViewController: UIViewController {
+final class AboutAppViewController: UIViewController {
 
 	// MARK: - Internal Properties
 
@@ -48,6 +50,12 @@ class AboutAppViewController: UIViewController {
 		aboutAppWebView.pin.all()
 	}
 
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+
+		interactor?.close()
+	}
+
 	// MARK: - Private
 
 	private func configureViewController() {
@@ -64,6 +72,8 @@ class AboutAppViewController: UIViewController {
 		return webView
 	}
 }
+
+// MARK: - IAboutAppViewController
 
 extension AboutAppViewController: IAboutAppViewController {
 	/// Метод для отображения данных на экране "О приложении"

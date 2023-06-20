@@ -10,7 +10,6 @@ import UIKit
 /// Протокол координатора экрана авторизации.
 protocol IAuthorizationCoordinator: ICoordinator {
 	func showAuthorizationFlow()
-	func showMainFlow()
 }
 
 /// Координатор экрана авторизации.
@@ -43,23 +42,5 @@ class AuthorizationCoordinator: IAuthorizationCoordinator {
 	func showAuthorizationFlow() {
 		let authorizationViewController = AuthorizationAssembler.assembly(coordinator: self)
 		navigationController.setViewControllers([authorizationViewController], animated: false)
-	}
-
-	/// Стартует сценарий главной сцены.
-	func showMainFlow() {
-		let mainCoordinator = MainCoordinator(navigationController: navigationController)
-		mainCoordinator.finishDelegate = self
-		childCoordinators.append(mainCoordinator)
-		mainCoordinator.start(.main)
-	}
-}
-
-extension AuthorizationCoordinator: ICoordinatorFinishDelegate {
-	func didFinish(_ coordinator: ICoordinator) {
-		if let mainCoordinator = coordinator as? MainCoordinator {
-			if let index = childCoordinators.firstIndex(where: { $0 === mainCoordinator }) {
-				childCoordinators.remove(at: index)
-			}
-		}
 	}
 }

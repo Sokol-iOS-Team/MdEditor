@@ -38,7 +38,7 @@ class FileManagerCoordinator: IFileManagerCoordinator {
 		navigationController.pushViewController(fileManagerViewController, animated: true)
 	}
 
-	/// Открытие директории  файл менеджера по ссылке
+	/// Открытие директории файл менеджера по ссылке
 	func openFolder(at url: URL) {
 		let fileManagerViewController = FileManagerAssembler.assembly(coordinator: self, currentURL: url)
 		navigationController.pushViewController(fileManagerViewController, animated: true)
@@ -54,6 +54,16 @@ class FileManagerCoordinator: IFileManagerCoordinator {
 		childCoordinators.append(editFileCoordinator)
 
 		editFileCoordinator.start()
+	}
+
+	/// Метод для заверешния сценария FileManager
+	func finish() {
+		let viewControllers = navigationController.viewControllers
+		let hasFileManagerViewController = viewControllers.contains { $0 is IFileManagerViewController }
+		if !hasFileManagerViewController {
+			childCoordinators.removeAll()
+			finishDelegate?.didFinish(self)
+		}
 	}
 }
 

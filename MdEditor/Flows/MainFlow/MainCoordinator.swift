@@ -32,6 +32,7 @@ class MainCoordinator: IMainCoordinator {
 
 	init(navigationController: UINavigationController) {
 		self.navigationController = navigationController
+		self.navigationController.navigationBar.prefersLargeTitles = false
 	}
 
 	// MARK: - Internal Methods
@@ -45,14 +46,24 @@ class MainCoordinator: IMainCoordinator {
 	/// Стартует сценарий файл менеджера
 	func showFileManagerFlow() {
 		let fileManagerCoordinator = FileManagerCoordinator(navigationController: navigationController)
+		fileManagerCoordinator.finishDelegate = self
 		childCoordinators.append(fileManagerCoordinator)
 		fileManagerCoordinator.start()
 	}
 
 	/// Стартует сценарий экрана "AboutApp"
 	func showAboutAppFlow() {
-		let aboutAppCordintaor = AboutAppCoordinator(navigationController: self.navigationController)
-		childCoordinators.append(aboutAppCordintaor)
-		aboutAppCordintaor.start()
+		let aboutAppCoordinator = AboutAppCoordinator(navigationController: navigationController)
+		aboutAppCoordinator.finishDelegate = self
+		childCoordinators.append(aboutAppCoordinator)
+		aboutAppCoordinator.start()
+	}
+}
+
+// MARK: - ICoordinatorFinishDelegate
+
+extension MainCoordinator: ICoordinatorFinishDelegate {
+	func didFinish(_ coordinator: ICoordinator) {
+		childCoordinators.removeAll { $0 === coordinator }
 	}
 }

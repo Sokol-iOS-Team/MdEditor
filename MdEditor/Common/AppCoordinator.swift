@@ -54,12 +54,10 @@ final class AppCoordinator: IAppCoordinator {
 		}
 	}
 
-	// TODO: - Фикс работы координатора.
-	// Изменить логику открытия сценария главного экрана просле авторизации.
-
 	/// Метод для старта сценария авторизации
 	func showAuthorizationFlow() {
 		let authorizationCoordinator = AuthorizationCoordinator(navigationController: navigationController)
+		authorizationCoordinator.finishDelegate = self
 		childCoordinators.append(authorizationCoordinator)
 		authorizationCoordinator.start()
 	}
@@ -67,7 +65,24 @@ final class AppCoordinator: IAppCoordinator {
 	/// Метод для старта сценария главного экрана
 	func showMainFlow() {
 		let mainCoordinator = MainCoordinator(navigationController: navigationController)
+		mainCoordinator.finishDelegate = self
 		childCoordinators.append(mainCoordinator)
 		mainCoordinator.start()
+	}
+}
+
+// MARK: - ICoordinatorFinishDelegate
+
+extension AppCoordinator: ICoordinatorFinishDelegate {
+	func didFinish(_ coordinator: ICoordinator) {
+		childCoordinators.removeAll { $0 === coordinator }
+		switch coordinator {
+		case is IAuthorizationCoordinator:
+			showMainFlow()
+		case is IMainCoordinator:
+			showAuthorizationFlow()
+		default:
+			break
+		}
 	}
 }
