@@ -74,13 +74,8 @@ final class FileManagerInteractor: IFileManagerInteractor {
 		}
 	}
 
-	/// Метод закрытия экрана
+	/// Метод  завершения сценария FileManager
 	func close() {
-		let viewControllers = coordinator.navigationController.viewControllers
-		let hasViewController = viewControllers.contains { $0 is IFileManagerViewController }
-		if !hasViewController {
-			coordinator.finish()
-		}
-
+		coordinator.finish()
 	}
 }

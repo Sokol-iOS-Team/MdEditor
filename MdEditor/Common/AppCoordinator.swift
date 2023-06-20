@@ -65,6 +65,7 @@ final class AppCoordinator: IAppCoordinator {
 	/// Метод для старта сценария главного экрана
 	func showMainFlow() {
 		let mainCoordinator = MainCoordinator(navigationController: navigationController)
+		mainCoordinator.finishDelegate = self
 		childCoordinators.append(mainCoordinator)
 		mainCoordinator.start()
 	}
@@ -74,9 +75,14 @@ final class AppCoordinator: IAppCoordinator {
 
 extension AppCoordinator: ICoordinatorFinishDelegate {
 	func didFinish(_ coordinator: ICoordinator) {
-		if coordinator is IAuthorizationCoordinator {
-			childCoordinators.removeAll { $0 === coordinator }
+		childCoordinators.removeAll { $0 === coordinator }
+		switch coordinator {
+		case is IAuthorizationCoordinator:
 			showMainFlow()
+		case is IMainCoordinator:
+			showAuthorizationFlow()
+		default:
+			break
 		}
 	}
 }
