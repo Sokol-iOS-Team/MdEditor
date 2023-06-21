@@ -48,6 +48,7 @@
 		89DBCC762A0FB7BD0078A1BC /* AboutAppPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DBCC702A0FB7BD0078A1BC /* AboutAppPresenter.swift */; };
 		89DBCC772A0FB7BD0078A1BC /* AboutAppModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DBCC712A0FB7BD0078A1BC /* AboutAppModels.swift */; };
 		89DBCC782A0FB7BD0078A1BC /* AboutAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DBCC722A0FB7BD0078A1BC /* AboutAppCoordinator.swift */; };
+		89F1E0782A43380C000A9FF5 /* DocumentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F1E0772A43380C000A9FF5 /* DocumentService.swift */; };
 		C4B37CD029F8FF3300777400 /* UIViewController+PresentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B37CCF29F8FF3300777400 /* UIViewController+PresentAlert.swift */; };
 		E0405FDC2A1D101D007C79E2 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FDB2A1D101D007C79E2 /* Node.swift */; };
 		E0405FDF2A1D1233007C79E2 /* IVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0405FDE2A1D1233007C79E2 /* IVisitor.swift */; };
@@ -160,6 +161,7 @@
 		89DBCC702A0FB7BD0078A1BC /* AboutAppPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppPresenter.swift; sourceTree = "<group>"; };
 		89DBCC712A0FB7BD0078A1BC /* AboutAppModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppModels.swift; sourceTree = "<group>"; };
 		89DBCC722A0FB7BD0078A1BC /* AboutAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppCoordinator.swift; sourceTree = "<group>"; };
+		89F1E0772A43380C000A9FF5 /* DocumentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentService.swift; sourceTree = "<group>"; };
 		C4B37CCF29F8FF3300777400 /* UIViewController+PresentAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentAlert.swift"; sourceTree = "<group>"; };
 		E0405FDB2A1D101D007C79E2 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		E0405FDE2A1D1233007C79E2 /* IVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVisitor.swift; sourceTree = "<group>"; };
@@ -639,6 +641,7 @@
 				E0C20E452A31E66E00915256 /* KeychainService.swift */,
 				E0B90FAD2A30AEB100363210 /* Network */,
 				E04593302A0504B400D6B533 /* MarkdownConverter */,
+				89F1E0772A43380C000A9FF5 /* DocumentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				89DBCC752A0FB7BD0078A1BC /* AboutAppViewController.swift in Sources */,
 				E05AE9C32A35DE270099DAAA /* AuthContext.swift in Sources */,
 				896C79252A2771A700568828 /* PreviewMarkdownInteractor.swift in Sources */,
+				89F1E0782A43380C000A9FF5 /* DocumentService.swift in Sources */,
 				E0405FDF2A1D1233007C79E2 /* IVisitor.swift in Sources */,
 				896C79292A27815F00568828 /* PreviewMarkdownViewController.swift in Sources */,
 				8905DD8F29FBF30000F2CE57 /* MainCoordinator.swift in Sources */,

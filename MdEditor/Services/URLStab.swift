@@ -10,4 +10,5 @@ import Foundation
 enum URLStab {
 	static let baseURL = URL(string: "https://practice.swiftbook.org/")!
 	static let authorizationPath = "api/auth/login"
+	static let files = "api/files"
 }
