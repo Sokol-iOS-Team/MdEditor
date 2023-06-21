@@ -99,7 +99,7 @@ final class MarkdownСonverter: IMarkdownСonverter {
 	}
 	// MARK: - Private methods
 
-	private func convert(document: Document) -> NSMutableAttributedString {
+	private func convert(document: DocumentNode) -> NSMutableAttributedString {
 		let visitor = AttribitedTextVisitor()
 
 		let result = document.accept(visitor: visitor)

@@ -11,7 +11,7 @@ class HtmlVisitor: IVisitor {
 
 	// MARK: - Internal Methods
 
-	func visit(node: Document) -> [String] {
+	func visit(node: DocumentNode) -> [String] {
 		let result = visitChildren(of: node)
 		return result
 	}

@@ -8,7 +8,7 @@
 import UIKit
 
 class AttribitedTextVisitor: IVisitor {
-	func visit(node: Document) -> [NSMutableAttributedString] {
+	func visit(node: DocumentNode) -> [NSMutableAttributedString] {
 		let result = visitChildren(of: node)
 		return result
 	}

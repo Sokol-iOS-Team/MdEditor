@@ -9,7 +9,7 @@ import UIKit
 
 class RawAttribitedTextVisitor: IVisitor {
 
-	func visit(node: Document) -> [NSMutableAttributedString] {
+	func visit(node: DocumentNode) -> [NSMutableAttributedString] {
 		let result = visitChildren(of: node)
 		return result
 	}

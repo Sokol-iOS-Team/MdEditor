@@ -10,7 +10,7 @@ import Foundation
 extension Markdown {
 	final class Parser {
 
-		func parse(tokens: [Token]) -> Document {
+		func parse(tokens: [Token]) -> DocumentNode {
 			var tokens = tokens
 			var result = [INode]()
 
@@ -31,7 +31,7 @@ extension Markdown {
 				}
 			}
 
-			return Document(children: result)
+			return DocumentNode(children: result)
 		}
 
 		func parseHeader(tokens: inout [Token]) -> HeaderNode? {

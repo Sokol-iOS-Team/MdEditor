@@ -10,7 +10,7 @@ import Foundation
 protocol IVisitor {
 	associatedtype Result
 
-	func visit(node: Document) -> [Result]
+	func visit(node: DocumentNode) -> [Result]
 	func visit(node: HeaderNode) -> Result
 	func visit(node: ParagraphNode) -> Result
 	func visit(node: CiteNode) -> Result

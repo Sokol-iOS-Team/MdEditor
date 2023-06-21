@@ -1,5 +1,5 @@
 //
-//  Document.swift
+//  DocumentNode.swift
 //  MdEditor
 //
 //  Created by Вадим Гамзаев on 23.05.2023.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-final class Document: BaseNode {
+final class DocumentNode: BaseNode {
 }
 
-extension Document {
+extension DocumentNode {
 	func accept<T: IVisitor>(visitor: T) -> [T.Result] {
 		visitor.visit(node: self)
 	}
