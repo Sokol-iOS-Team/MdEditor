@@ -29,6 +29,9 @@
 		896C79252A2771A700568828 /* PreviewMarkdownInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896C79242A2771A700568828 /* PreviewMarkdownInteractor.swift */; };
 		896C79272A2774EB00568828 /* PreviewMarkdownPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896C79262A2774EB00568828 /* PreviewMarkdownPresenter.swift */; };
 		896C79292A27815F00568828 /* PreviewMarkdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896C79282A27815F00568828 /* PreviewMarkdownViewController.swift */; };
+		8971C4302A45DDEF00AF61E8 /* LocalDocumentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971C42F2A45DDEF00AF61E8 /* LocalDocumentRepository.swift */; };
+		8971C4322A45E05B00AF61E8 /* URL+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971C4312A45E05B00AF61E8 /* URL+Date.swift */; };
+		89868DC32A44271100B88D78 /* DocumentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89868DC22A44271100B88D78 /* DocumentRepository.swift */; };
 		899F29492A38AF08004F0C50 /* AuthTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F29482A38AF08004F0C50 /* AuthTokenRepository.swift */; };
 		89CF454F2A0524BF0061D44A /* EditFileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF454E2A0524BF0061D44A /* EditFileCoordinator.swift */; };
 		89CF45532A052C280061D44A /* EditFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF45522A052C280061D44A /* EditFileModel.swift */; };
@@ -142,6 +145,9 @@
 		896C79242A2771A700568828 /* PreviewMarkdownInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMarkdownInteractor.swift; sourceTree = "<group>"; };
 		896C79262A2774EB00568828 /* PreviewMarkdownPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMarkdownPresenter.swift; sourceTree = "<group>"; };
 		896C79282A27815F00568828 /* PreviewMarkdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMarkdownViewController.swift; sourceTree = "<group>"; };
+		8971C42F2A45DDEF00AF61E8 /* LocalDocumentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDocumentRepository.swift; sourceTree = "<group>"; };
+		8971C4312A45E05B00AF61E8 /* URL+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Date.swift"; sourceTree = "<group>"; };
+		89868DC22A44271100B88D78 /* DocumentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRepository.swift; sourceTree = "<group>"; };
 		899F29482A38AF08004F0C50 /* AuthTokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenRepository.swift; sourceTree = "<group>"; };
 		89CF454E2A0524BF0061D44A /* EditFileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFileCoordinator.swift; sourceTree = "<group>"; };
 		89CF45522A052C280061D44A /* EditFileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFileModel.swift; sourceTree = "<group>"; };
@@ -449,6 +455,7 @@
 				E0405FEE2A1D19E7007C79E2 /* Sequense+Joined.swift */,
 				E0B1007A2A1F7F6F007C5D2A /* UIGraphicsPDFRendererContext.swift */,
 				E0B1007C2A1F7FC3007C5D2A /* NSAttributedString+Height.swift */,
+				8971C4312A45E05B00AF61E8 /* URL+Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -639,9 +646,11 @@
 				E05AE9EA2A3742F80099DAAA /* URLStab.swift */,
 				E7F108A229FA890200439C4E /* MdFileManager.swift */,
 				E0C20E452A31E66E00915256 /* KeychainService.swift */,
+				89F1E0772A43380C000A9FF5 /* DocumentService.swift */,
 				E0B90FAD2A30AEB100363210 /* Network */,
 				E04593302A0504B400D6B533 /* MarkdownConverter */,
-				89F1E0772A43380C000A9FF5 /* DocumentService.swift */,
+				89868DC22A44271100B88D78 /* DocumentRepository.swift */,
+				8971C42F2A45DDEF00AF61E8 /* LocalDocumentRepository.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -793,6 +802,7 @@
 				E04AD4652A34A55400C3A4D6 /* AuthorizationCoordinator.swift in Sources */,
 				E05AE9D52A360B8B0099DAAA /* ResponseStatus.swift in Sources */,
 				E05AE9CA2A360A890099DAAA /* NetworkService.swift in Sources */,
+				8971C4302A45DDEF00AF61E8 /* LocalDocumentRepository.swift in Sources */,
 				89DBCC782A0FB7BD0078A1BC /* AboutAppCoordinator.swift in Sources */,
 				E05AE9D72A360BA80099DAAA /* ResponseCode.swift in Sources */,
 				E04AD4792A34A85500C3A4D6 /* Sizes.swift in Sources */,
@@ -806,6 +816,7 @@
 				E05AE9DF2A360C4D0099DAAA /* ContentType.swift in Sources */,
 				E0405FE52A1D141D007C79E2 /* CiteNode.swift in Sources */,
 				E0405FFC2A1F6F34007C79E2 /* Markdown.swift in Sources */,
+				8971C4322A45E05B00AF61E8 /* URL+Date.swift in Sources */,
 				E0405FE12A1D1258007C79E2 /* DocumentNode.swift in Sources */,
 				E707722329F1D840006C022F /* FileManagerAssembler.swift in Sources */,
 				E04AD4722A34A58F00C3A4D6 /* AuthorizationViewController.swift in Sources */,
@@ -848,6 +859,7 @@
 				8932C6742A2F56A500EA8751 /* BulletedListNode.swift in Sources */,
 				896C79232A276DD600568828 /* PreviewMarkdownModel.swift in Sources */,
 				8905DD8B29FBF25300F2CE57 /* ICoordinator.swift in Sources */,
+				89868DC32A44271100B88D78 /* DocumentRepository.swift in Sources */,
 				E0405FEF2A1D19E7007C79E2 /* Sequense+Joined.swift in Sources */,
 				E04AD4742A34A58F00C3A4D6 /* AuthorizationInteractor.swift in Sources */,
 				89CF455B2A052FA10061D44A /* EditFileAssembler.swift in Sources */,
